@@ -10,10 +10,45 @@
 
 <body>
 
+    <div class="greetings">
+        <div class="greetings_wrapper">
 
-    <div class="greetings_wrapper">
+            <div class="greetings_content">
+
+                <h2 class="greetings_content--title">Консультации онлайн<br><span>Научный подход -<br>доказательная
+                        медицина</span></h2>
+                <div class="greetings--running-line">
+                    <span>Известные врачи доказательной медицины</span>
+                </div>
+                <div class="greetings_buttons--wrapper">
+
+                    <div class="greetings_buttons">
+                        <div class="greetings_buttons--doubles">
+                            <button>Для себя</button>
+                            <button>Для двоих</button>
+                        </div>
+                        <div class="greetings_buttons--prices">
+                            <span>2 часа 2.000 руб</span>
+                        </div>
+
+                        <a class="greetings_buttons--choice">Подобрать врача</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="greetings_image">
+
+            <div>
+                <img class="greetings_buttons--annotation" src="./Line2.svg" alt="мы онлайн">
+            </div>
 
 
+            <img src="./phone(2).png" alt="Врач">
+
+        </div>
 
 
     </div>
@@ -22,15 +57,34 @@
 
 
 
+    <!-- слайдер -->
 
 
 
+    <div class="slider-container">
+        <div class="slider-content">
+            <p class="active">Слайд 1</p>
+            <p>Слайд 2</p>
+            <p>Слайд 3</p>
+            <p>Слайд 4</p>
+        </div>
+    </div>
 
+    <script>
+        const sliderItems = document.querySelectorAll('.slider-content p');
+        let currentSlideIndex = 0;
 
+        setInterval(() => {
+            sliderItems[currentSlideIndex].classList.remove('active');
 
+            currentSlideIndex = (currentSlideIndex + 1) % sliderItems.length;
 
+            setTimeout(() => {
+                sliderItems[currentSlideIndex].classList.add('active');
+            }, 500); // Добавляем задержку перед появлением нового слайда
 
-
+        }, 3000);
+    </script>
 
 </body>
 
