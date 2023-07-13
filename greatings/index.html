@@ -60,31 +60,37 @@
     <!-- слайдер -->
 
 
-
     <div class="slider-container">
         <div class="slider-content">
-            <p class="active">Слайд 1</p>
-            <p>Слайд 2</p>
-            <p>Слайд 3</p>
-            <p>Слайд 4</p>
+            <div class="slide active">
+                <p>Слайд 1</p>
+            </div>
+            <div class="slide">
+                <p>Слайд 2</p>
+            </div>
+            <div class="slide">
+                <p>Слайд 3</p>
+            </div>
+            <div class="slide">
+                <p>Слайд 4</p>
+            </div>
         </div>
     </div>
 
-    <script>
-        const sliderItems = document.querySelectorAll('.slider-content p');
-        let currentSlideIndex = 0;
 
-        setInterval(() => {
-            sliderItems[currentSlideIndex].classList.remove('active');
+    <script>setInterval(function () {
+            var slides = document.querySelectorAll('.slide');
+            var activeSlide = document.querySelector('.slide.active');
+            var nextSlide = activeSlide.nextElementSibling;
 
-            currentSlideIndex = (currentSlideIndex + 1) % sliderItems.length;
-
-            setTimeout(() => {
-                sliderItems[currentSlideIndex].classList.add('active');
-            }, 500); // Добавляем задержку перед появлением нового слайда
-
-        }, 3000);
-    </script>
+            if (nextSlide) {
+                activeSlide.classList.remove('active');
+                nextSlide.classList.add('active');
+            } else {
+                activeSlide.classList.remove('active');
+                slides[0].classList.add('active');
+            }
+        }, 3000);</script>
 
 </body>
 
