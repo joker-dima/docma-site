@@ -6,6 +6,186 @@
     <title>Document</title>
   </head>
   <body>
-    sdads
+    <div class="start-block">
+      <div class="greeting-docs">
+        <div class="greeting-docs--heading">
+          <h2>Доказательные врачи</h2>
+          <h2>Консультации онлайн</h2>
+          <p>Научный подход</p>
+        </div>
+
+        <div class="greeting-docs--list">
+          <ol>
+            <li>Выберите специалиста</li>
+            <li>Оплатите обращение</li>
+            <li>Общайтесь в приложении</li>
+          </ol>
+        </div>
+
+        <div class="greeting-docs-img">
+          <p>гематолог<span>Яна Дорохина</span></p>
+          <p>невролог<span>Ольга Петренюк</span></p>
+          <img src="" alt="" />
+        </div>
+      </div>
+      <div class="advantages-list">
+        <div class="advantages-list--item list-item-pink">
+          <h4>Выбрать врача онлайн</h4>
+          <p>Ответ за 24 часа</p>
+          <span class="circle"></span>
+        </div>
+        <div class="advantages-list--item">
+          <h4>Выбрать врача онлайн</h4>
+          <p>Ответ за 24 часа</p>
+          <span class="circle"></span>
+        </div>
+        <div class="advantages-list--item">
+          <h4>Выбрать врача онлайн</h4>
+          <p>Ответ за 24 часа</p>
+          <span class="circle"></span>
+        </div>
+        <div class="advantages-list--item">
+          <h4>Выбрать врача онлайн</h4>
+          <p>Ответ за 24 часа</p>
+          <span class="circle"></span>
+        </div>
+      </div>
+    </div>
+
+    <a class="apply-link" href="">Не знаете к кому обратиться?</a>
+
+    <style>
+      .start-block {
+        max-width: 1300px;
+        margin: 0 auto;
+      }
+      .greeting-docs {
+        display: grid;
+        grid-template-areas:
+          "heading doctors"
+          "list doctors";
+        text-align: center;
+      }
+
+      @media (max-width: 1024px) {
+        .greeting-docs {
+          grid-template-areas:
+            "heading heading"
+            "list doctors";
+          background-color: red;
+        }
+      }
+
+      .greeting-docs--heading {
+        background-color: aquamarine;
+        grid-area: heading;
+      }
+
+      .greeting-docs--list {
+        grid-area: list;
+        background-color: bisque;
+      }
+      .greeting-docs-img {
+        background-color: blueviolet;
+        grid-area: doctors;
+        background-image: url("./img/background.svg");
+        background-repeat: no-repeat;
+        background-position: 100% 100%;
+        background-size: 300px;
+      }
+      .greeting-docs-img img {
+      }
+
+      .advantages-list {
+        display: grid;
+        grid-template: 1fr 1fr / 1fr 1fr;
+        width: 100%;
+        justify-content: center;
+        margin-top: 30px;
+        gap: 20px;
+      }
+
+      @media (max-width: 1024px) {
+        .advantages-list {
+          grid-template: 1fr 1fr 1fr 1fr / 1fr;
+        }
+      }
+
+      .list-item-pink {
+        background-color: #fe3f7a;
+        border: none !important;
+        color: white;
+      }
+
+      .list-item-pink p {
+        color: white !important;
+      }
+
+      .advantages-list--item {
+        max-width: 800px;
+        text-align: center;
+        border: 1px solid #293b5f;
+        border-radius: 10px;
+        padding: 30px;
+        position: relative;
+        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+          rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+        /* box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25); */
+      }
+
+      .advantages-list--item h4 {
+        text-align: left;
+        margin: 0;
+        margin-bottom: 10px;
+        font-weight: 600;
+      }
+      .advantages-list--item p {
+        color: black;
+        text-align: left;
+        margin: 0;
+        font-weight: 500;
+      }
+
+      .circle {
+        display: block;
+        position: absolute;
+        right: 10%;
+        bottom: 10%;
+        width: 25px;
+        height: 25px;
+        background-color: #ffc6da;
+        opacity: 60%;
+        border-radius: 50%;
+      }
+
+      .circle::before {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: 30px;
+        background-color: #ffc6da;
+        opacity: 30%;
+        border-radius: 50%;
+      }
+
+      .circle::after {
+        content: "";
+        position: absolute;
+        width: 25px;
+        height: 25px;
+        right: -30px;
+        background-color: #ffc6da;
+        border-radius: 50%;
+      }
+
+      .apply-link {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+        text-decoration: none;
+        color: #179095;
+      }
+    </style>
   </body>
 </html>
