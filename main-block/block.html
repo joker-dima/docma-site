@@ -12,8 +12,7 @@
   }
 </style>
 
-<body>
-
+<body style="max-width: 1400px">
 
   <div class="start-block">
     <div class="greeting-docs">
@@ -49,7 +48,7 @@
     </div>
     <div class="advantages-list">
       <a class="advantages-list--item list-item-pink">
-        <h4>Выбрать врача онлайн</h4>
+        <h4 style="color: white;">Выбрать врача онлайн</h4>
         <p>Ответ за 24 часа</p>
         <span class="circle"></span>
       </a>
@@ -73,7 +72,143 @@
 
   <a class="apply-link" href="">Не знаете к кому обратиться?</a>
 
+  <div class="doc-selection">
+
+    <h2>Как мы отбираем врачей?</h2>
+
+    <ul class="doc-selection--list">
+      <li><strong>Проверяем образование:</strong> все врачи с высшим медицинским образованием</li>
+      <li id="second-list-item"><strong>Проверяем на докмед:</strong> врачи проходят собеседование с экспертами по
+        специальности</li>
+      <li id="third-list-item"><strong>Проверяем навыки коммуникации </strong> и обучаем врачей общаться в
+        онлайн-формате</li>
+    </ul>
+
+  </div>
+
+
   <style>
+    /* Список проверок */
+
+
+
+    .doc-selection--list {
+      display: block;
+      margin-left: 30px;
+
+    }
+
+    .doc-selection--list li {
+      flex-direction: row;
+      justify-content: center;
+      position: relative;
+      line-height: 20px;
+      list-style: none !important;
+    }
+
+    @media (max-width: 767px) {
+      .doc-selection--list li {
+        font-size: 18px !important;
+      }
+    }
+
+
+
+    .doc-selection--list li:before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      background: #ffeef4;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+    }
+
+    #second-list-item:before {
+
+      background: #ffdde9;
+    }
+
+    #third-list-item::before {
+      background: #ffc6da;
+    }
+
+
+
+
+    .doc-selection h2 {
+      margin: 30px 0;
+    }
+
+    @media (max-width: 767px) {
+
+      .doc-selection h2 {
+        text-align: center;
+      }
+    }
+
+
+    .doc-selection--list li {
+      margin: 35px 0;
+      font-size: 20px;
+    }
+
+
+
+    .doc-selection--list li {
+
+      list-style-type: disc;
+
+    }
+
+
+
+
+    /* Список проверок */
+    h1,
+    h2,
+    h3,
+    h4,
+    li {
+      color: #293B5F;
+    }
+
+    h2 {
+
+
+      margin: 0;
+      text-align: left;
+      font-weight: 700;
+      font-size: 40px;
+    }
+
+    @media (max-width: 1199px) {
+      h2 {
+        font-size: 32px !important;
+      }
+    }
+
+    @media (max-width: 440px) {
+      h2 {
+        font-size: 28px !important;
+      }
+
+    }
+
+    @media (max-width: 375px) {
+      h2 {
+        font-size: 24px !important;
+      }
+
+    }
+
+
     .start-block {
       max-width: 1300px;
       margin: 0 auto;
@@ -367,9 +502,9 @@
 
     @media (max-width: 1199px) {
 
-      .greeting-docs--heading h2 {
+      /* .greeting-docs--heading h2 {
         font-size: 32px;
-      }
+      } */
 
 
       .greeting-docs-img div div:last-child {
@@ -395,7 +530,6 @@
       }
 
       .advantages-list--item p {
-        ;
         font-size: 18px;
       }
 
@@ -586,9 +720,9 @@
         font-size: 18px;
       }
 
-      .greeting-docs--heading h2 {
+      /* .greeting-docs--heading h2 {
         font-size: 28px;
-      }
+      } */
 
       .greeting-docs-img div div:first-child {
         right: 20% !important;
@@ -633,9 +767,9 @@
 
     @media (max-width:375px) {
 
-      .greeting-docs--heading h2 {
+      /* .greeting-docs--heading h2 {
         font-size: 24px;
-      }
+      } */
 
       .greeting-docs-img {
         background-size: auto;
@@ -682,6 +816,5 @@
 
     }
   </style>
-</body>
 
 </html>
