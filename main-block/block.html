@@ -15,8 +15,6 @@
 <body>
 
 
-
-
   <div class="start-block">
     <div class="greeting-docs">
       <div class="greeting-docs--heading">
@@ -27,19 +25,21 @@
 
       <div class="greeting-docs--list">
         <ol>
-          <li>Выберите специалиста</li>
-          <li>Оплатите обращение</li>
-          <li>Общайтесь в приложении</li>
+          <li>Выберите <br class="mob-shift">специалиста</li>
+          <li>Оплатите<br class="mob-shift"> обращение</li>
+          <li>Общайтесь<br class="mob-shift"> в приложении</li>
+
+
         </ol>
       </div>
 
       <div class="greeting-docs-img">
         <div>
           <div>
-            <p>гематолог</p>Яна Дорохина
+            <p>невролог</p>Анна Иванова
           </div>
           <div>
-            <p>невролог</p>Иванова Мария
+            <p>гематолог</p>Яна Дорохина
           </div>
         </div>
         <img src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-1.png" alt="" />
@@ -118,10 +118,24 @@
       margin: 40px 0;
     }
 
+    @media (max-width: 1024px) {
+
+      .greeting-docs--heading p {
+        margin: 20px 0;
+      }
+
+      .greeting-docs--list {
+        margin: auto 0;
+      }
+
+
+    }
+
+
     .greeting-docs--list {
       grid-area: list;
       text-align: left;
-
+      margin-top: auto;
     }
 
     .greeting-docs-img {
@@ -134,11 +148,6 @@
     }
 
 
-
-
-
-
-
     .greeting-docs-img img {
       display: flex;
       height: 450px;
@@ -147,6 +156,8 @@
       padding-right: 30px;
 
     }
+
+
 
     .greeting-docs-img p {
       margin: 0;
@@ -176,6 +187,7 @@
 
 
 
+
     .advantages-list {
       display: grid;
       grid-template: 1fr 1fr / 1fr 1fr;
@@ -185,11 +197,6 @@
       gap: 20px 50px;
     }
 
-    @media (max-width: 730px) {
-      .advantages-list {
-        grid-template: 1fr 1fr 1fr 1fr / 1fr;
-      }
-    }
 
     .list-item-pink {
       background-color: #fe3f7a;
@@ -200,6 +207,19 @@
     .list-item-pink p {
       color: white !important;
     }
+
+    .list-item-pink .circle {
+      background-color: #ff90b4 !important;
+    }
+
+    .list-item-pink .circle:before {
+      background-color: #fe6797 !important;
+    }
+
+    .list-item-pink .circle:after {
+      background-color: #ffc6da !important;
+    }
+
 
     .advantages-list--item {
       color: #293b5f;
@@ -212,7 +232,6 @@
       box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
         rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
       cursor: pointer;
-
     }
 
     .advantages-list--item h4 {
@@ -237,8 +256,7 @@
       bottom: 10%;
       width: 25px;
       height: 25px;
-      background-color: #ffc6da;
-      opacity: 60%;
+      background-color: #ffdde9;
       border-radius: 50%;
     }
 
@@ -248,8 +266,8 @@
       width: 25px;
       height: 25px;
       right: 30px;
-      background-color: #ffc6da;
-      opacity: 30%;
+      background-color: #ffeef4;
+
       border-radius: 50%;
     }
 
@@ -304,8 +322,318 @@
       line-height: 28px;
       font-size: 18px;
       border-radius: 50%;
-      /* border: 1px solid #ef6780; */
       background-color: #a2d9dc;
+    }
+
+    .mob-shift {
+      display: none;
+    }
+
+
+
+    /* Мобильная версия */
+
+
+    @media (max-width: 767px) {
+      .greeting-docs--list ol li {
+        font-size: 14px;
+      }
+
+      .greeting-docs--list ol li:before {
+        font-size: 14px !important;
+      }
+
+    }
+
+
+
+    @media (max-width: 1199px) {
+      .greeting-docs-img div div:last-child {
+        right: 350px
+      }
+
+
+      .greeting-docs-img {
+        background-size: 450px;
+      }
+
+      .greeting-docs-img img {
+        height: 400px;
+      }
+
+      .greeting-docs-img img {
+        padding-right: 10px;
+      }
+
+
+    }
+
+    @media (max-width: 991px) {
+      .greeting-docs-img {
+        background-size: 350px;
+      }
+
+      .greeting-docs-img img {
+        height: 300px;
+      }
+
+      .greeting-docs-img div div:first-child {
+        font-size: 14px;
+        right: 90px !important;
+      }
+
+      .greeting-docs-img div div:last-child {
+        font-size: 14px;
+        right: 230px !important;
+      }
+
+      .advantages-list {
+        grid-template: 1fr / 1fr !important;
+      }
+
+    }
+
+    @media (max-width: 767px) {
+      .greeting-docs--list ol li {
+        line-height: 14px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      .mob-shift {
+        display: block;
+      }
+
+    }
+
+
+    @media (max-width:530px) {
+
+
+      .greeting-docs-img img {
+        margin-top: 35px;
+      }
+
+      .greeting-docs-img div div:first-child {
+        right: 35% !important;
+        line-height: 12px;
+      }
+
+
+      .greeting-docs-img div div:last-child {
+        right: 75% !important;
+        line-height: 12px;
+      }
+
+
+
+      .greeting-docs-img div div {
+        font-size: 12px !important;
+        white-space: nowrap;
+      }
+
+      .greeting-docs--list ol {
+        padding-right: 20px;
+      }
+
+      .greeting-docs-img {
+        background-size: auto;
+      }
+
+      .greeting-docs-img img {
+        height: auto;
+
+      }
+
+      .greeting-docs--list ol li {
+        padding: 0;
+      }
+
+
+
+      .greeting-docs--list ol li:last-child {
+        margin-bottom: 0;
+      }
+
+      .greeting-docs--list ol li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+
+
+
+    @media (max-width:440px) {
+
+      .advantages-list--item p {
+        font-size: 14px
+      }
+
+
+      .advantages-list--item h4 {
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 0;
+      }
+
+      .advantages-list--item {
+        padding: 20px 15px;
+      }
+
+
+      .circle {
+        opacity: 1;
+        width: 25px;
+        height: 25px;
+        right: 40px;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+
+      }
+
+      .list-item-pink .circle:before {
+        background-color: #FFC6DA !important;
+        opacity: 1;
+        right: -20px;
+        width: 25px;
+        height: 25px;
+      }
+
+      .list-item-pink .circle::after {
+        background-color: white !important;
+        right: -40px;
+        width: 25px;
+        height: 25px;
+
+      }
+
+      .list-item-pink .circle {
+        position: absolute;
+        background-color: #ffc6da;
+
+      }
+
+      .advantages-list--item .circle:before {
+        background-color: #ffc6da;
+        opacity: 1;
+        right: -15px;
+        width: 25px;
+        height: 25px;
+      }
+
+
+      .advantages-list--item .circle::after {
+        background-color: #F36A94;
+        right: -30px;
+        width: 25px;
+        height: 25px;
+
+      }
+
+      .advantages-list--item .circle {
+        position: absolute;
+        background-color: #ffdde9;
+
+      }
+
+
+      .greeting-docs--heading p {
+        font-size: 18px;
+      }
+
+      .greeting-docs--heading h2 {
+        font-size: 28px;
+      }
+
+      .greeting-docs-img div div:first-child {
+        right: 20% !important;
+        font-size: 11px !important;
+      }
+
+
+      .greeting-docs-img div div:last-child {
+        right: 75% !important;
+        font-size: 11px !important;
+      }
+
+
+      .greeting-docs--list {
+        margin: 0 !important;
+        margin-top: auto !important;
+      }
+
+
+      .greeting-docs-img {
+
+        background-size: auto;
+      }
+
+      .greeting-docs-img img {
+
+        height: auto;
+      }
+
+      .greeting-docs--list ol li {
+        font-size: 12px;
+      }
+
+      .greeting-docs--list ol li:before {
+        font-size: 12px !important;
+      }
+
+      .greeting-docs-img img {
+        padding-right: 5px;
+      }
+    }
+
+    @media (max-width:375px) {
+
+      .greeting-docs--heading h2 {
+        font-size: 24px;
+      }
+
+      .greeting-docs-img {
+        background-size: auto;
+      }
+
+      .greeting-docs-img img {
+
+        height: auto;
+      }
+
+
+      .advantages-list--item h4 {
+        font-size: 16px;
+        font-weight: 800;
+      }
+
+      .advantages-list--item {
+        padding: 15px 10px;
+      }
+
+    }
+
+
+    @media (max-width:350px) {
+      .circle {
+        width: 20px;
+        height: 20px;
+      }
+
+      .circle:before {
+        width: 20px !important;
+        height: 20px !important;
+      }
+
+      .circle:after {
+        width: 20px !important;
+        height: 20px !important;
+      }
+
+      .advantages-list--item {
+        padding: 10px 5px;
+      }
 
     }
   </style>
