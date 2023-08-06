@@ -14,7 +14,7 @@
 
 <body style="max-width: 1400px">
 
-  <d <div class="start-block">
+  <div class="start-block">
     <div class="greeting-docs">
       <div class="greeting-docs--heading">
         <h2>Доказательные врачи</h2>
@@ -32,7 +32,12 @@
         </ol>
       </div>
 
+
+
       <div class="greeting-docs-img">
+
+
+
         <div>
           <div>
             <p>невролог</p>Анна Иванова
@@ -41,10 +46,194 @@
             <p>гематолог</p>Яна Дорохина
           </div>
         </div>
-        <img src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-1.png" alt="" />
+        <div id="docs-img-wrapper">
+          <img class="docs-image" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-1.png" alt="" />
+          <img class="docs-image sss" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-2.png" alt="" />
+          <img class="docs-image sss" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-3-2.png" alt="" />
+
+        </div>
 
 
       </div>
+
+
+
+      <script>
+
+        window.addEventListener('DOMContentLoaded', function () {
+          var imagesContainer = document.getElementById("docs-img-wrapper");
+          var images = imagesContainer.getElementsByClassName("docs-image");
+
+
+          var activeImageIndex = 0;
+
+          function animateImageChange() {
+
+
+
+
+            setTimeout(say, 1000);
+
+            setTimeout(sayHi, 1500);
+
+
+            setTimeout(sayHi2, 1500);
+
+
+            function say() {
+              images[activeImageIndex].classList.remove("docs-visible");
+              images[activeImageIndex].classList.add("docs-hidden");
+
+            }
+
+
+            function sayHi() {
+              images[activeImageIndex].classList.add("sss");
+              activeImageIndex = (activeImageIndex + 1) % images.length;
+              images[activeImageIndex].classList.add("docs-visible");
+
+
+            }
+
+
+            function sayHi2() {
+
+              images[activeImageIndex].classList.remove("docs-hidden");
+              images[activeImageIndex].classList.remove("sss");
+            }
+
+
+
+
+
+
+
+
+
+
+            // images[activeImageIndex].classList.remove("docs-visible");
+            // images[activeImageIndex].classList.add("docs-hidden");
+
+            // images[activeImageIndex].classList.add("sss");
+
+
+            // activeImageIndex = (activeImageIndex + 1) % images.length;
+
+
+            // images[activeImageIndex].classList.add("docs-visible");
+            // images[activeImageIndex].classList.remove("docs-hidden");
+            // images[activeImageIndex].classList.remove("sss");
+
+
+
+
+
+
+          }
+
+
+
+          setInterval(animateImageChange, 5000);
+        });
+
+
+
+
+      </script>
+
+
+
+      <style>
+        @keyframes slideaway {
+          from {
+            opacity: 0;
+
+          }
+
+          to {
+            transform: translateX(40px);
+            opacity: 1;
+            display: flex;
+          }
+        }
+
+        .sss {
+
+          /* animation: slideaway 1000ms; */
+          display: none;
+        }
+
+
+        .docs-hidden {
+          /* animation: slideaway 1000ms; */
+          animation: fadeOutFromBlock 0.5s ease-in-out;
+
+        }
+
+        .docs-visible {
+          display: flex;
+          opacity: 1;
+          animation: fadeInFromNone 0.3s ease-in-out;
+          /* animation-fill-mode: forwards; */
+
+        }
+
+
+
+        @keyframes fadeInFromNone {
+          from {
+            transform: translateX(-40%);
+            opacity: 0;
+          }
+
+          to {
+            ransform: translateX(0);
+            opacity: 1;
+          }
+
+
+        }
+
+
+
+        @keyframes fadeOutFromBlock {
+          from {
+
+            opacity: 1;
+            transform: translateX(0);
+
+          }
+
+          to {
+
+
+            transform: translateX(40%);
+            opacity: 0;
+          }
+
+        }
+      </style>
+
+
+
+
+
+
+      </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
     <div class="advantages-list">
       <a class="advantages-list--item list-item-pink">
@@ -68,907 +257,991 @@
         <span class="circle"></span>
       </a>
     </div>
-    </div>
+  </div>
 
-    <a class="apply-link" href="">Не знаете к кому обратиться?</a>
+  <a class="apply-link" href="">Не знаете к кому обратиться?</a>
 
-    <div class="doc-selection">
+  <div class="doc-selection">
 
-      <h2>Как мы отбираем врачей?</h2>
+    <h2>Как мы отбираем врачей?</h2>
 
-      <ul class="doc-selection--list">
-        <li><strong>Проверяем образование:</strong> все врачи с высшим медицинским образованием</li>
-        <li id="second-list-item"><strong>Проверяем на докмед:</strong> врачи проходят собеседование с экспертами по
-          специальности</li>
-        <li id="third-list-item"><strong>Проверяем навыки коммуникации </strong> и обучаем врачей общаться в
-          онлайн-формате</li>
-      </ul>
+    <ul class="doc-selection--list">
+      <li><strong>Проверяем образование:</strong> все врачи с высшим медицинским образованием</li>
+      <li id="second-list-item"><strong>Проверяем на докмед:</strong> врачи проходят собеседование с экспертами по
+        специальности</li>
+      <li id="third-list-item"><strong>Проверяем навыки коммуникации </strong> и обучаем врачей общаться в
+        онлайн-формате</li>
+    </ul>
 
-    </div>
+  </div>
 
-    <div class="why-docma">
+  <div class="why-docma">
 
-      <h2>Почему DocMa?</h2>
+    <h2>Почему DocMa?</h2>
 
-      <ul class="why-docma--list">
-        <li style="border-color: #FE3F7A"><strong>Более 3 000 врачей 70 специальностей</strong>
-          с доказательным подходом</li>
-        <li style="background: #ffeef4"><strong>Более 200 городов России и мира,</strong>
-          где принимают врачи DocMa</li>
-        <li><strong>Более 60 000 пользователей </strong>
-          в год получают второе мнение на DocMa</li>
-      </ul>
+    <ul class="why-docma--list">
+      <li style="border-color: #FE3F7A"><strong>Более 3 000 врачей 70 специальностей</strong>
+        с доказательным подходом</li>
+      <li style="background: #ffeef4"><strong>Более 200 городов России и мира,</strong>
+        где принимают врачи DocMa</li>
+      <li><strong>Более 60 000 пользователей </strong>
+        в год получают второе мнение на DocMa</li>
+    </ul>
 
-    </div>
+  </div>
 
 
 
-    <style>
-      .why-docma {
-        margin-bottom: 100px;
+
+
+
+
+
+
+
+
+
+
+
+  <!-- АНИМАЦИЯ ТЕКСТА -->
+
+  <div id="textContainer">
+
+
+    <div class="text active"><img src="./img/doc1.png" alt=""></div>
+    <div class="text"><img src="./img/doc2.png" alt=""></div>
+    <div class="text"><img src="./img/doc3.png" alt=""></div>
+  </div>
+
+
+  <style>
+    #textContainer {
+      position: relative;
+      height: 100px;
+      overflow: hidden;
+    }
+
+    .text {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+      transition: opacity 1s;
+
+    }
+
+    .text img {
+      height: 100px;
+    }
+
+    .text.active {
+      opacity: 1;
+    }
+
+    .text.exit {
+      opacity: 0;
+      transition: opacity 1s;
+    }
+  </style>
+
+
+  <div id="textContainer">
+    <div class="text active"><img src="./img/doc1.png" alt=""></div>
+    <div class="text"><img src="./img/doc2.png" alt=""></div>
+    <div class="text"><img src="./img/doc3.png" alt=""></div>
+  </div>
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function () {
+      var textContainer = document.getElementById("textContainer");
+      var texts = textContainer.getElementsByClassName("text");
+      var activeTextIndex = 0;
+
+      function animateTextChange() {
+        texts[activeTextIndex].classList.remove("active");
+        texts[activeTextIndex].classList.add("exit");
+
+        activeTextIndex = (activeTextIndex + 1) % texts.length;
+
+        texts[activeTextIndex].classList.remove("exit");
+        texts[activeTextIndex].classList.add("active");
       }
 
-      .why-docma h2 {
-        margin: 70px 0;
-      }
+      setInterval(animateTextChange, 2000);
+    });
+  </script>
 
 
-      /* Почему DocMa? */
+  <!-- АНИМАЦИЯ ТЕКСТА -->
+
+
+
+  <style>
+    .why-docma {
+      margin-bottom: 100px;
+    }
+
+    .why-docma h2 {
+      margin: 70px 0;
+    }
+
+
+    /* Почему DocMa? */
+    .why-docma--list {
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding-left: 25px;
+    }
+
+    @media (max-width: 1399px) {
       .why-docma--list {
-        list-style: none;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        justify-content: flex-start;
+      }
+    }
+
+    @media (max-width: 1199px) {
+      .why-docma--list {
+        gap: 60px;
+      }
+    }
+
+    @media (max-width: 767px) {
+      .why-docma--list {
         gap: 20px;
-        padding-left: 25px;
       }
 
-      @media (max-width: 1399px) {
-        .why-docma--list {
-          justify-content: flex-start;
-        }
+      .doc-selection h2,
+      .why-docma h2 {
+        margin: 70px 0 40px 0 !important;
       }
 
-      @media (max-width: 1199px) {
-        .why-docma--list {
-          gap: 60px;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .why-docma--list {
-          gap: 20px;
-        }
-
-        .doc-selection h2,
-        .why-docma h2 {
-          margin: 70px 0 40px 0 !important;
-        }
-
-      }
+    }
 
 
 
 
 
 
-      .why-docma--list li {
-        position: relative;
-        /*       display: inline-flex; */
-        flex-direction: column;
-        border: 1px solid #293B5F;
-        border-radius: 15px;
-        padding: 20px;
-        font-size: 20px;
-        max-width: 350px;
-        box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
-      }
+    .why-docma--list li {
+      position: relative;
+      /*       display: inline-flex; */
+      flex-direction: column;
+      border: 1px solid #293B5F;
+      border-radius: 15px;
+      padding: 20px;
+      font-size: 20px;
+      max-width: 350px;
+      box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+    }
 
 
 
+    .why-docma--list li::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: rgba(243, 106, 148, 0.80);
+      border-radius: 50%;
+      top: -25px;
+      left: -25px;
+    }
+
+    .why-docma--list li:first-child::before {
+      background-color: #FFC6DA;
+    }
+
+    .why-docma--list li:last-child::before {
+      background-color: #FE3F7A;
+    }
+
+    @media (max-width: 991px) {
       .why-docma--list li::before {
-        content: "";
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background-color: rgba(243, 106, 148, 0.80);
-        border-radius: 50%;
-        top: -25px;
-        left: -25px;
-      }
-
-      .why-docma--list li:first-child::before {
-        background-color: #FFC6DA;
-      }
-
-      .why-docma--list li:last-child::before {
-        background-color: #FE3F7A;
-      }
-
-      @media (max-width: 991px) {
-        .why-docma--list li::before {
-          display: none;
-
-        }
-
-        .doc-selection h2 {
-          text-align: center;
-        }
-
-        .why-docma--list {
-          gap: 20px;
-          padding-left: 0px;
-        }
-
+        display: none;
 
       }
-
-      @media (max-width: 1199px) {
-        .why-docma--list {
-          justify-content: flex-start;
-        }
-      }
-
-
-      @media (max-width: 991px) {
-        .why-docma h2 {
-          text-align: center;
-
-        }
-
-        .why-docma--list {
-          justify-content: space-around;
-        }
-
-        .why-docma--list li {
-          max-width: 700px;
-          display: block;
-          line-height: 20px;
-          font-size: 18px !important;
-          padding: 10px;
-          height: 80px;
-          display: flex;
-          justify-content: space-evenly;
-          width: 100%;
-          margin: auto;
-        }
-
-      }
-
-      /* Почему DocMa? */
-
-
-
-
-
-      /* Список проверок */
-
-
-
-      .doc-selection--list {
-        display: block;
-        margin-left: 30px;
-
-      }
-
-      .doc-selection--list li {
-        flex-direction: row;
-        justify-content: center;
-        position: relative;
-        line-height: 20px;
-        list-style: none !important;
-      }
-
-      @media (max-width: 767px) {
-        .doc-selection--list li {
-          font-size: 18px !important;
-        }
-      }
-
-
-
-      .doc-selection--list li:before {
-        content: "";
-        position: absolute;
-        left: -30px;
-        background: #ffeef4;
-        height: 20px;
-        width: 20px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        top: 0;
-        bottom: 0;
-      }
-
-      #second-list-item:before {
-
-        background: #ffdde9;
-      }
-
-      #third-list-item::before {
-        background: #ffc6da;
-      }
-
-
-
 
       .doc-selection h2 {
-        margin: 70px 0;
-      }
-
-      @media (max-width: 767px) {
-
-        .doc-selection h2 {
-          text-align: center;
-        }
-      }
-
-
-      .doc-selection--list li {
-        margin: 35px 0;
-        font-size: 20px;
-      }
-
-
-
-      .doc-selection--list li {
-
-        list-style-type: disc;
-
-      }
-
-
-
-
-      /* Список проверок */
-      h1,
-      h2,
-      h3,
-      h4,
-      li {
-        color: #293B5F;
-      }
-
-      h2 {
-
-
-        margin: 0;
-        text-align: left;
-        font-weight: 700;
-        font-size: 40px;
-      }
-
-      @media (max-width: 1199px) {
-        h2 {
-          font-size: 32px !important;
-        }
-      }
-
-      @media (max-width: 440px) {
-        h2 {
-          font-size: 28px !important;
-        }
-
-      }
-
-      @media (max-width: 375px) {
-        h2 {
-          font-size: 24px !important;
-        }
-
-      }
-
-
-      .start-block {
-        max-width: 1300px;
-        margin: 0 auto;
-        margin-top: 30px;
-        color: #293B5F;
-      }
-
-      .greeting-docs {
-        display: grid;
-        grid-template-areas:
-          "heading doctors"
-          "list doctors";
         text-align: center;
       }
 
-      @media (max-width: 1024px) {
-        .greeting-docs {
-          grid-template-areas:
-            "heading heading"
-            "list doctors";
-        }
-      }
-
-      .greeting-docs--heading {
-        grid-area: heading;
+      .why-docma--list {
+        gap: 20px;
+        padding-left: 0px;
       }
 
 
-      .greeting-docs--heading h2 {
-        color: #293B5F;
-        margin: 0;
-        text-align: left;
-        font-weight: 700;
-        font-size: 40px;
+    }
+
+    @media (max-width: 1199px) {
+      .why-docma--list {
+        justify-content: flex-start;
       }
+    }
+
+
+    @media (max-width: 991px) {
+      .why-docma h2 {
+        text-align: center;
+
+      }
+
+      .why-docma--list {
+        justify-content: space-around;
+      }
+
+      .why-docma--list li {
+        max-width: 700px;
+        display: block;
+        line-height: 20px;
+        font-size: 18px !important;
+        padding: 10px;
+        height: 80px;
+        display: flex;
+        justify-content: space-evenly;
+        width: 100%;
+        margin: auto;
+      }
+
+    }
+
+    /* Почему DocMa? */
+
+
+
+
+
+    /* Список проверок */
+
+
+
+    .doc-selection--list {
+      display: block;
+      margin-left: 30px;
+
+    }
+
+    .doc-selection--list li {
+      flex-direction: row;
+      justify-content: center;
+      position: relative;
+      line-height: 20px;
+      list-style: none !important;
+    }
+
+    @media (max-width: 767px) {
+      .doc-selection--list li {
+        font-size: 18px !important;
+      }
+    }
+
+
+
+    .doc-selection--list li:before {
+      content: "";
+      position: absolute;
+      left: -30px;
+      background: #ffeef4;
+      height: 20px;
+      width: 20px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: auto;
+      top: 0;
+      bottom: 0;
+    }
+
+    #second-list-item:before {
+
+      background: #ffdde9;
+    }
+
+    #third-list-item::before {
+      background: #ffc6da;
+    }
+
+
+
+
+    .doc-selection h2 {
+      margin: 70px 0;
+    }
+
+    @media (max-width: 767px) {
+
+      .doc-selection h2 {
+        text-align: center;
+      }
+    }
+
+
+    .doc-selection--list li {
+      margin: 35px 0;
+      font-size: 20px;
+    }
+
+
+
+    .doc-selection--list li {
+
+      list-style-type: disc;
+
+    }
+
+
+
+
+    /* Список проверок */
+    h1,
+    h2,
+    h3,
+    h4,
+    li {
+      color: #293B5F;
+    }
+
+    h2 {
+
+
+      margin: 0;
+      text-align: left;
+      font-weight: 700;
+      font-size: 40px;
+    }
+
+    @media (max-width: 1199px) {
+      h2 {
+        font-size: 32px !important;
+      }
+    }
+
+    @media (max-width: 440px) {
+      h2 {
+        font-size: 28px !important;
+      }
+
+    }
+
+    @media (max-width: 375px) {
+      h2 {
+        font-size: 24px !important;
+      }
+
+    }
+
+
+    .start-block {
+      max-width: 1300px;
+      margin: 0 auto;
+      margin-top: 30px;
+      color: #293B5F;
+    }
+
+    .greeting-docs {
+      display: grid;
+      grid-template-areas:
+        "heading doctors"
+        "list doctors";
+      text-align: center;
+    }
+
+    @media (max-width: 1024px) {
+      .greeting-docs {
+        grid-template-areas:
+          "heading heading"
+          "list doctors";
+      }
+    }
+
+    .greeting-docs--heading {
+      grid-area: heading;
+    }
+
+
+    .greeting-docs--heading h2 {
+      color: #293B5F;
+      margin: 0;
+      text-align: left;
+      font-weight: 700;
+      font-size: 40px;
+    }
+
+    .greeting-docs--heading p {
+      text-align: left;
+      font-weight: 500;
+      color: #179095;
+      font-style: italic;
+      font-size: 22px;
+      margin: 60px 0 40px 0;
+    }
+
+    @media (max-width: 1024px) {
 
       .greeting-docs--heading p {
-        text-align: left;
-        font-weight: 500;
-        color: #179095;
-        font-style: italic;
-        font-size: 22px;
-        margin: 60px 0 40px 0;
+        margin: 20px 0;
       }
-
-      @media (max-width: 1024px) {
-
-        .greeting-docs--heading p {
-          margin: 20px 0;
-        }
-
-        .greeting-docs--list {
-          margin: auto 0;
-        }
-
-
-      }
-
 
       .greeting-docs--list {
-        grid-area: list;
-        text-align: left;
-        margin-top: auto;
-      }
-
-      .greeting-docs-img {
-        position: relative;
-        grid-area: doctors;
-        background-image: url("http://a0729808.xsph.ru/wp-content/uploads/2023/08/background.svg");
-        background-repeat: no-repeat;
-        background-position: 100% 100%;
-        background-size: 520px;
+        margin: auto 0;
       }
 
 
-      .greeting-docs-img img {
-        display: flex;
-        height: 450px;
-        margin-left: auto;
-        margin-top: 50px;
-        padding-right: 30px;
-
-      }
+    }
 
 
+    .greeting-docs--list {
+      grid-area: list;
+      text-align: left;
+      margin-top: auto;
+    }
 
-      .greeting-docs-img p {
-        margin: 0;
-      }
+    .greeting-docs-img {
+      position: relative;
+      grid-area: doctors;
+      background-image: url("http://a0729808.xsph.ru/wp-content/uploads/2023/08/background.svg");
+      background-repeat: no-repeat;
+      background-position: 100% 100%;
+      background-size: 520px;
+    }
 
-      .greeting-docs-img div {
-        display: flex;
-        text-align: left;
-        margin-left: auto;
 
+    .docs-image {
+      /* display: flex; */
+      height: 450px;
+      margin-left: auto;
+      margin-top: 50px;
+      padding-right: 30px;
 
-      }
-
-      .greeting-docs-img div div {
-        display: flex;
-        flex-direction: column;
-        position: absolute;
-      }
-
-      .greeting-docs-img div div:first-child {
-        right: 170px
-      }
-
-      .greeting-docs-img div div:last-child {
-        right: 400px
-      }
+    }
 
 
 
+    .greeting-docs-img p {
+      margin: 0;
+    }
 
-      .advantages-list {
-        display: grid;
-        grid-template: 1fr 1fr / 1fr 1fr;
-        width: 100%;
-        justify-content: center;
-        margin-top: 30px;
-        gap: 20px 50px;
-      }
-
-
-      .list-item-pink {
-        background-color: #fe3f7a;
-        border: none !important;
-        color: white !important;
-      }
-
-      .list-item-pink p {
-        color: white !important;
-      }
-
-      .list-item-pink .circle {
-        background-color: #ff90b4 !important;
-      }
-
-      .list-item-pink .circle:before {
-        background-color: #fe6797 !important;
-      }
-
-      .list-item-pink .circle:after {
-        background-color: #ffc6da !important;
-      }
+    .greeting-docs-img div {
+      display: flex;
+      text-align: left;
+      margin-left: auto;
 
 
-      .advantages-list--item {
-        color: #293b5f;
-        max-width: 800px;
-        text-align: center;
-        border: 1px solid #293b5f;
-        border-radius: 20px;
-        padding: 30px;
-        position: relative;
-        box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
-          rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
-        cursor: pointer;
-      }
+    }
 
-      .advantages-list--item h4 {
-        text-align: left;
-        margin: 0;
-        margin-bottom: 10px;
-        font-weight: 600;
-        font-size: 30px;
-      }
+    .greeting-docs-img div div {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+    }
 
-      .advantages-list--item p {
-        color: #293b5f;
-        text-align: left;
-        margin: 0;
-        font-weight: 500;
-        font-size: 20px;
-      }
+    .greeting-docs-img div div:first-child {
+      right: 170px
+    }
 
-      .circle {
-        display: block;
-        position: absolute;
-        right: 10%;
-        bottom: 10%;
-        width: 25px;
-        height: 25px;
-        background-color: #ffdde9;
-        border-radius: 50%;
-      }
-
-      .circle::before {
-        content: "";
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        right: 30px;
-        background-color: #ffeef4;
-
-        border-radius: 50%;
-      }
-
-      .circle::after {
-        content: "";
-        position: absolute;
-        width: 25px;
-        height: 25px;
-        right: -30px;
-        background-color: #ffc6da;
-        border-radius: 50%;
-      }
-
-      .apply-link {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        text-decoration: none;
-        color: #179095 !important;
-        margin-top: 40px;
-      }
+    .greeting-docs-img div div:last-child {
+      right: 400px
+    }
 
 
-      .greeting-docs--list ol {
-        list-style-type: none;
-        counter-reset: num;
-        font-size: 16px;
-      }
+
+
+    .advantages-list {
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr;
+      width: 100%;
+      justify-content: center;
+      margin-top: 30px;
+      gap: 20px 50px;
+    }
+
+
+    .list-item-pink {
+      background-color: #fe3f7a;
+      border: none !important;
+      color: white !important;
+    }
+
+    .list-item-pink p {
+      color: white !important;
+    }
+
+    .list-item-pink .circle {
+      background-color: #ff90b4 !important;
+    }
+
+    .list-item-pink .circle:before {
+      background-color: #fe6797 !important;
+    }
+
+    .list-item-pink .circle:after {
+      background-color: #ffc6da !important;
+    }
+
+
+    .advantages-list--item {
+      color: #293b5f;
+      max-width: 800px;
+      text-align: center;
+      border: 1px solid #293b5f;
+      border-radius: 20px;
+      padding: 30px;
+      position: relative;
+      box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+        rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+      cursor: pointer;
+    }
+
+    .advantages-list--item h4 {
+      text-align: left;
+      margin: 0;
+      margin-bottom: 10px;
+      font-weight: 600;
+      font-size: 30px;
+    }
+
+    .advantages-list--item p {
+      color: #293b5f;
+      text-align: left;
+      margin: 0;
+      font-weight: 500;
+      font-size: 20px;
+    }
+
+    .circle {
+      display: block;
+      position: absolute;
+      right: 10%;
+      bottom: 10%;
+      width: 25px;
+      height: 25px;
+      background-color: #ffdde9;
+      border-radius: 50%;
+    }
+
+    .circle::before {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: 30px;
+      background-color: #ffeef4;
+
+      border-radius: 50%;
+    }
+
+    .circle::after {
+      content: "";
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -30px;
+      background-color: #ffc6da;
+      border-radius: 50%;
+    }
+
+    .apply-link {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #179095 !important;
+      margin-top: 40px;
+    }
+
+
+    .greeting-docs--list ol {
+      list-style-type: none;
+      counter-reset: num;
+      font-size: 16px;
+    }
+
+    .greeting-docs--list ol li {
+      position: relative;
+      margin: 0 0 0 0;
+      padding: 0 0 10px 0;
+      line-height: 40px;
+      font-size: 18px;
+      font-weight: 800;
+      margin-left: 55px;
+
+    }
+
+    .greeting-docs--list ol li:before {
+      content: counter(num);
+      counter-increment: num;
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: -55px;
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      color: #000;
+      text-align: center;
+      line-height: 40px;
+      font-size: 18px;
+      border-radius: 50%;
+      background-color: #a2d9dc;
+    }
+
+    .mob-shift {
+      display: none;
+    }
+
+
+
+    /* Мобильная версия */
+
+
+    @media (max-width: 767px) {
+
 
       .greeting-docs--list ol li {
-        position: relative;
-        margin: 0 0 0 0;
-        padding: 0 0 10px 0;
-        line-height: 40px;
-        font-size: 18px;
-        font-weight: 800;
-        margin-left: 55px;
-
+        margin-left: 30px;
       }
 
       .greeting-docs--list ol li:before {
-        content: counter(num);
-        counter-increment: num;
-        display: inline-block;
-        position: absolute;
-        top: 0;
-        left: -55px;
-        width: 40px;
-        height: 40px;
-        background: #fff;
-        color: #000;
-        text-align: center;
-        line-height: 40px;
-        font-size: 18px;
-        border-radius: 50%;
-        background-color: #a2d9dc;
-      }
 
-      .mob-shift {
-        display: none;
+        left: -30px;
       }
 
 
 
-      /* Мобильная версия */
 
 
-      @media (max-width: 767px) {
-
-
-        .greeting-docs--list ol li {
-          margin-left: 30px;
-        }
-
-        .greeting-docs--list ol li:before {
-
-          left: -30px;
-        }
-
-
-
-
-
-        .greeting-docs--list ol li {
-          font-size: 14px;
-        }
-
-        .greeting-docs--list ol li:before {
-          font-size: 14px !important;
-        }
-
+      .greeting-docs--list ol li {
+        font-size: 14px;
       }
 
+      .greeting-docs--list ol li:before {
+        font-size: 14px !important;
+      }
+
+    }
 
 
-      @media (max-width: 1199px) {
 
-        /* .greeting-docs--heading h2 {
+    @media (max-width: 1199px) {
+
+      /* .greeting-docs--heading h2 {
         font-size: 32px;
       } */
 
 
-        .greeting-docs-img div div:last-child {
-          right: 350px
-        }
-
-
-        .greeting-docs-img {
-          background-size: 450px;
-        }
-
-        .greeting-docs-img img {
-          height: 400px;
-        }
-
-        .greeting-docs-img img {
-          padding-right: 10px;
-        }
-
-        .advantages-list--item h4 {
-
-          font-size: 26px;
-        }
-
-        .advantages-list--item p {
-          font-size: 18px;
-        }
-
-      }
-
-      @media (max-width: 991px) {
-        .greeting-docs-img {
-          background-size: 350px;
-        }
-
-        .greeting-docs-img img {
-          height: 300px;
-        }
-
-        .greeting-docs-img div div:first-child {
-          font-size: 14px;
-          right: 90px !important;
-        }
-
-        .greeting-docs-img div div:last-child {
-          font-size: 14px;
-          right: 230px !important;
-        }
-
-        .advantages-list {
-          grid-template: 1fr / 1fr !important;
-        }
-
-      }
-
-      @media (max-width: 767px) {
-        .advantages-list--item {
-          border-radius: 10px;
-        }
-
-        .greeting-docs--list ol li {
-          line-height: 14px;
-          margin-top: 15px;
-          margin-bottom: 15px;
-        }
-
-        .mob-shift {
-          display: block;
-        }
-
-
-        .greeting-docs--list ol li:before {
-          width: 25px;
-          height: 25px;
-          line-height: 25px;
-        }
-
+      .greeting-docs-img div div:last-child {
+        right: 350px
       }
 
 
-      @media (max-width:530px) {
+      .greeting-docs-img {
+        background-size: 450px;
+      }
+
+      .greeting-docs-img .docs-image {
+        height: 400px;
+      }
+
+      .greeting-docs-img .docs-image {
+        padding-right: 10px;
+      }
+
+      .advantages-list--item h4 {
+
+        font-size: 26px;
+      }
+
+      .advantages-list--item p {
+        font-size: 18px;
+      }
+
+    }
+
+    @media (max-width: 991px) {
+      .greeting-docs-img {
+        background-size: 350px;
+      }
+
+      .greeting-docs-img .docs-image {
+        height: 300px;
+      }
+
+      .greeting-docs-img div div:first-child {
+        font-size: 14px;
+        right: 90px !important;
+      }
+
+      .greeting-docs-img div div:last-child {
+        font-size: 14px;
+        right: 230px !important;
+      }
+
+      .advantages-list {
+        grid-template: 1fr / 1fr !important;
+      }
+
+    }
+
+    @media (max-width: 767px) {
+      .advantages-list--item {
+        border-radius: 10px;
+      }
+
+      .greeting-docs--list ol li {
+        line-height: 14px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+      }
+
+      .mob-shift {
+        display: block;
+      }
 
 
-        .greeting-docs-img img {
-          margin-top: 35px;
-        }
+      .greeting-docs--list ol li:before {
+        width: 25px;
+        height: 25px;
+        line-height: 25px;
+      }
 
-        .greeting-docs-img div div:first-child {
-          right: 35% !important;
-          line-height: 12px;
-        }
-
-
-        .greeting-docs-img div div:last-child {
-          right: 75% !important;
-          line-height: 12px;
-        }
+    }
 
 
-
-        .greeting-docs-img div div {
-          font-size: 12px !important;
-          white-space: nowrap;
-        }
-
-        .greeting-docs--list ol {
-          padding-right: 20px;
-        }
-
-        .greeting-docs-img {
-          background-size: auto;
-        }
-
-        .greeting-docs-img img {
-          height: auto;
-
-        }
-
-        .greeting-docs--list ol li {
-          padding: 0;
-        }
+    @media (max-width:530px) {
 
 
+      .greeting-docs-img .docs-image {
+        margin-top: 35px;
+      }
 
-        .greeting-docs--list ol li:last-child {
-          margin-bottom: 0;
-        }
+      .greeting-docs-img div div:first-child {
+        right: 35% !important;
+        line-height: 12px;
+      }
 
-        .greeting-docs--list ol li {
-          margin-top: 10px;
-          margin-bottom: 10px;
-        }
+
+      .greeting-docs-img div div:last-child {
+        right: 75% !important;
+        line-height: 12px;
       }
 
 
 
-      @media (max-width:440px) {
+      .greeting-docs-img div div {
+        font-size: 12px !important;
+        white-space: nowrap;
+      }
 
-        .advantages-list--item p {
-          font-size: 14px
-        }
+      .greeting-docs--list ol {
+        padding-right: 20px;
+      }
 
+      .greeting-docs-img {
+        background-size: auto;
+      }
 
-        .advantages-list--item h4 {
-          font-size: 18px;
-          font-weight: 800;
-          margin-bottom: 0;
-        }
+      .greeting-docs-img .docs-image {
+        height: auto;
 
-        .advantages-list--item {
-          padding: 20px 15px;
-        }
+      }
 
-
-        .circle {
-          opacity: 1;
-          width: 25px;
-          height: 25px;
-          right: 40px;
-          margin: auto;
-          top: 0;
-          bottom: 0;
-
-        }
-
-        .list-item-pink .circle:before {
-          background-color: #FFC6DA !important;
-          opacity: 1;
-          right: -20px;
-          width: 25px;
-          height: 25px;
-        }
-
-        .list-item-pink .circle::after {
-          background-color: white !important;
-          right: -40px;
-          width: 25px;
-          height: 25px;
-
-        }
-
-        .list-item-pink .circle {
-          position: absolute;
-          background-color: #ffc6da;
-
-        }
-
-        .advantages-list--item .circle:before {
-          background-color: #ffc6da;
-          opacity: 1;
-          right: -15px;
-          width: 25px;
-          height: 25px;
-        }
+      .greeting-docs--list ol li {
+        padding: 0;
+      }
 
 
-        .advantages-list--item .circle::after {
-          background-color: #F36A94;
-          right: -30px;
-          width: 25px;
-          height: 25px;
 
-        }
+      .greeting-docs--list ol li:last-child {
+        margin-bottom: 0;
+      }
 
-        .advantages-list--item .circle {
-          position: absolute;
-          background-color: #ffdde9;
-
-        }
+      .greeting-docs--list ol li {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
 
 
-        .greeting-docs--heading p {
-          font-size: 18px;
-        }
 
-        /* .greeting-docs--heading h2 {
+    @media (max-width:440px) {
+
+      .advantages-list--item p {
+        font-size: 14px
+      }
+
+
+      .advantages-list--item h4 {
+        font-size: 18px;
+        font-weight: 800;
+        margin-bottom: 0;
+      }
+
+      .advantages-list--item {
+        padding: 20px 15px;
+      }
+
+
+      .circle {
+        opacity: 1;
+        width: 25px;
+        height: 25px;
+        right: 40px;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+
+      }
+
+      .list-item-pink .circle:before {
+        background-color: #FFC6DA !important;
+        opacity: 1;
+        right: -20px;
+        width: 25px;
+        height: 25px;
+      }
+
+      .list-item-pink .circle::after {
+        background-color: white !important;
+        right: -40px;
+        width: 25px;
+        height: 25px;
+
+      }
+
+      .list-item-pink .circle {
+        position: absolute;
+        background-color: #ffc6da;
+
+      }
+
+      .advantages-list--item .circle:before {
+        background-color: #ffc6da;
+        opacity: 1;
+        right: -15px;
+        width: 25px;
+        height: 25px;
+      }
+
+
+      .advantages-list--item .circle::after {
+        background-color: #F36A94;
+        right: -30px;
+        width: 25px;
+        height: 25px;
+
+      }
+
+      .advantages-list--item .circle {
+        position: absolute;
+        background-color: #ffdde9;
+
+      }
+
+
+      .greeting-docs--heading p {
+        font-size: 18px;
+      }
+
+      /* .greeting-docs--heading h2 {
         font-size: 28px;
       } */
 
-        .greeting-docs-img div div:first-child {
-          right: 20% !important;
-          font-size: 11px !important;
-        }
-
-
-        .greeting-docs-img div div:last-child {
-          right: 75% !important;
-          font-size: 11px !important;
-        }
-
-
-        .greeting-docs--list {
-          margin: 0 !important;
-          margin-top: auto !important;
-        }
-
-
-        .greeting-docs-img {
-
-          background-size: auto;
-        }
-
-        .greeting-docs-img img {
-
-          height: auto;
-        }
-
-        .greeting-docs--list ol li {
-          font-size: 12px;
-        }
-
-        .greeting-docs--list ol li:before {
-          font-size: 12px !important;
-        }
-
-        .greeting-docs-img img {
-          padding-right: 5px;
-        }
+      .greeting-docs-img div div:first-child {
+        right: 20% !important;
+        font-size: 11px !important;
       }
 
-      @media (max-width:375px) {
 
-        /* .greeting-docs--heading h2 {
+      .greeting-docs-img div div:last-child {
+        right: 75% !important;
+        font-size: 11px !important;
+      }
+
+
+      .greeting-docs--list {
+        margin: 0 !important;
+        margin-top: auto !important;
+      }
+
+
+      .greeting-docs-img {
+
+        background-size: auto;
+      }
+
+      .greeting-docs-img .docs-image {
+
+        height: auto;
+      }
+
+      .greeting-docs--list ol li {
+        font-size: 12px;
+      }
+
+      .greeting-docs--list ol li:before {
+        font-size: 12px !important;
+      }
+
+      .greeting-docs-img .docs-image {
+        padding-right: 5px;
+      }
+    }
+
+    @media (max-width:375px) {
+
+      /* .greeting-docs--heading h2 {
         font-size: 24px;
       } */
 
-        .greeting-docs-img {
-          background-size: auto;
-        }
+      .greeting-docs-img {
+        background-size: auto;
+      }
 
-        .greeting-docs-img img {
+      .greeting-docs-img .docs-image {
 
-          height: auto;
-        }
-
-
-        .advantages-list--item h4 {
-          font-size: 16px;
-          font-weight: 800;
-        }
-
-        .advantages-list--item {
-          padding: 15px 10px;
-        }
-
+        height: auto;
       }
 
 
-      @media (max-width:350px) {
-        .circle {
-          width: 20px;
-          height: 20px;
-          right: 35px;
-        }
-
-        .circle:before {
-          width: 20px !important;
-          height: 20px !important;
-        }
-
-        .circle:after {
-          width: 20px !important;
-          height: 20px !important;
-        }
-
-        .advantages-list--item {
-          padding: 10px 5px;
-        }
-
+      .advantages-list--item h4 {
+        font-size: 16px;
+        font-weight: 800;
       }
-    </style>
+
+      .advantages-list--item {
+        padding: 15px 10px;
+      }
+
+    }
+
+
+    @media (max-width:350px) {
+      .circle {
+        width: 20px;
+        height: 20px;
+        right: 35px;
+      }
+
+      .circle:before {
+        width: 20px !important;
+        height: 20px !important;
+      }
+
+      .circle:after {
+        width: 20px !important;
+        height: 20px !important;
+      }
+
+      .advantages-list--item {
+        padding: 10px 5px;
+      }
+
+    }
+  </style>
 
 
 </html>
