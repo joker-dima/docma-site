@@ -97,8 +97,8 @@
             function animationFirstStep() {
 
 
-              docsNames[activeImageIndex].classList.add("docs-animation");
-              docsNames[activeImageIndex].classList.remove("docs-visible");
+              docsNames[activeImageIndex].classList.add("docs-animation-names");
+              docsNames[activeImageIndex].classList.remove("docs-animation-visible");
 
               docsImages[activeImageIndex].classList.remove("docs-visible");
               docsImages[activeImageIndex].classList.add("docs-animation");
@@ -114,7 +114,7 @@
 
 
               docsImages[activeImageIndex].classList.add("docs-visible");
-              docsNames[activeImageIndex].classList.add("docs-visible");
+              docsNames[activeImageIndex].classList.add("docs-animation-visible");
 
 
             }
@@ -132,7 +132,7 @@
         });
 
 
-
+// !!!
 
       </script>
 
@@ -157,6 +157,12 @@
           animation: fadeOutFromBlock 0.8s ease-in-out;
         }
 
+
+
+        .docs-animation-names {
+          animation: fadeOutFromBlockText 0.8s ease-in-out;
+        }
+
         .docs-visible {
           display: flex;
           opacity: 1;
@@ -165,10 +171,28 @@
 
 
 
+        .docs-animation-visible {
+          display: flex;
+          animation: fadeInFromNoneText 0.5s ease-in-out;
+        }
+
+
+
+        @keyframes fadeInFromNoneText {
+          from {
+            transform: translateX(30%);
+            opacity: 0;
+          }
+
+          to {
+            ransform: translateX(0);
+            opacity: 1;
+          }
+        }
 
         @keyframes fadeInFromNone {
           from {
-            transform: translateX(-40%);
+            transform: translateX(-30%);
             opacity: 0;
           }
 
@@ -185,7 +209,21 @@
           }
 
           to {
-            transform: translateX(40%);
+            transform: translateX(30%);
+            opacity: 0;
+          }
+
+        }
+
+
+        @keyframes fadeOutFromBlockText {
+          from {
+            opacity: 1;
+            transform: translateX(0);
+          }
+
+          to {
+            transform: translateX(-30%);
             opacity: 0;
           }
 
