@@ -20,9 +20,11 @@
         <h2>Доказательные врачи</h2>
         <h2>Консультации онлайн</h2>
         <div>
-          <p class="sss advantages-slider">Научный подход</p>
-          <p class="sss  advantages-slider-none">Доказательная медицина</p>
-          <p class="sss advantages-slider-none">Только опытные врачи</p>
+
+          <p class="adventages-item advantages-slider">Научный подход</p>
+          <p class="adventages-item advantages-slider-none">Доказательная медицина</p>
+          <p class="adventages-item advantages-slider-none">Только опытные врачи</p>
+
         </div>
       </div>
 
@@ -87,7 +89,7 @@
           var docsImagesContainer = document.getElementById("docs-img-wrapper");
           var docsImages = docsImagesContainer.getElementsByClassName("docs-image");
           var docsNames = document.querySelectorAll('.docs-names');
-          var docmaAdvantages = document.querySelectorAll('.sss');
+          var docmaAdvantages = document.querySelectorAll('.adventages-item');
 
 
           var activeImageIndex = 0;
@@ -97,29 +99,23 @@
           function animateDocmaAdvantage() {
 
             animationDocmaAdvantageFirstStep()
-            setTimeout(animationDocmaAdvantageSecondStep, 1500);
+            setTimeout(animationDocmaAdvantageSecondStep, 1600);
             setTimeout(animationDocmaAdvantageThirdStep, 2500);
-            // setTimeout(animationDocmaAdvantageFourthStep, 3500);
 
 
             function animationDocmaAdvantageFirstStep() {
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider");
-              docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-down");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider-none");
-              // docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-up");
+
             }
 
             function animationDocmaAdvantageSecondStep() {
-
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-down");
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-up");
-
             }
 
             function animationDocmaAdvantageThirdStep() {
-
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider-none");
-              // docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider-none");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-up");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider");
               activeDocmaAdvantage = (activeDocmaAdvantage + 1) % docmaAdvantages.length;
@@ -127,22 +123,10 @@
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-down");
             }
 
-            function animationDocmaAdvantageFourthStep() {
-
-
-              // docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider");
-
-
-              // docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider-none");
-
-              // activeDocmaAdvantage = (activeDocmaAdvantage + 1) % docmaAdvantages.length;
-              // docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider-none");
-
-            }
 
           }
 
-          setInterval(animateDocmaAdvantage, 4500);
+          setInterval(animateDocmaAdvantage, 3000);
 
 
           // !!!
@@ -208,7 +192,7 @@
           }
 
           to {
-            transform: translateY(3vh);
+            transform: translateY(2vh);
             opacity: 0;
           }
         }
@@ -220,7 +204,7 @@
 
         @keyframes AdvantageDown {
           from {
-            transform: translateY(-5vh);
+            transform: translateY(-4vh);
             opacity: 0;
           }
 
