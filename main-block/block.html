@@ -37,8 +37,7 @@
       <div class="greeting-docs-img">
 
 
-
-        <div>
+        <div class="docs-names">
           <div>
             <p>невролог</p>Анна Иванова
           </div>
@@ -46,10 +45,21 @@
             <p>гематолог</p>Яна Дорохина
           </div>
         </div>
+        <div class="docs-names docs-names--hidden">
+          <div>
+            <p>невролог</p>Анна Иванова
+          </div>
+          <div>
+            <p>гематолог</p>Яна Дорохина
+          </div>
+        </div>
+
         <div id="docs-img-wrapper">
           <img class="docs-image" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-1.png" alt="" />
-          <img class="docs-image sss" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-2.png" alt="" />
-          <img class="docs-image sss" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-3-2.png" alt="" />
+          <img class="docs-image docs-none" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-2.png"
+            alt="" />
+          <img class="docs-image docs-none" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-3-2.png"
+            alt="" />
 
         </div>
 
@@ -58,80 +68,47 @@
 
 
 
+
+
+      <!-- Анимация -->
+
+
       <script>
 
         window.addEventListener('DOMContentLoaded', function () {
           var imagesContainer = document.getElementById("docs-img-wrapper");
           var images = imagesContainer.getElementsByClassName("docs-image");
+          var docsNames = document.querySelectorAll('.docs-names');
 
 
           var activeImageIndex = 0;
 
           function animateImageChange() {
 
+            setTimeout(animationFirstStep, 1000);
+            setTimeout(animationSecondStep, 1500);
+            setTimeout(animationThirdStep, 1500);
 
 
-
-            setTimeout(say, 1000);
-
-            setTimeout(sayHi, 1500);
-
-
-            setTimeout(sayHi2, 1500);
-
-
-            function say() {
+            function animationFirstStep() {
               images[activeImageIndex].classList.remove("docs-visible");
-              images[activeImageIndex].classList.add("docs-hidden");
+              images[activeImageIndex].classList.add("docs-animation");
 
             }
 
-
-            function sayHi() {
-              images[activeImageIndex].classList.add("sss");
+            function animationSecondStep() {
+              images[activeImageIndex].classList.add("docs-none");
               activeImageIndex = (activeImageIndex + 1) % images.length;
               images[activeImageIndex].classList.add("docs-visible");
 
-
             }
 
+            function animationThirdStep() {
 
-            function sayHi2() {
-
-              images[activeImageIndex].classList.remove("docs-hidden");
-              images[activeImageIndex].classList.remove("sss");
+              images[activeImageIndex].classList.remove("docs-animation");
+              images[activeImageIndex].classList.remove("docs-none");
             }
-
-
-
-
-
-
-
-
-
-
-            // images[activeImageIndex].classList.remove("docs-visible");
-            // images[activeImageIndex].classList.add("docs-hidden");
-
-            // images[activeImageIndex].classList.add("sss");
-
-
-            // activeImageIndex = (activeImageIndex + 1) % images.length;
-
-
-            // images[activeImageIndex].classList.add("docs-visible");
-            // images[activeImageIndex].classList.remove("docs-hidden");
-            // images[activeImageIndex].classList.remove("sss");
-
-
-
-
-
-
           }
-
-
 
           setInterval(animateImageChange, 5000);
         });
@@ -144,6 +121,11 @@
 
 
       <style>
+        .docs-names--hidden {
+          display: none;
+        }
+
+
         @keyframes slideaway {
           from {
             opacity: 0;
@@ -157,25 +139,19 @@
           }
         }
 
-        .sss {
-
-          /* animation: slideaway 1000ms; */
+        .docs-none {
           display: none;
         }
 
 
-        .docs-hidden {
-          /* animation: slideaway 1000ms; */
-          animation: fadeOutFromBlock 0.5s ease-in-out;
-
+        .docs-animation {
+          animation: fadeOutFromBlock 0.8s ease-in-out;
         }
 
         .docs-visible {
           display: flex;
           opacity: 1;
-          animation: fadeInFromNone 0.3s ease-in-out;
-          /* animation-fill-mode: forwards; */
-
+          animation: fadeInFromNone 0.5s ease-in-out;
         }
 
 
@@ -190,23 +166,15 @@
             ransform: translateX(0);
             opacity: 1;
           }
-
-
         }
-
-
 
         @keyframes fadeOutFromBlock {
           from {
-
             opacity: 1;
             transform: translateX(0);
-
           }
 
           to {
-
-
             transform: translateX(40%);
             opacity: 0;
           }
@@ -219,10 +187,10 @@
 
 
 
-      </script>
 
 
 
+      <!-- Анимация -->
 
 
 
@@ -289,91 +257,6 @@
     </ul>
 
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- АНИМАЦИЯ ТЕКСТА -->
-
-  <div id="textContainer">
-
-
-    <div class="text active"><img src="./img/doc1.png" alt=""></div>
-    <div class="text"><img src="./img/doc2.png" alt=""></div>
-    <div class="text"><img src="./img/doc3.png" alt=""></div>
-  </div>
-
-
-  <style>
-    #textContainer {
-      position: relative;
-      height: 100px;
-      overflow: hidden;
-    }
-
-    .text {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      opacity: 0;
-      transition: opacity 1s;
-
-    }
-
-    .text img {
-      height: 100px;
-    }
-
-    .text.active {
-      opacity: 1;
-    }
-
-    .text.exit {
-      opacity: 0;
-      transition: opacity 1s;
-    }
-  </style>
-
-
-  <div id="textContainer">
-    <div class="text active"><img src="./img/doc1.png" alt=""></div>
-    <div class="text"><img src="./img/doc2.png" alt=""></div>
-    <div class="text"><img src="./img/doc3.png" alt=""></div>
-  </div>
-
-  <script>
-    window.addEventListener('DOMContentLoaded', function () {
-      var textContainer = document.getElementById("textContainer");
-      var texts = textContainer.getElementsByClassName("text");
-      var activeTextIndex = 0;
-
-      function animateTextChange() {
-        texts[activeTextIndex].classList.remove("active");
-        texts[activeTextIndex].classList.add("exit");
-
-        activeTextIndex = (activeTextIndex + 1) % texts.length;
-
-        texts[activeTextIndex].classList.remove("exit");
-        texts[activeTextIndex].classList.add("active");
-      }
-
-      setInterval(animateTextChange, 2000);
-    });
-  </script>
-
-
-  <!-- АНИМАЦИЯ ТЕКСТА -->
-
 
 
   <style>
@@ -703,7 +586,7 @@
     .greeting-docs-img {
       position: relative;
       grid-area: doctors;
-      background-image: url("http://a0729808.xsph.ru/wp-content/uploads/2023/08/background.svg");
+      background-image: url("http://a0729808.xsph.ru/wp-content/uploads/2023/08/background-1.svg");
       background-repeat: no-repeat;
       background-position: 100% 100%;
       background-size: 520px;
