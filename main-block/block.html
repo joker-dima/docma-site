@@ -76,8 +76,8 @@
       <script>
 
         window.addEventListener('DOMContentLoaded', function () {
-          var imagesContainer = document.getElementById("docs-img-wrapper");
-          var images = imagesContainer.getElementsByClassName("docs-image");
+          var docsImagesContainer = document.getElementById("docs-img-wrapper");
+          var docsImages = docsImagesContainer.getElementsByClassName("docs-image");
           var docsNames = document.querySelectorAll('.docs-names');
 
 
@@ -91,22 +91,22 @@
 
 
             function animationFirstStep() {
-              images[activeImageIndex].classList.remove("docs-visible");
-              images[activeImageIndex].classList.add("docs-animation");
+              docsImages[activeImageIndex].classList.remove("docs-visible");
+              docsImages[activeImageIndex].classList.add("docs-animation");
 
             }
 
             function animationSecondStep() {
-              images[activeImageIndex].classList.add("docs-none");
-              activeImageIndex = (activeImageIndex + 1) % images.length;
-              images[activeImageIndex].classList.add("docs-visible");
+              docsImages[activeImageIndex].classList.add("docs-none");
+              activeImageIndex = (activeImageIndex + 1) % docsImages.length;
+              docsImages[activeImageIndex].classList.add("docs-visible");
 
             }
 
             function animationThirdStep() {
 
-              images[activeImageIndex].classList.remove("docs-animation");
-              images[activeImageIndex].classList.remove("docs-none");
+              docsImages[activeImageIndex].classList.remove("docs-animation");
+              docsImages[activeImageIndex].classList.remove("docs-none");
             }
           }
 
@@ -121,6 +121,10 @@
 
 
       <style>
+        .docs-names {
+          display: block;
+        }
+
         .docs-names--hidden {
           display: none;
         }
