@@ -47,13 +47,20 @@
         </div>
         <div class="docs-names docs-names--hidden">
           <div>
-            <p>невролог</p>Анна Иванова
+            <p>педиатр</p>Марина Кукуева
           </div>
           <div>
-            <p>гематолог</p>Яна Дорохина
+            <p>терапевт</p>Игорь Смирнов
           </div>
         </div>
-
+        <div class="docs-names docs-names--hidden">
+          <div>
+            <p>пульманолог</p>Суркова Карина
+          </div>
+          <div>
+            <p>травматолог</p>Котова Алла
+          </div>
+        </div>
         <div id="docs-img-wrapper">
           <img class="docs-image" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-1.png" alt="" />
           <img class="docs-image docs-none" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docs-2.png"
@@ -65,9 +72,6 @@
 
 
       </div>
-
-
-
 
 
       <!-- Анимация -->
@@ -91,22 +95,36 @@
 
 
             function animationFirstStep() {
+
+
+              docsNames[activeImageIndex].classList.add("docs-animation");
+              docsNames[activeImageIndex].classList.remove("docs-visible");
+
               docsImages[activeImageIndex].classList.remove("docs-visible");
               docsImages[activeImageIndex].classList.add("docs-animation");
 
             }
 
             function animationSecondStep() {
+
+              docsNames[activeImageIndex].classList.add("docs-names--hidden");
               docsImages[activeImageIndex].classList.add("docs-none");
+
               activeImageIndex = (activeImageIndex + 1) % docsImages.length;
+
+
               docsImages[activeImageIndex].classList.add("docs-visible");
+              docsNames[activeImageIndex].classList.add("docs-visible");
+
 
             }
 
             function animationThirdStep() {
-
               docsImages[activeImageIndex].classList.remove("docs-animation");
               docsImages[activeImageIndex].classList.remove("docs-none");
+              docsNames[activeImageIndex].classList.remove("docs-names--hidden");
+
+
             }
           }
 
@@ -122,26 +140,13 @@
 
       <style>
         .docs-names {
-          display: block;
+          display: block !important;
         }
 
         .docs-names--hidden {
-          display: none;
+          display: none !important;
         }
 
-
-        @keyframes slideaway {
-          from {
-            opacity: 0;
-
-          }
-
-          to {
-            transform: translateX(40px);
-            opacity: 1;
-            display: flex;
-          }
-        }
 
         .docs-none {
           display: none;
@@ -157,6 +162,7 @@
           opacity: 1;
           animation: fadeInFromNone 0.5s ease-in-out;
         }
+
 
 
 
