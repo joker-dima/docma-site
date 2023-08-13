@@ -8,7 +8,6 @@
 </head>
 
 <body style="max-width: 1300px; width: 75%; padding: 0 20px; font-family: Mulish">
-
   <div class="for-doctor">
     <h2>Врачу</h2>
     <div class="become-doc--nav-btns">
@@ -88,8 +87,8 @@
           <source srcset="
               http://a0729808.xsph.ru/wp-content/uploads/2023/08/mockup-card-mobile2.png
             " media="(max-width: 767px)" />
-          <img style="width:65%" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/mockup-card3.png"
-            alt="профиль врача" />
+          <img id="doc-card-img" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/mockup-card3.png"
+            alt="карточка врача" />
         </picture>
 
 
@@ -252,6 +251,8 @@
       .btn-blue-hover:hover {
         background-color: #dd5069 !important;
       }
+
+
 
       .btn-pink-hover:hover {
         background-color: #50b8bc !important;
@@ -619,6 +620,10 @@
         margin-top: 80px;
       }
 
+      #doc-card-img {
+        width: 65% !important;
+      }
+
       /* 		Заблюренные рамки  */
 
       /*         .become-doc-list li::before {
@@ -638,6 +643,10 @@
 
       @media (max-width: 1199px) {
 
+        #doc-card-img {
+          width: 80% !important;
+        }
+
         .become-doc-list {
           display: grid;
           grid-template: 1fr / 1fr 1fr 1fr 1fr;
@@ -645,12 +654,20 @@
         }
 
 
+
         .doc-profile--mockup img {
+
+
           width: 90%;
         }
       }
 
       @media (max-width: 991px) {
+
+        #doc-card-img {
+          width: 100% !important;
+        }
+
         .docmaschool-btn {
           margin-top: 20px;
         }
