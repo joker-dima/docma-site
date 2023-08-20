@@ -8,14 +8,15 @@
 </head>
 
 <body style="max-width: 1300px; width: 75%; padding: 0 20px; font-family: Mulish">
+
   <div class="for-doctor">
     <h2>Врачу</h2>
     <div class="become-doc--nav-btns">
-      <a href="#placement" class="blue-btn">размещение на сайте</a>
-      <a href="#docmaschool" class="gray-btn">образование <br />в DocmaSchool</a>
-      <a href="#employment" class="white-btn">помощь в <br />трудоустройстве</a>
+      <a href="#placement" class="menu-btn blue-btn active-btn">размещение на сайте</a>
+      <a href="#docmaschool" class="menu-btn gray-btn">образование <br />в DocmaSchool</a>
+      <a href="#employment" class="menu-btn white-btn">помощь в <br />трудоустройстве</a>
     </div>
-    <div class="become-doc">
+    <div class="become-doc block-active">
       <h1>Как стать врачом DocMa</h1>
       <p id="placement">
         Размещение на DocMa возможно в двух форматах: профиль и карточка.
@@ -30,6 +31,7 @@
               Позволяет вам не только заявить о себе как о доказательном
               специалисте, но и воспользоваться всеми возможностями для
               профессионального развития и дополнительного заработка
+              
             </p>
           </div>
 
@@ -61,11 +63,14 @@
             <span class="become-doc-list--item">Участие в маркетинговых активностях сервиса</span>
           </li>
         </ul>
+        <span class="docma-bands-already-doc bands-right"></span>
         <div class="docma-bands" style="text-align: center; margin-top: 60px">
           <a style="background-color: #50b8bc; display: block" class="docma-btn btn-mobile btn-blue-hover"
             href="#">оформить
             профиль</a>
+            
         </div>
+        
         <img class="docma-bands--mobile" src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/bands-left.svg"
           alt="" />
 
@@ -116,8 +121,8 @@
           </li>
         </ul>
         <div class="sign-up--btns">
-          <a style="padding: 20px; margin-right: -10px" class="blue-btn blue-btn--card" href="#">оформить карточку</a>
-          <a style="padding: 20px; margin-left: -10px" class="gray-btn gray-btn--profile" href="#"><span
+          <a style="padding: 20px; margin-right: -10px" class="blue-btn btn-active blue-btn--card toggle-btn" href="#">оформить карточку</a>
+          <a style="padding: 20px; margin-left: -10px" class="gray-btn gray-btn--profile  toggle-btn" href="#"><span
               class="text-hidden--mobile">оформить </span>&nbsp;профиль</a>
         </div>
       </div>
@@ -134,6 +139,7 @@
 
       <a style="display: block" class="btn-blue-hover docma-btn doc-profile-link" href="#">Личный кабинет врача</a>
     </div>
+    <div class="docmaschool--wrapper block-bg-toggle">
 
     <div class="docmaschool">
       <div id="docmaschool" class="docmaschool-content">
@@ -203,10 +209,11 @@
       </div>
     </div>
     <div class="docmaschool-btn">
-      <a style="display: block;" class="docma-btn btn-mobile btn-darkblue-hover" href="#">DocMaSchool</a>
+      <a style="display: block; margin: 0;" class="docma-btn btn-mobile btn-darkblue-hover" href="#">DocMaSchool</a>
     </div>
+  </div>
 
-    <div id="employment" class="employment-wrapper">
+    <div id="employment" class="employment-wrapper block-bg-toggle">
       <h3 style="margin: 0;">Помощь в трудоустройстве</h3>
       <p>
         Раздел доступен только врачам с профилями на DocMa
@@ -216,8 +223,12 @@
 
 
     <style>
+
+	
+     
       body {
         background: white !important;
+        
       }
 
       .backgr-con {
@@ -248,6 +259,17 @@
         font-size: 22px;
       }
 
+
+
+
+
+.docmaschool--wrapper {
+padding: 20px;
+  margin: 90px 0 50px 0;
+}
+
+      
+
       .btn-blue-hover:hover {
         background-color: #dd5069 !important;
       }
@@ -264,6 +286,11 @@
 
       .employment-wrapper {
         margin: 100px 0 50px 0;
+		  padding: 20px;
+      }
+
+      .employment-wrapper p {
+        margin-bottom: 0;
       }
 
       .text-hidden--desctop {
@@ -312,7 +339,7 @@
 
       .docmaschool {
         display: flex;
-        margin-top: 90px;
+       
       }
 
       .docmaschool-content {
@@ -381,7 +408,11 @@
         display: block;
         margin: 0 auto;
       }
-
+		.already-doc {
+			padding: 20px;
+		}
+		
+		
       .already-doc a {
         background: #50b8bc;
         margin-top: 30px;
@@ -397,8 +428,7 @@
       .sign-up--btns a {
         padding: 35px;
         line-height: 22px;
-        border: 2px solid rgb(16%, 23%, 37%, 0.5);
-        width: 30%;
+                width: 30%;
         text-decoration: none;
         color: #293b5f;
         text-align: center;
@@ -408,7 +438,8 @@
         height: 50px;
         display: flex;
         justify-content: center;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        outline: 1px solid rgba(41, 59, 95, 0.5);
+        outline-offset:-1px;
       }
 
       .docma-bands {
@@ -428,7 +459,7 @@
         display: none;
       }
 
-      .docma-bands::before {
+      /* .docma-bands::before {
         content: "";
         position: absolute;
         width: 80px;
@@ -440,7 +471,7 @@
         background-size: 85px;
         background-repeat: no-repeat;
         margin-left: -20px;
-      }
+      } */
 
       .docma-bands-already-doc {
         content: "";
@@ -457,11 +488,25 @@
         margin-top: 10px;
       }
 
-      .become-doc {
+      .bands-right {
+      left: 0;
+      transform: rotate(0deg);
+      margin-left: 0;
+      }
+
+
+
+.block-active
+      {
         background-color: #eff9f9;
-        border-radius: 30px;
+        border-radius: 15px;
         padding: 20px;
       }
+		
+		.become-doc {
+			padding:20px;
+		}
+		
 
       .become-doc--nav-btns {
         display: flex;
@@ -471,7 +516,7 @@
       .become-doc--nav-btns a {
         padding: 27px 25px 30px 25px;
         line-height: 22px;
-        border: 2px solid rgb(16%, 23%, 37%, 0.5);
+        /* border: 2px solid rgb(16%, 23%, 37%, 0.5); */
         width: 35%;
         text-decoration: none;
         color: #293b5f;
@@ -482,12 +527,15 @@
         height: 50px;
         display: flex;
         justify-content: center;
-        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
       }
 
+
+      
+
       .blue-btn {
-        background-color: #50b8bc;
-        color: white !important;
+        background-color: #dfdfdf;
+        color: #293b5f !important;
         border-radius: 15px;
         z-index: 3;
       }
@@ -496,9 +544,7 @@
         padding: 20px !important;
       }
 
-      .blue-btn:hover {
-        background-color: #dfdfdf;
-      }
+   
 
       .gray-btn {
         background-color: #e7e7e7;
@@ -508,11 +554,7 @@
         margin-left: -20px;
       }
 
-      .gray-btn:hover {
-        background-color: #50b8bc;
-        color: white;
-
-      }
+    
 
 
       .white-btn {
@@ -524,14 +566,14 @@
       }
 
 
-      .white-btn:hover {
-        background-color: #50b8bc;
-        color: white;
-      }
+   
 
+       
       .btn-mobile {
         width: 250px;
       }
+
+      
 
       .doc-profile--content {
         display: flex;
@@ -624,6 +666,41 @@
         width: 65% !important;
       }
 
+      .btn-active {
+  background-color: #50b8bc !important;
+  color: white !important;
+  outline: 1px solid #50b8bc ;
+        outline-offset:-1px;
+}
+
+.menu-btn {
+  outline: 1px solid rgba(41, 59, 95, 0.5);
+  outline-offset:-1px;
+}
+
+.menu-btn:hover {
+background-color: #50b8bc;
+color: white !important;
+outline: 1px solid #50b8bc;
+  outline-offset:-1px;
+  transition: all 0.3s ease;
+
+}
+
+.active-btn {
+        background-color: #50b8bc !important;
+        color: white !important;
+      
+        outline: 1px solid #50b8bc;
+        outline-offset:-1px;
+        
+      }
+
+.toggle-btn:hover {
+  background-color: #50b8bc !important;
+  color: white !important;
+}
+
       /* 		Заблюренные рамки  */
 
       /*         .become-doc-list li::before {
@@ -642,10 +719,10 @@
       /* 		Заблюренные рамки  */
 
       @media (max-width: 1199px) {
-
-        #doc-card-img {
-          width: 80% !important;
-        }
+		  
+		  #doc-card-img {
+    width: 80% !important;
+}
 
         .become-doc-list {
           display: grid;
@@ -653,7 +730,7 @@
           gap: 15px;
         }
 
-
+        
 
         .doc-profile--mockup img {
 
@@ -664,16 +741,21 @@
 
       @media (max-width: 991px) {
 
-        #doc-card-img {
+        .bands-right { 
+display: none;
+        }
+		  
+		  #doc-card-img {
           width: 100% !important;
         }
-
+		  
         .docmaschool-btn {
           margin-top: 20px;
         }
 
         .employment-wrapper {
           margin: 30px 0 50px 0;
+          padding: 20px;
         }
 
         .become-doc-list {
@@ -716,6 +798,7 @@
 
         .already-doc {
           flex-direction: column;
+			
         }
 
         .already-doc a {
@@ -780,6 +863,17 @@
       }
 
       @media (max-width: 767px) {
+		  
+		  .already-doc, .docmaschool--wrapper, .employment-wrapper {
+			padding: 5px;
+		}
+		  
+		 
+        .block-active {
+          padding: 5px;
+        }
+
+       
 
 
         .doc-profile--content {
@@ -879,10 +973,6 @@
           padding: 5px 10px 0 10px !important;
         }
 
-        .become-doc {
-          background-color: white;
-          padding: 0;
-        }
 
         h1 {
           font-size: 24px;
@@ -947,40 +1037,67 @@
 
     <script>
 
-      let grayBtn = document.querySelector('.gray-btn')
-      let whiteBtn = document.querySelector('.white-btn')
-      let blueBtn = document.querySelector('.blue-btn')
-      let blueBtnCard = document.querySelector('.blue-btn--card')
-      let grayBtnCard = document.querySelector('.gray-btn--profile')
 
-      grayBtn.addEventListener('mouseover', function (event) {
-        blueBtn.style.cssText = 'background-color: #dfdfdf; color: #293b5f !important'
-      })
-
-      grayBtn.addEventListener('mouseout', function (event) {
-        blueBtn.style.cssText = 'background-color: #50b8bc; color: white'
-      })
-      whiteBtn.addEventListener('mouseover', function (event) {
-        blueBtn.style.cssText = 'background-color: #dfdfdf; color: #293b5f !important'
-      })
-
-      whiteBtn.addEventListener('mouseout', function (event) {
-        blueBtn.style.cssText = 'background-color: #50b8bc; color: white'
-      })
-
-
-      grayBtnCard.addEventListener('mouseover', function (event) {
-        blueBtnCard.style.cssText = 'background-color: #dfdfdf; color: #293b5f !important'
-      })
-
-      grayBtnCard.addEventListener('mouseout', function (event) {
-        blueBtnCard.style.cssText = 'background-color: #50b8bc; color: white'
-      })
+let menuBtns = document.querySelectorAll('.menu-btn')
+let blockslist = document.querySelectorAll('.block-bg-toggle') 
+let toggleBtn = document.querySelectorAll('.toggle-btn') 
 
 
 
+  let grayBtn = document.querySelector('.gray-btn')
+  let whiteBtn= document.querySelector('.white-btn')
+  let blueBtn= document.querySelector('.blue-btn')
+
+  let becomeDoc = document.querySelector('.become-doc')
+  let docmaSchool = document.querySelector('.docmaschool--wrapper')
+  let employment = document.querySelector('.employment-wrapper')
+
+ 
+  
+menuBtns.forEach(button => {
+  button.addEventListener('click', () => {
+   
+  document.querySelector('.active-btn').classList.remove('active-btn')
+  button.classList.add('active-btn')
+
+if (button==grayBtn) {
+  docmaSchool.classList.add('block-active')
+  becomeDoc.classList.remove('block-active')
+  employment.classList.remove('block-active')
+}
+
+else if (button==whiteBtn) {
+  docmaSchool.classList.remove('block-active')
+  becomeDoc.classList.remove('block-active')
+  employment.classList.add('block-active')
+}
+
+else {
+  docmaSchool.classList.remove('block-active')
+  becomeDoc.classList.add('block-active')
+  employment.classList.remove('block-active')
+}
+  })
+  })
+
+
+  
+  toggleBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelector('.btn-active').classList.remove('btn-active')
+  btn.classList.add('btn-active')
+    })
+  })
+  
+  
 
     </script>
+
+
+
+
+
+
 
 
 
