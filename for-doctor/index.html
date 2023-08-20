@@ -438,7 +438,7 @@ padding: 20px;
         height: 50px;
         display: flex;
         justify-content: center;
-        outline: 1px solid rgba(41, 59, 95, 0.5);
+        outline: 1px solid #E2E8F1;
         outline-offset:-1px;
       }
 
@@ -514,7 +514,8 @@ padding: 20px;
       }
 
       .become-doc--nav-btns a {
-        padding: 27px 25px 30px 25px;
+        /* padding: 27px 25px 30px 25px; */
+        padding: 10px 0;
         line-height: 22px;
         /* border: 2px solid rgb(16%, 23%, 37%, 0.5); */
         width: 35%;
@@ -524,7 +525,7 @@ padding: 20px;
         font-size: 22px;
         align-items: center;
         font-weight: 600;
-        height: 50px;
+        /* height: 50px; */
         display: flex;
         justify-content: center;
         /* box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px; */
@@ -534,9 +535,9 @@ padding: 20px;
       
 
       .blue-btn {
-        background-color: #dfdfdf;
+        background-color: #f7faff;
         color: #293b5f !important;
-        border-radius: 15px;
+        border-radius: 15px 0 0 15px;
         z-index: 3;
       }
 
@@ -547,18 +548,17 @@ padding: 20px;
    
 
       .gray-btn {
-        background-color: #e7e7e7;
+        background-color: #f7faff;
         z-index: 1;
         cursor: pointer;
-        border-radius: 0 15px 15px 0;
-        margin-left: -20px;
+              margin-left: -20px;
       }
 
     
 
 
       .white-btn {
-        background-color: #f5f5f5;
+        background-color: #f7faff;
         cursor: pointer !important;
         border-radius: 0 15px 15px 0;
         margin-left: -20px;
@@ -669,12 +669,12 @@ padding: 20px;
       .btn-active {
   background-color: #50b8bc !important;
   color: white !important;
-  outline: 1px solid #50b8bc ;
+  outline: 1px solid #E2E8F1 ;
         outline-offset:-1px;
 }
 
 .menu-btn {
-  outline: 1px solid rgba(41, 59, 95, 0.5);
+  outline: 1px solid #E2E8F1;
   outline-offset:-1px;
 }
 
@@ -740,6 +740,18 @@ outline: 1px solid #50b8bc;
       }
 
       @media (max-width: 991px) {
+
+        .gray-btn {
+          border-radius: 0 !important;
+         
+        }
+
+        .blue-btn {
+          border-radius: 10px 10px 0 0 !important;
+        }
+        .white-btn {
+          border-radius: 0 0 10px 10px !important;
+        }
 
         .bands-right { 
 display: none;
@@ -955,15 +967,15 @@ display: none;
           display: none;
         }
 
-        .become-doc--nav-btns a {
+        /* .become-doc--nav-btns a {
           padding: 25px;
-        }
+        } */
 
-        .blue-btn {
+        /* .blue-btn {
           padding: 0 10px !important;
-        }
+        } */
 
-        .gray-btn {
+        /* .gray-btn {
           margin-top: -10px !important;
           padding: 5px 10px 0 10px !important;
         }
@@ -971,7 +983,7 @@ display: none;
         .white-btn {
           margin-top: -10px !important;
           padding: 5px 10px 0 10px !important;
-        }
+        } */
 
 
         h1 {
@@ -992,14 +1004,10 @@ display: none;
           gap: 5px;
         }
 
-        /* 		  .expectation-list a {
-      min-height: 40px;
-      align-self: center;
-    padding: 5px;
-    font-size: 14px;
-    line-height: 16px;
-    
-    } */
+
+     
+
+
 
 
         .become-doc-list {
@@ -1046,7 +1054,7 @@ let toggleBtn = document.querySelectorAll('.toggle-btn')
 
   let grayBtn = document.querySelector('.gray-btn')
   let whiteBtn= document.querySelector('.white-btn')
-  let blueBtn= document.querySelector('.blue-btn')
+  // let blueBtn= document.querySelector('.blue-btn')
 
   let becomeDoc = document.querySelector('.become-doc')
   let docmaSchool = document.querySelector('.docmaschool--wrapper')
