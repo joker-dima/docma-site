@@ -99,34 +99,36 @@
           function animateDocmaAdvantage() {
 
             animationDocmaAdvantageFirstStep()
-            setTimeout(animationDocmaAdvantageSecondStep, 1600);
-            setTimeout(animationDocmaAdvantageThirdStep, 2500);
+            setTimeout(animationDocmaAdvantageSecondStep, 900);
+
+
 
 
             function animationDocmaAdvantageFirstStep() {
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider-none");
-
-            }
-
-            function animationDocmaAdvantageSecondStep() {
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-down");
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-up");
             }
 
-            function animationDocmaAdvantageThirdStep() {
+
+            function animationDocmaAdvantageSecondStep() {
+
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider-none");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-up");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider");
               activeDocmaAdvantage = (activeDocmaAdvantage + 1) % docmaAdvantages.length;
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider");
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-down");
+
             }
 
 
           }
 
-          setInterval(animateDocmaAdvantage, 2900);
+
+
+          setInterval(animateDocmaAdvantage, 4000);
 
 
           // !!!
@@ -187,12 +189,12 @@
 
         @keyframes AdvantageUp {
           from {
-            transform: translateY(0);
+            transform: translateX(0);
             opacity: 1;
           }
 
           to {
-            transform: translateY(2vh);
+            transform: translateX(6vh);
             opacity: 0;
           }
         }
@@ -204,12 +206,12 @@
 
         @keyframes AdvantageDown {
           from {
-            transform: translateY(-4vh);
+            transform: translateX(-6vh);
             opacity: 0;
           }
 
           to {
-            ransform: translateY(0);
+            ransform: translateX(0);
             opacity: 1;
           }
         }
@@ -692,7 +694,7 @@
       text-align: left;
       font-weight: 500;
       color: #179095;
-      font-style: italic;
+      color: #293B5F !important;
       font-size: 22px;
       margin: 60px 0 40px 0;
     }
@@ -1257,6 +1259,5 @@
 
     }
   </style>
-
 
 </html>
