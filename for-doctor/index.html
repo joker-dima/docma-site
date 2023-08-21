@@ -12,9 +12,9 @@
   <div class="for-doctor">
     <h2>Врачу</h2>
     <div class="become-doc--nav-btns">
-      <a href="#placement" class="menu-btn placement-btn active-btn">размещение на сайте</a>
+      <a href="#placement" class="menu-btn placement-btn placement-btn--mobile active-btn">размещение на сайте</a>
       <a href="#docmaschool" class="menu-btn education-btn">образование <br />в DocmaSchool</a>
-      <a href="#employment" class="menu-btn employment-btn">помощь в <br />трудоустройстве</a>
+      <a href="#employment" class="menu-btn employment-btn employment-btn--mobile">помощь в <br />трудоустройстве</a>
     </div>
     <div id="placement" class="become-doc block-active">
       <h1>Как стать врачом DocMa</h1>
@@ -165,25 +165,6 @@
           </div>
 
 
-          <!-- 				<script>
-					
-					let btnProfile = document.getElementById('sss');
-					let sss = document.getElementById('sss');
-					let ddd = document.getElementById('ddd');
-					btnProf = document.querySelector('.btn-prof-2')
-					
-					console.log(sss,btnProf)
-					
-					btnProf.addEventListener('click', () => {
-// 						ddd.classList.add('btn-prof')
-						sss.style.cssText = `display: flex;`;
-						
-																 }
-					)
-					
-					 -->
-          </script>
-
 
           <style>
             .wpcf7-submit {
@@ -218,8 +199,8 @@
         </p>
       </div>
 
-      <a style="display: block" class="btn-blue-hover docma-btn doc-profile-link" href="/my-acc/">Личный кабинет
-        врача</a>
+      <a style="display: block; background-color: #293b5f" class="btn-blue-hover docma-btn doc-profile-link"
+        href="/my-acc/">Личный кабинет врача</a>
     </div>
     <div class="docmaschool--wrapper block-bg-toggle">
 
@@ -259,9 +240,10 @@
           <img src="http://a0729808.xsph.ru/wp-content/uploads/2023/08/docmaschool.png" alt="" />
           <div class="docmaschool-courses--available">
             <h4>Доступные курсы:</h4>
-            <a style="width: 100%; background-color: #50b8bc" class="docma-btn btn-blue-hover" href="">Терапия</a>
-            <a style="width: 100%; background-color: #dd5069; margin-top: 10px" class="docma-btn btn-pink-hover"
-              href="">Гастроэнтерология</a>
+            <a target="_blank" style="width: 100%; background-color: #50b8bc" class="docma-btn btn-blue-hover"
+              href="https://docmaschool.ru/therapy">Терапия</a>
+            <a target="_blank" style="width: 100%; background-color: #dd5069; margin-top: 10px"
+              class="docma-btn btn-pink-hover" href="https://docmaschool.ru/gastro">Гастроэнтерология</a>
           </div>
           <div class="docmaschool-courses--expectation">
             <h4>Планируемые курсы:</h4>
@@ -291,7 +273,8 @@
         </div>
       </div>
       <div class="docmaschool-btn">
-        <a style="display: block; margin: 0;" class="docma-btn btn-mobile btn-darkblue-hover"
+        <a style="display: block; margin: 0; background-color: #50b8bc"
+          class="large-btn docma-btn btn-mobile btn-darkblue-hover" target="_blank"
           href="https://docmaschool.ru/">DocMaSchool</a>
       </div>
     </div>
@@ -340,7 +323,16 @@
       }
 
 
-
+      .docma-bands .btn-prof--first,
+      .docmaschool-btn .large-btn {
+        font-size: 22px;
+        padding: 10px 0;
+        height: 64px;
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+      }
 
 
       .docmaschool--wrapper {
@@ -510,6 +502,7 @@
       .sign-up--btns a {
         padding: 35px;
         line-height: 22px;
+        height: 64px;
         width: 30%;
         text-decoration: none;
         color: #293b5f;
@@ -517,7 +510,6 @@
         font-size: 20px;
         align-items: center;
         font-weight: 600;
-        height: 50px;
         display: flex;
         justify-content: center;
         outline: 1px solid #E2E8F1;
@@ -541,19 +533,6 @@
         display: none;
       }
 
-      /* .docma-bands::before {
-        content: "";
-        position: absolute;
-        width: 80px;
-        height: 100px;
-        left: 0%;
-        top: -30px;
-        background-image: url(http://a0729808.xsph.ru/wp-content/uploads/2023/08/bands-left.svg);
-        background-position: left;
-        background-size: 85px;
-        background-repeat: no-repeat;
-        margin-left: -20px;
-      } */
 
       .docma-bands-already-doc {
         content: "";
@@ -676,7 +655,7 @@
         box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
         color: white !important;
         padding: 5px 20px;
-        border-radius: 10px;
+        border-radius: 15px;
         font-size: 18px;
       }
 
@@ -699,12 +678,13 @@
 
       .become-doc-list {
         display: grid;
-        grid-template: 1fr / 250px 250px 250px 250px;
-        justify-items: center;
+        grid-template: 1fr / 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        justify-content: space-evenly;
         list-style: none;
-        justify-content: center;
+
         margin: 20px 0;
-        padding: 0 50px;
+
       }
 
       .become-doc-list--item {
@@ -715,10 +695,10 @@
         border-radius: 10px;
         padding: 20px;
         position: relative;
-        background-color: rgba(255, 255, 255, 0.3);
-        max-width: 220px;
-        max-height: 150px;
+        background-color: white;
+        max-height: 200px;
         border: 1px solid rgba(41, 59, 95, 0.2);
+        font-size: 20px;
       }
 
       .locked {
@@ -801,17 +781,15 @@
 
       @media (max-width: 991px) {
 
+        .docma-bands .btn-prof--first,
+        .docmaschool-btn .large-btn {
+          font-size: 18px;
+          width: 100%;
+        }
+
         .education-btn {
           border-radius: 0 !important;
 
-        }
-
-        .placement-btn {
-          border-radius: 10px 10px 0 0 !important;
-        }
-
-        .employment-btn {
-          border-radius: 0 0 10px 10px !important;
         }
 
         .bands-right {
@@ -937,6 +915,37 @@
 
       @media (max-width: 767px) {
 
+        .docma-bands .btn-prof--first,
+        .docmaschool-btn .large-btn {
+          font-size: 18px;
+          height: auto;
+          height: 42px;
+        }
+
+        .sign-up--btns a {
+          font-size: 18px;
+          padding: 10px 0 !important;
+          height: auto;
+        }
+
+        .become-doc--nav-btns .placement-btn--mobile {
+          border-radius: 10px 10px 0 0;
+        }
+
+        .become-doc--nav-btns .employment-btn--mobile {
+          border-radius: 0 0 10px 10px;
+        }
+
+
+
+        .become-doc {
+          padding: 10px;
+        }
+
+        .become-doc-list li {
+          font-size: 18px;
+        }
+
         .already-doc,
         .docmaschool--wrapper,
         .employment-wrapper {
@@ -1056,7 +1065,7 @@
 
 
         .become-doc-list {
-          gap: 10px;
+          gap: 5px;
         }
 
         .become-doc-list li {
@@ -1145,8 +1154,6 @@
 
 
     </script>
-
-
 
 
 
