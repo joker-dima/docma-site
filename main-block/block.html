@@ -96,12 +96,11 @@
           var activeDocmaAdvantage = 0;
 
 
+          // 			АНИМАЦИЯ ПРЕИМУЩЕСТВ
+
           function animateDocmaAdvantage() {
 
             animationDocmaAdvantageFirstStep()
-            setTimeout(animationDocmaAdvantageSecondStep, 900);
-
-
 
 
             function animationDocmaAdvantageFirstStep() {
@@ -109,10 +108,7 @@
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider-none");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-down");
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-up");
-            }
 
-
-            function animationDocmaAdvantageSecondStep() {
 
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider-none");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-up");
@@ -120,25 +116,19 @@
               activeDocmaAdvantage = (activeDocmaAdvantage + 1) % docmaAdvantages.length;
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider");
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-down");
-
             }
 
-
           }
+          setInterval(animateDocmaAdvantage, 8500);
 
 
-
-          setInterval(animateDocmaAdvantage, 4000);
-
-
-          // !!!
+          // 			АНИМАЦИЯ ВРАЧЕЙ
 
 
           function animateImageChange() {
 
-            setTimeout(animationFirstStep, 1000);
-            setTimeout(animationSecondStep, 1500);
-            setTimeout(animationThirdStep, 1500);
+
+            animationFirstStep();
 
 
             function animationFirstStep() {
@@ -150,28 +140,25 @@
               docsImages[activeImageIndex].classList.remove("docs-visible");
               docsImages[activeImageIndex].classList.add("docs-animation");
 
-            }
-
-            function animationSecondStep() {
 
               docsNames[activeImageIndex].classList.add("docs-names--hidden");
               docsImages[activeImageIndex].classList.add("docs-none");
-
               activeImageIndex = (activeImageIndex + 1) % docsImages.length;
-
-
               docsImages[activeImageIndex].classList.add("docs-visible");
               docsNames[activeImageIndex].classList.add("docs-animation-visible");
-            }
 
-            function animationThirdStep() {
+
+
               docsImages[activeImageIndex].classList.remove("docs-animation");
               docsImages[activeImageIndex].classList.remove("docs-none");
               docsNames[activeImageIndex].classList.remove("docs-names--hidden");
+
             }
+
+
           }
 
-          setInterval(animateImageChange, 2500);
+          setInterval(animateImageChange, 4000);
         });
 
 
@@ -184,7 +171,7 @@
       <style>
         .advantage-up {
           display: block;
-          animation: AdvantageUp 1s ease-in-out;
+          animation: AdvantageUp 0.8s ease-in-out;
         }
 
         @keyframes AdvantageUp {
@@ -201,7 +188,7 @@
 
         .advantage-down {
           display: block;
-          animation: AdvantageDown 1s ease-in-out;
+          animation: AdvantageDown 0.8s ease-in-out;
         }
 
         @keyframes AdvantageDown {
