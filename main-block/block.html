@@ -100,26 +100,32 @@
 
           function animateDocmaAdvantage() {
 
-            animationDocmaAdvantageFirstStep()
 
 
-            function animationDocmaAdvantageFirstStep() {
-              docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider");
-              docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider-none");
-              docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-down");
-              docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-up");
 
+            function sleep(ms) {
+              return new Promise(resolve => setTimeout(resolve, ms));
+            }
 
-              docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider-none");
+            docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider");
+            docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider-none");
+            docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-down");
+            docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-up");
+            docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider-none");
+
+            sleep(400).then(() => {
+
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantage-up");
               docmaAdvantages[activeDocmaAdvantage].classList.remove("advantages-slider");
               activeDocmaAdvantage = (activeDocmaAdvantage + 1) % docmaAdvantages.length;
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantages-slider");
               docmaAdvantages[activeDocmaAdvantage].classList.add("advantage-down");
-            }
+
+            });
+
 
           }
-          setInterval(animateDocmaAdvantage, 8500);
+          setInterval(animateDocmaAdvantage, 6000);
 
 
           // 			АНИМАЦИЯ ВРАЧЕЙ
@@ -158,7 +164,7 @@
 
           }
 
-          setInterval(animateImageChange, 4000);
+          setInterval(animateImageChange, 3000);
         });
 
 
@@ -171,7 +177,7 @@
       <style>
         .advantage-up {
           display: block;
-          animation: AdvantageUp 0.8s ease-in-out;
+          animation: AdvantageUp 0.5s ease-in-out;
         }
 
         @keyframes AdvantageUp {
@@ -188,7 +194,7 @@
 
         .advantage-down {
           display: block;
-          animation: AdvantageDown 0.8s ease-in-out;
+          animation: AdvantageDown 0.5s ease-in-out;
         }
 
         @keyframes AdvantageDown {
@@ -219,14 +225,14 @@
 
 
         .docs-animation {
-          animation: fadeOutFromBlock 0.8s ease-in-out;
+          animation: fadeOutFromBlock 0.5s ease-in-out;
 
         }
 
 
 
         .docs-animation-names {
-          animation: fadeOutFromBlockText 0.8s ease-in-out;
+          animation: fadeOutFromBlockText 0.5s ease-in-out;
         }
 
         .docs-visible {
@@ -248,7 +254,7 @@
 
         @keyframes fadeInFromNoneText {
           from {
-            transform: translateX(30%);
+            transform: translateX(-10%);
             opacity: 0;
           }
 
@@ -307,13 +313,6 @@
 
 
       <!-- Анимация -->
-
-
-
-
-
-
-
 
 
 
@@ -874,7 +873,7 @@
       margin: 0 0 0 0;
       padding: 0 0 10px 0;
       line-height: 40px;
-      font-size: 18px;
+      font-size: 26px;
       font-weight: 800;
       margin-left: 55px;
 
@@ -890,10 +889,10 @@
       width: 40px;
       height: 40px;
       background: #fff;
-      color: #000;
+      color: #293B5F;
       text-align: center;
       line-height: 40px;
-      font-size: 18px;
+      font-size: 22px;
       border-radius: 50%;
       background-color: #a2d9dc;
     }
