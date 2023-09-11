@@ -42,7 +42,7 @@
 
                         <div class="right-doc">
                             <div style="color: #293A5F" class="font4 docs-name">
-                                <p>невролог</p>Иван Иванов
+                                <p>невролог</p>Юлия Старцева
                             </div>
                             <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-2-3.png"
                                 alt="" />
@@ -65,16 +65,16 @@
 
                         <div class="right-doc">
                             <div style="color: #293A5F" class="font4 docs-name">
-                                <p>невролог</p>22222
+                                <p>уролог</p>Ирина Юркевич
                             </div>
-                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-2-3.png"
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-5.png"
                                 alt="" />
 
                         </div>
 
                         <div class="left-doc">
                             <div style="color: #293A5F" class="font4 docs-name">
-                                <p>педиатр</p>22222
+                                <p>хирург</p>Юрий Никулин
                             </div>
                             <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-1.png"
                                 alt="" />
@@ -87,18 +87,18 @@
 
                         <div class="right-doc">
                             <div style="color: #293A5F" class="font4 docs-name">
-                                <p>невролог</p>33333
+                                <p>психолог</p>Марина Сысоева
                             </div>
-                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-2-3.png"
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-6.png"
                                 alt="" />
 
                         </div>
 
                         <div class="left-doc">
                             <div style="color: #293A5F" class="font4 docs-name">
-                                <p>педиатр</p>3333
+                                <p>рентгенолог</p>Ульяна Зуева
                             </div>
-                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-3.png"
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-7.png"
                                 alt="" />
 
                         </div>
@@ -114,104 +114,79 @@
 
                 <script>
 
+
+
                     let rightDocs = document.querySelectorAll('.right-doc');
                     let leftDocs = document.querySelectorAll('.left-doc');
                     let docsImages = document.getElementsByClassName("docs-image");
                     let activeImageIndex = 0;
                     let adventages = document.querySelectorAll('.doc-adventages-item');
+                    let startTime;
 
+                    function animate(currentTime) {
+                        if (!startTime) {
+                            startTime = currentTime;
+                        }
 
-
-
-
-                    // Начинаем анимацию с задержкой
-
-                    let docsAnimationFunction = () => {
-
-
-                        // Начинаем анимацию с задержкой
-                        setTimeout(function () {
-
-
+                        // Выполняйте анимацию только после прошествия 500 миллисекунд
+                        if (currentTime - startTime >= 500) {
                             // появляется преимущество
-                            setTimeout(function () {
-                                adventages[activeImageIndex].classList.add('doc-visible')
-                            }, 100);
-
-                            // правый врач появляется c здержкой в 0.3с
-                            setTimeout(function () {
-                                leftDocs[activeImageIndex].classList.add('doc-visible')
-                            }, 300);
-
-                            // левый врач появляется с задержкой 0.6с
-                            setTimeout(function () {
-                                rightDocs[activeImageIndex].classList.add('doc-visible')
-                            }, 600);
-
-
-
-
-
-                            // преимущество исчезает с задержкой
-                            setTimeout(function () {
-                                //Анимация
-                                // adventages[activeImageIndex].classList.remove('doc-visible');
-                                adventages[activeImageIndex].classList.add('doc-hidden');
-                                // Удаление с задержкой после срабатыания анимации
-                                setTimeout(function () {
-                                    adventages[activeImageIndex].classList.remove('doc-visible');
-                                }, 500);
-
-
-                            }, 2500)
-
-
-
-
-
-
-                            // левый врач исчезает с задержкой
-                            setTimeout(function () {
-                                //Анимация
-                                leftDocs[activeImageIndex].classList.add('doc-hidden');
-                                // Удаление с задержкой после срабатыания анимации
-                                setTimeout(function () {
-                                    leftDocs[activeImageIndex].classList.remove('doc-visible');
-                                }, 500);
-                            }, 2800)
-
-
-                            // правый врач исчезает с задержкой
-                            setTimeout(function () {
-                                //Анимация
-                                rightDocs[activeImageIndex].classList.add('doc-hidden');
-                                // Удаление с задержкой после срабатыания анимации
-                                setTimeout(function () {
-                                    rightDocs[activeImageIndex].classList.remove('doc-visible');
-                                }, 500);
-
-                            }, 3100)
-
-
-                            //Через 4 секунды увеличиваем счетчик слайдов
-                            // setTimeout(function () {
-
-
-
-                            // }, 4000)
-
-                            if (activeImageIndex === (adventages.length - 1)) { activeImageIndex = 0; }
-
-                            else {
-                                activeImageIndex = activeImageIndex + 1
+                            if (currentTime - startTime >= 200) {
+                                adventages[activeImageIndex].classList.add('doc-visible');
                             }
 
-                        }, 500);
+                            // правый врач появляется c задержкой 
+                            if (currentTime - startTime >= 700) {
+                                leftDocs[activeImageIndex].classList.add('doc-visible');
+                            }
+
+                            // левый врач появляется с задержкой 
+                            if (currentTime - startTime >= 900) {
+                                rightDocs[activeImageIndex].classList.add('doc-visible');
+                            }
+
+                            // преимущество исчезает с задержкой
+                            if (currentTime - startTime >= 2800) {
+                                adventages[activeImageIndex].classList.add('doc-hidden');
+                                // Удаление после завершения анимации
+                                if (currentTime - startTime >= 3300) {
+                                    adventages[activeImageIndex].classList.remove('doc-visible');
+                                }
+                            }
+
+                            // левый врач исчезает с задержкой
+                            if (currentTime - startTime >= 3100) {
+                                leftDocs[activeImageIndex].classList.add('doc-hidden');
+                                // Удаление после завершения анимации
+                                if (currentTime - startTime >= 3600) {
+                                    leftDocs[activeImageIndex].classList.remove('doc-visible');
+                                }
+                            }
+
+                            // правый врач исчезает с задержкой
+                            if (currentTime - startTime >= 3400) {
+                                rightDocs[activeImageIndex].classList.add('doc-hidden');
+                                // Удаление после завершения анимации
+                                if (currentTime - startTime >= 3900) {
+                                    rightDocs[activeImageIndex].classList.remove('doc-visible');
+                                }
+                            }
+
+                            // Увеличение счетчика слайдов каждые 4 секунды
+                            if (currentTime - startTime >= 4000) {
+                                if (activeImageIndex === (adventages.length - 1)) {
+                                    activeImageIndex = 0;
+                                } else {
+                                    activeImageIndex++;
+                                }
+                                startTime = currentTime;
+                            }
+                        }
+
+                        requestAnimationFrame(animate);
                     }
 
-
-                    docsAnimationFunction()
-                    setInterval(docsAnimationFunction, 4000);
+                    requestAnimationFrame(animate);
 
                 </script>
                 <!-- Скрипт Анимации -->
@@ -230,6 +205,7 @@
                         position: absolute;
                         visibility: hidden;
                         opacity: 0;
+
                         /* transition: opacity 1s linear, visibility 1s linear; */
                     }
 
@@ -237,7 +213,9 @@
                         animation: hiddenAnimation 0.5s ease-in-out;
                     }
 
-
+                    .right-doc div {
+                        margin-left: 10%;
+                    }
 
                     .doc-visible {
                         animation: visibilityAnimation 0.5s ease-in-out;
@@ -301,7 +279,7 @@
                         bottom: 0;
                         display: flex;
                         flex-direction: column;
-                        right: 190px;
+                        right: 200px;
 
                     }
 
@@ -313,186 +291,35 @@
                 <!-- Новые стили -->
 
 
-
-
-
-
-
-
-
-                <!-- старая Анимация -->
-
-
-                <!-- <style>
-                    #docs-img-wrapper {
-                        height: 500px;
-
-                    }
-
-
-                    .docs-animation-none {
-                        animation: AdvantageUp 0.5s ease-in-out;
-                    }
-
-
-                    .advantage-up {
-                        display: block;
-                        animation: AdvantageUp 0.5s ease-in-out;
-                    }
-
-                    @keyframes AdvantageUp {
-                        from {
-                            transform: translateX(0);
-                            opacity: 1;
-                        }
-
-                        to {
-                            transform: translateX(6vh);
-                            opacity: 0;
-                        }
-                    }
-
-                    .advantage-down {
-                        display: block;
-                        animation: AdvantageDown 0.5s ease-in-out;
-                    }
-
-                    @keyframes AdvantageDown {
-                        from {
-                            transform: translateX(-6vh);
-                            opacity: 0;
-                        }
-
-                        to {
-                            ransform: translateX(0);
-                            opacity: 1;
-                        }
-                    }
-
-
-                    
-
-                    .docs-none {
-                        display: none;
-                    }
-
-
-                    .docs-animation {
-                        animation: fadeOutFromBlock 0.5s ease-in-out;
-
-                    }
-
-
-
-                    .docs-animation-names {
-                        animation: fadeOutFromBlockText 0.5s ease-in-out;
-                    }
-
-                    .docs-visible {
-                        display: flex;
-                        opacity: 1;
-                        animation: fadeInFromNone 0.5s ease-in-out;
-
-                    }
-
-
-
-                    .docs-animation-visible {
-                        display: flex;
-                        animation: fadeInFromNoneText 0.5s ease-in-out;
-
-                    }
-
-
-
-                    @keyframes fadeInFromNoneText {
-                        from {
-                            transform: translateX(-10%);
-                            opacity: 0;
-                        }
-
-                        to {
-                            ransform: translateX(0);
-                            opacity: 1;
-                        }
-                    }
-
-                    @keyframes fadeInFromNone {
-                        from {
-                            transform: translateX(-30%);
-                            opacity: 0;
-                        }
-
-                        to {
-                            ransform: translateX(0);
-                            opacity: 1;
-                        }
-                    }
-
-                    @keyframes fadeOutFromBlock {
-                        from {
-                            opacity: 1;
-                            transform: translateX(0%);
-                        }
-
-                        to {
-                            transform: translateX(30%);
-                            opacity: 0;
-                        }
-
-                    }
-
-
-                    @keyframes fadeOutFromBlockText {
-                        from {
-                            opacity: 1;
-                            transform: translateX(0);
-                        }
-
-                        to {
-                            transform: translateX(-30%);
-                            opacity: 0;
-                        }
-
-                    }
-                </style> -->
-
-
-
-
-
-
-
-
-
-                <!-- старая Анимация -->
-
-
-
-
             </div>
             <div class="advantages-list--ns">
                 <a href="/appeal-online/" class="advantages-list--item list-item-pink">
-                    <h4 class="font2" style="color: white; font-weight: 600">Выбрать врача онлайн</h4>
+                    <h4 class="font2" style="color: white; font-weight: 600 !important">Выбрать врача онлайн</h4>
                     <p class="font3">Ответ за 24 часа</p>
                     <span class="circle"></span>
                 </a>
-                <a style="border: 1px solid #02B5BC;" href="/urgent-appeal/" class="advantages-list--item">
-                    <h4 class="font2" style="font-weight: 600">Срочное обращение</h4>
+                <a href="/urgent-appeal/" class="advantages-list--item">
+                    <h4 class="font2" style="font-weight: 600 !important">Срочное обращение</h4>
                     <p class="font3">Ответ за 1 час</p>
                     <span class="circle"></span>
                 </a>
                 <a href="/escort/" class="advantages-list--item">
-                    <h4 class="font2" style="font-weight: 600">Сопровождение онлайн</h4>
+                    <h4 class="font2" style="font-weight: 600 !important">Сопровождение онлайн</h4>
                     <p class="font3">На связи с врачом до 21 дня</p>
                     <span class="circle"></span>
                 </a>
                 <a href="/search-doc-city/" class="advantages-list--item">
-                    <h4 class="font2 " style="font-weight: 600">Найти врача в своем городе</h4>
+                    <h4 class="font2 " style="font-weight: 600 !important">Найти врача в своем городе</h4>
                     <p class="font3">Только докмед врачи</p>
                     <span class="circle"></span>
                 </a>
             </div>
+
+            <a href="" class="doc-appeal-btn font2 link-m-q">Не знаете к кому обратиться?
+
+                <span class="green-circle"></span>
+            </a>
+
         </div>
 
 
@@ -500,6 +327,27 @@
 
 
         <style>
+            .start-block .green-circle {
+                display: none;
+
+            }
+
+            .start-block .doc-appeal-btn {
+                position: relative;
+                display: flex;
+                margin-top: 20px;
+                border-radius: 10px;
+                justify-content: center;
+                color: white !important;
+                width: 100%;
+                padding: 15px;
+                background-color: #02B5BC;
+                box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+                font-weight: 500 !important;
+                align-items: center;
+            }
+
+
             .why-docma {
                 margin-bottom: 100px;
             }
@@ -543,11 +391,6 @@
 
             }
 
-
-
-
-
-
             .why-docma--list li {
                 position: relative;
                 flex-direction: column;
@@ -581,6 +424,13 @@
             }
 
             @media (max-width: 991px) {
+
+
+                #docs-img-wrapper .right-doc div {
+                    margin-left: auto;
+                }
+
+
                 .why-docma--list li::before {
                     display: none;
 
@@ -609,6 +459,13 @@
 
 
             @media (max-width: 991px) {
+
+                .start-block .doc-appeal-btn {
+                    border-radius: 20px;
+                    font-weight: 600 !important;
+                    padding: 30px;
+                }
+
                 .why-docma h2 {
                     text-align: center;
 
@@ -796,6 +653,10 @@
             }
 
             @media (max-width: 1024px) {
+
+
+
+
                 .greeting-docs {
                     grid-template-areas:
                         "heading heading"
@@ -826,12 +687,6 @@
                 font-size: 40px;
             }
 
-            /* 
-            .advantages-slider-none {
-                display: none;
-
-            } */
-
             .doc-adventages-item {
                 display: block;
                 text-align: left;
@@ -844,6 +699,9 @@
 
             @media (max-width: 1024px) {
 
+
+
+
                 .doc-adventages-item {
                     margin: 20px 0;
                 }
@@ -851,8 +709,6 @@
                 .greeting-docs--list {
                     margin: auto 0;
                 }
-
-
             }
 
             .greeting-docs--list {
@@ -893,10 +749,6 @@
             .greeting-docs-img div div {
                 text-align: left;
             }
-
-
-
-
 
             .advantages-list--ns {
                 display: grid;
@@ -960,7 +812,20 @@
                 font-size: 20px;
             }
 
-            .circle {
+            .doc-appeal-btn .green-circle {
+                background-color: #b3e9eb;
+            }
+
+            .doc-appeal-btn .green-circle::before {
+                background-color: #3ac5cb;
+            }
+
+            .doc-appeal-btn .green-circle::after {
+                background-color: #ffffff;
+            }
+
+            .circle,
+            .green-circle {
                 display: block;
                 position: absolute;
                 right: 10%;
@@ -971,7 +836,8 @@
                 border-radius: 50%;
             }
 
-            .circle::before {
+            .circle::before,
+            .green-circle::before {
                 content: "";
                 position: absolute;
                 width: 25px;
@@ -982,7 +848,8 @@
                 border-radius: 50%;
             }
 
-            .circle::after {
+            .circle::after,
+            .green-circle::after {
                 content: "";
                 position: absolute;
                 width: 25px;
@@ -1017,6 +884,7 @@
                 font-weight: 600;
                 margin-left: 55px;
 
+
             }
 
             .greeting-docs--list ol li:before {
@@ -1047,17 +915,13 @@
 
 
             @media (max-width: 767px) {
-
-
                 .greeting-docs--list ol li {
                     margin-left: 30px;
                 }
 
                 .greeting-docs--list ol li:before {
-
                     left: -30px;
                 }
-
 
                 .greeting-docs--list ol li {
                     font-size: 14px;
@@ -1072,10 +936,14 @@
 
 
             @media (max-width: 1199px) {
+
+                .greeting-docs--list ol li:before {
+                    font-size: 18px;
+                }
+
                 #docs-img-wrapper {
                     height: 450px;
                 }
-
 
                 .greeting-docs-img {
                     background-size: 450px;
@@ -1086,17 +954,28 @@
                 }
 
                 .advantages-list--item h4 {
-
                     font-size: 26px;
                 }
 
                 .advantages-list--item p {
                     font-size: 18px;
                 }
-
             }
 
             @media (max-width: 991px) {
+
+                .start-block .green-circle {
+                    display: flex;
+                    bottom: 10%;
+
+                }
+
+                .start-block .doc-appeal-btn {
+                    justify-content: flex-start;
+                    line-height: 60px;
+                    border-radius: 20px;
+                }
+
 
                 #docs-img-wrapper {
                     height: 350px;
@@ -1117,6 +996,15 @@
             }
 
             @media (max-width: 767px) {
+
+                .start-block .doc-appeal-btn {
+                    line-height: 55px;
+                }
+
+                .start-block .doc-appeal-btn {
+                    border-radius: 10px;
+                }
+
                 .advantages-list--item {
                     border-radius: 10px;
                 }
@@ -1143,8 +1031,29 @@
 
             @media (max-width:530px) {
 
+                .start-block .doc-appeal-btn {
+                    line-height: 52px;
+                }
+
+                .greeting-docs {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                }
+
+                .greeting-docs--heading {
+                    margin-bottom: 70px;
+                }
+
                 .left-doc {
-                    right: 70px;
+                    right: 30%
+                }
+
+                .left-doc div {
+                    margin-left: -40px;
+                }
+
+                .left-doc div {
+                    margin-right: auto;
                 }
 
                 .right-doc {
@@ -1156,31 +1065,27 @@
                     width: auto;
                 }
 
-
                 .greeting-docs-img div div {
-                    font-size: 12px !important;
+                    font-size: 12px;
                     white-space: nowrap;
                 }
 
                 .greeting-docs--list ol {
-                    padding-right: 20px;
+                    padding-right: 10px;
                 }
 
                 .greeting-docs-img {
-                    background-size: auto;
+                    background-size: calc(100% - 30px);
+                    /* 					 background-size: auto; */
                 }
-
 
                 #docs-img-wrapper {
                     height: auto;
                 }
 
-
                 .greeting-docs--list ol li {
                     padding: 0;
                 }
-
-
 
                 .greeting-docs--list ol li:last-child {
                     margin-bottom: 0;
@@ -1193,13 +1098,44 @@
             }
 
 
-
             @media (max-width:440px) {
+
+
+                .start-block .doc-appeal-btn {
+                    line-height: 42px;
+                }
+
+                .doc-appeal-btn {
+
+                    line-height: 50px;
+                    justify-content: flex-start;
+                }
+
+                .left-doc div {
+                    margin-left: 0;
+                }
+
+                .greeting-docs-img .docs-image {
+                    width: 60% !important;
+                    height: auto !important;
+                }
+
+                .left-doc {
+                    width: 100% !important;
+                    align-items: flex-end;
+                    right: 35%;
+                }
+
+                .right-doc {
+                    margin-left: auto;
+                    align-items: flex-end;
+                }
+
+
 
                 .advantages-list--item p {
                     font-size: 14px
                 }
-
 
                 .advantages-list--item h4 {
                     font-size: 18px;
@@ -1207,12 +1143,13 @@
                     margin-bottom: 0;
                 }
 
-                .advantages-list--item {
+                .advantages-list--item,
+                .start-block .doc-appeal-btn {
                     padding: 20px 15px;
                 }
 
-
-                .circle {
+                .circle,
+                .green-circle {
                     opacity: 1;
                     width: 25px;
                     height: 25px;
@@ -1220,10 +1157,28 @@
                     margin: auto;
                     top: 0;
                     bottom: 0;
-
                 }
 
-                .list-item-pink .circle:before {
+                .doc-appeal-btn .green-circle::before {
+                    background-color: #b3e9eb;
+                }
+
+                .doc-appeal-btn .green-circle {
+                    background-color: #3ac5cb;
+                }
+
+
+                .start-block .green-circle {
+                    margin: auto;
+                    top: 0;
+                    bottom: 0;
+                }
+
+
+
+
+
+                .list-item-pink .circle::before {
                     background-color: #FFC6DA !important;
                     opacity: 1;
                     right: -20px;
@@ -1236,7 +1191,6 @@
                     right: -40px;
                     width: 25px;
                     height: 25px;
-
                 }
 
                 .list-item-pink .circle {
@@ -1245,7 +1199,8 @@
 
                 }
 
-                .advantages-list--item .circle:before {
+                .advantages-list--item .circle::before,
+                .green-circle::before {
                     background-color: #ffc6da;
                     opacity: 1;
                     right: -15px;
@@ -1254,18 +1209,17 @@
                 }
 
 
-                .advantages-list--item .circle::after {
+                .advantages-list--item .circle::after,
+                .green-circle::after {
                     background-color: #F36A94;
                     right: -30px;
                     width: 25px;
                     height: 25px;
-
                 }
 
                 .advantages-list--item .circle {
                     position: absolute;
                     background-color: #ffdde9;
-
                 }
 
 
@@ -1273,19 +1227,15 @@
                     font-size: 18px;
                 }
 
-
                 .greeting-docs--list {
                     margin: 0 !important;
                     margin-top: auto !important;
                 }
 
-
                 .greeting-docs-img {
 
                     background-size: auto;
                 }
-
-
 
                 .greeting-docs--list ol li {
                     font-size: 12px;
@@ -1294,43 +1244,39 @@
                 .greeting-docs--list ol li:before {
                     font-size: 12px !important;
                 }
-
-
             }
 
             @media (max-width:375px) {
+
+                .start-block .doc-appeal-btn {
+                    padding: 15px 10px;
+                }
+
+                .doc-appeal-btn {
+                    line-height: 30px;
+                }
+
+                .left-doc div {
+                    margin-right: auto;
+                }
+
+                .greeting-docs-img div div {
+                    font-size: 10px;
+                }
+
+                .greeting-docs--heading {
+                    margin-bottom: 15%;
+                }
 
                 .greeting-docs-img {
                     height: 95%;
                     margin-top: auto;
                 }
 
-                .left-doc {
-                    right: 60px;
-                }
-
-                .greeting-docs-img .docs-image {
-                    width: 60% !important;
-                    height: auto !important;
-                }
-
-                .left-doc {
-                    width: 100% !important;
-                    align-items: flex-end;
-                }
-
-                .right-doc {
-                    margin-left: auto;
-                    align-items: flex-end;
-                }
-
-
-
                 .greeting-docs-img {
                     background-size: auto;
 
                 }
-
 
                 .advantages-list--item h4 {
                     font-size: 16px;
@@ -1345,18 +1291,27 @@
 
 
             @media (max-width:350px) {
-                .circle {
+
+                .start-block .doc-appeal-btn {
+                    line-height: 18px;
+                }
+
+
+                .circle,
+                .green-circle {
                     width: 20px;
                     height: 20px;
                     right: 35px;
                 }
 
-                .circle:before {
+                .circle::before,
+                .green-circle::before {
                     width: 20px !important;
                     height: 20px !important;
                 }
 
-                .circle:after {
+                .circle:after,
+                .green-circle::after {
                     width: 20px !important;
                     height: 20px !important;
                 }
@@ -1370,7 +1325,6 @@
 
 
     </div>
-
 
 </body>
 
