@@ -1,0 +1,2188 @@
+<?php
+/**
+ * The main template file
+ *
+ * This is the most generic template file in a WordPress theme
+ * and one of the two required files for a theme (the other being style.css).
+ * It is used to display a page when nothing more specific matches a query.
+ * E.g., it puts together the home page when no home.php file exists.
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ *
+ * @package DocMa
+ */
+
+get_header();
+?>
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/main_p.css">
+
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/css/pop-dont.css">
+
+
+<!-- Секция 1 -->
+
+
+<div class="container">
+
+    <div class="start-block">
+        <div class="greeting-docs">
+            <div class="greeting-docs--heading">
+                <h2 class="font1">Доказательные врачи</h2>
+                <h2 class="font1">Консультации онлайн</h2>
+                <div class="doc-adventages-wrapper">
+                    <span class="doc-adventages-item font2">Научный подход</span>
+                    <span class="doc-adventages-item font2">Доказательная медицина</span>
+                    <span class="doc-adventages-item font2">Только опытные врачи</span>
+                </div>
+            </div>
+
+            <div class="greeting-docs--list">
+                <ol>
+                    <li class="font2">Выберите <br class="mob-shift">специалиста</li>
+                    <li class="font2">Оплатите<br class="mob-shift"> обращение</li>
+                    <li class="font2">Общайтесь<br class="mob-shift"> в приложении</li>
+
+
+                </ol>
+            </div>
+
+
+
+            <div class="greeting-docs-img">
+
+                <div id="docs-img-wrapper">
+
+                    <div class="right-doc">
+                        <div style="color: #293A5F" class="font4 docs-name">
+                            <p>невролог</p>Юлия Старцева
+                        </div>
+                        <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-2-3.png"
+                            alt="" />
+
+                    </div>
+
+                    <div class="left-doc">
+                        <div style="color: #293A5F" class="font4 docs-name">
+                            <p>педиатр</p>Любовь Смирнова
+                        </div>
+                        <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-3.png"
+                            alt="" />
+
+                    </div>
+
+
+                </div>
+
+                <div id="docs-img-wrapper">
+
+                    <div class="right-doc">
+                        <div style="color: #293A5F" class="font4 docs-name">
+                            <p>уролог</p>Ирина Юркевич
+                        </div>
+                        <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-5.png"
+                            alt="" />
+
+                    </div>
+
+                    <div class="left-doc">
+                        <div style="color: #293A5F" class="font4 docs-name">
+                            <p>хирург</p>Юрий Никулин
+                        </div>
+                        <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-1.png"
+                            alt="" />
+
+                    </div>
+
+                </div>
+
+                <div id="docs-img-wrapper">
+
+                    <div class="right-doc">
+                        <div style="color: #293A5F" class="font4 docs-name">
+                            <p>психолог</p>Марина Сысоева
+                        </div>
+                        <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-6.png"
+                            alt="" />
+
+                    </div>
+
+                    <div class="left-doc">
+                        <div style="color: #293A5F" class="font4 docs-name">
+                            <p>рентгенолог</p>Ульяна Зуева
+                        </div>
+                        <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-7.png"
+                            alt="" />
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+
+            <!-- Скрипт Анимации -->
+
+            <script>
+
+
+
+                let rightDocs = document.querySelectorAll('.right-doc');
+                let leftDocs = document.querySelectorAll('.left-doc');
+                let docsImages = document.getElementsByClassName("docs-image");
+                let activeImageIndex = 0;
+                let adventages = document.querySelectorAll('.doc-adventages-item');
+                let startTime;
+
+                function animate(currentTime) {
+                    if (!startTime) {
+                        startTime = currentTime;
+                    }
+
+                    // Выполняйте анимацию только после прошествия 500 миллисекунд
+                    if (currentTime - startTime >= 500) {
+                        // появляется преимущество
+                        if (currentTime - startTime >= 200) {
+                            adventages[activeImageIndex].classList.add('doc-visible');
+                        }
+
+                        // правый врач появляется c задержкой 
+                        if (currentTime - startTime >= 700) {
+                            leftDocs[activeImageIndex].classList.add('doc-visible');
+                        }
+
+                        // левый врач появляется с задержкой 
+                        if (currentTime - startTime >= 900) {
+                            rightDocs[activeImageIndex].classList.add('doc-visible');
+                        }
+
+                        // преимущество исчезает с задержкой
+                        if (currentTime - startTime >= 2800) {
+                            adventages[activeImageIndex].classList.add('doc-hidden');
+                            // Удаление после завершения анимации
+                            if (currentTime - startTime >= 3300) {
+                                adventages[activeImageIndex].classList.remove('doc-visible');
+                            }
+                        }
+
+                        // левый врач исчезает с задержкой
+                        if (currentTime - startTime >= 3100) {
+                            leftDocs[activeImageIndex].classList.add('doc-hidden');
+                            // Удаление после завершения анимации
+                            if (currentTime - startTime >= 3600) {
+                                leftDocs[activeImageIndex].classList.remove('doc-visible');
+                            }
+                        }
+
+                        // правый врач исчезает с задержкой
+                        if (currentTime - startTime >= 3400) {
+                            rightDocs[activeImageIndex].classList.add('doc-hidden');
+                            // Удаление после завершения анимации
+                            if (currentTime - startTime >= 3900) {
+                                rightDocs[activeImageIndex].classList.remove('doc-visible');
+                            }
+                        }
+
+                        // Увеличение счетчика слайдов каждые 4 секунды
+                        if (currentTime - startTime >= 4000) {
+                            if (activeImageIndex === (adventages.length - 1)) {
+                                activeImageIndex = 0;
+                            } else {
+                                activeImageIndex++;
+                            }
+                            startTime = currentTime;
+                        }
+                    }
+
+                    requestAnimationFrame(animate);
+                }
+
+                requestAnimationFrame(animate);
+
+            </script>
+            <!-- Скрипт Анимации -->
+
+
+            <!-- Стили Анимации -->
+
+            <style>
+                .doc-adventages-wrapper {
+                    height: 50px;
+                }
+
+                .left-doc,
+                .right-doc,
+                .doc-adventages-item {
+                    position: absolute;
+                    visibility: hidden;
+                    opacity: 0;
+
+                    /* transition: opacity 1s linear, visibility 1s linear; */
+                }
+
+                .doc-hidden {
+                    animation: hiddenAnimation 0.5s ease-in-out;
+                }
+
+                .right-doc div {
+                    margin-left: 10%;
+                }
+
+                .doc-visible {
+                    animation: visibilityAnimation 0.5s ease-in-out;
+                    opacity: 1;
+                    visibility: visible;
+                }
+
+
+                @keyframes hiddenAnimation {
+                    from {
+                        visibility: visible;
+                        opacity: 1;
+                        transform: translateX(0);
+
+                    }
+
+                    to {
+                        transform: translateX(70%);
+                        visibility: hidden;
+                        opacity: 0;
+                    }
+                }
+
+
+                @keyframes visibilityAnimation {
+                    from {
+                        transform: translateX(-70%);
+                        opacity: 0;
+                    }
+
+                    to {
+                        transform: translateX(0);
+
+                    }
+                }
+            </style>
+
+
+
+
+
+            <!-- Стили Анимации -->
+
+
+
+
+            <!-- Новые стили -->
+            <style>
+                .right-doc {
+                    position: absolute;
+                    right: 10px;
+                    bottom: 0;
+                    display: flex;
+                    flex-direction: column;
+                    z-index: 2;
+
+                }
+
+                .left-doc {
+                    position: absolute;
+                    bottom: 0;
+                    display: flex;
+                    flex-direction: column;
+                    right: 190px;
+
+                }
+
+                .docs-img-wrapper .docs-name {
+                    margin-right: auto;
+                }
+            </style>
+
+            <!-- Новые стили -->
+
+
+        </div>
+        <div class="advantages-list--ns">
+            <a href="/appeal-online/" class="advantages-list--item list-item-pink">
+                <h4 class="font2" style="color: white; font-weight: 600 !important">Выбрать врача онлайн</h4>
+                <p class="font3">Ответ за 24 часа</p>
+                <span class="circle"></span>
+            </a>
+            <a style="border: 1px solid #02B5BC;" href="/urgent-appeal/" class="advantages-list--item">
+                <h4 class="font2" style="font-weight: 600 !important">Срочное обращение</h4>
+                <p class="font3">Ответ за 1 час</p>
+                <span class="circle"></span>
+            </a>
+            <a href="/escort/" class="advantages-list--item">
+                <h4 class="font2" style="font-weight: 600 !important">Сопровождение онлайн</h4>
+                <p class="font3">На связи с врачом до 21 дня</p>
+                <span class="circle"></span>
+            </a>
+            <a href="/search-doc-city/" class="advantages-list--item">
+                <h4 class="font2 " style="font-weight: 600 !important">Найти врача в своем городе</h4>
+                <p class="font3">Только докмед врачи</p>
+                <span class="circle"></span>
+            </a>
+        </div>
+    </div>
+
+
+
+
+
+    <style>
+        .why-docma {
+            margin-bottom: 100px;
+        }
+
+        .why-docma h2 {
+            margin: 70px 0;
+        }
+
+
+        /* Почему DocMa? */
+        .why-docma--list {
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-left: 25px;
+        }
+
+        @media (max-width: 1399px) {
+            .why-docma--list {
+                justify-content: flex-start;
+            }
+        }
+
+        @media (max-width: 1199px) {
+            .why-docma--list {
+                gap: 60px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .why-docma--list {
+                gap: 20px;
+            }
+
+            .doc-selection h2,
+            .why-docma h2 {
+                margin: 70px 0 40px 0 !important;
+            }
+
+        }
+
+
+
+
+
+
+        .why-docma--list li {
+            position: relative;
+            flex-direction: column;
+            border: 1px solid #293B5F;
+            border-radius: 15px;
+            padding: 20px;
+            font-size: 20px;
+            max-width: 400px;
+            box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+        }
+
+
+
+        .why-docma--list li::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: rgba(243, 106, 148, 0.80);
+            border-radius: 50%;
+            top: -25px;
+            left: -25px;
+        }
+
+        .why-docma--list li:first-child::before {
+            background-color: #FFC6DA;
+        }
+
+        .why-docma--list li:last-child::before {
+            background-color: #FE3F7A;
+        }
+
+        @media (max-width: 991px) {
+
+
+            #docs-img-wrapper .right-doc div {
+                margin-left: auto;
+            }
+
+
+            .why-docma--list li::before {
+                display: none;
+
+            }
+
+            .doc-selection h2 {
+                text-align: center;
+            }
+
+            .why-docma--list {
+                gap: 20px;
+                padding-left: 0px;
+            }
+
+            .left-doc {
+                right: 140px;
+            }
+
+        }
+
+        @media (max-width: 1199px) {
+            .why-docma--list {
+                justify-content: flex-start;
+            }
+        }
+
+
+        @media (max-width: 991px) {
+            .why-docma h2 {
+                text-align: center;
+
+            }
+
+            .why-docma--list {
+                justify-content: space-around;
+            }
+
+            .why-docma--list li {
+                max-width: 700px;
+                display: block;
+                line-height: 20px;
+                font-size: 18px !important;
+                padding: 10px;
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+                margin: auto;
+            }
+
+        }
+
+        /* Почему DocMa? */
+
+
+
+
+
+        /* Список проверок */
+
+
+
+
+
+
+        .doc-selection--list {
+            display: block;
+            margin-left: 30px;
+
+        }
+
+        .doc-selection--list li {
+            flex-direction: row;
+            justify-content: center;
+            position: relative;
+            line-height: 40px;
+            list-style: none !important;
+            margin-left: 30px !important;
+        }
+
+        @media (max-width: 767px) {
+            .doc-selection--list li {
+                font-size: 18px !important;
+                margin-left: 10px !important;
+            }
+        }
+
+
+
+        .doc-selection--list li:before {
+            content: "";
+            position: absolute;
+            left: -60px;
+            background: #ffeef4;
+            height: 25px;
+            width: 25px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            top: 0;
+            bottom: 0;
+        }
+
+        #second-list-item:before {
+
+            background: #ffdde9;
+        }
+
+
+
+
+        #third-list-item::before {
+            background: #ffc6da;
+        }
+
+
+
+        .doc-selection h2 {
+            margin: 70px 0;
+        }
+
+        @media (max-width: 991px) {
+
+            .doc-selection--list li {
+                line-height: 30px;
+            }
+        }
+
+        @media (max-width: 767px) {
+
+            .doc-selection h2 {
+                text-align: center;
+            }
+
+            .doc-selection--list li:before {
+
+                left: -40px;
+
+            }
+        }
+
+
+        .doc-selection--list li {
+            margin: 35px 0;
+            font-size: 20px;
+        }
+
+
+
+        .doc-selection--list li {
+
+            list-style-type: disc;
+
+        }
+
+
+
+
+        /* Список проверок */
+        h1,
+        h2,
+        h3,
+        h4,
+        li {
+            color: #293B5F;
+        }
+
+        h2 {
+
+
+            margin: 0;
+            text-align: left;
+            font-weight: 700;
+            font-size: 40px;
+        }
+
+        @media (max-width: 1199px) {
+            h2 {
+                font-size: 32px !important;
+            }
+        }
+
+        @media (max-width: 440px) {
+            h2 {
+                font-size: 28px !important;
+            }
+
+        }
+
+        @media (max-width: 375px) {
+            h2 {
+                font-size: 24px !important;
+            }
+
+        }
+
+
+        .start-block {
+            max-width: 1300px;
+            margin: 0 auto;
+            margin-top: 30px;
+            color: #293B5F;
+        }
+
+        .greeting-docs {
+            display: grid;
+            grid-template-areas:
+                "heading doctors"
+                "list doctors";
+            text-align: center;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        @media (max-width: 1024px) {
+            .greeting-docs {
+                grid-template-areas:
+                    "heading heading"
+                    "list doctors";
+
+            }
+
+            @media (max-width: 767px) {
+                .greeting-docs {
+                    grid-template-columns: 1fr 2fr;
+                }
+            }
+
+
+        }
+
+        .greeting-docs--heading {
+            grid-area: heading;
+
+        }
+
+
+        .greeting-docs--heading h2 {
+            color: #293B5F;
+            margin: 0;
+            text-align: left;
+            font-weight: 700;
+            font-size: 40px;
+        }
+
+        .doc-adventages-item {
+            display: block;
+            text-align: left;
+            font-weight: 500;
+            color: #293B5F !important;
+            font-size: 22px;
+            margin: 60px 0 40px 0;
+        }
+
+
+        @media (max-width: 1024px) {
+
+            .doc-adventages-item {
+                margin: 20px 0;
+            }
+
+            .greeting-docs--list {
+                margin: auto 0;
+            }
+        }
+
+        .greeting-docs--list {
+            grid-area: list;
+            text-align: left;
+            margin-top: auto;
+        }
+
+        .greeting-docs-img {
+            display: flex;
+            position: relative;
+            grid-area: doctors;
+            background-image: url("http://a0729808.xsph.ru/wp-content/uploads/2023/08/background-1.svg");
+            background-repeat: no-repeat;
+            background-position: 100% 100%;
+            background-size: 520px;
+        }
+
+
+        .docs-image {
+            height: 450px;
+            bottom: 0;
+            right: 0;
+
+        }
+
+        #docs-img-wrapper {
+            height: 500px;
+
+        }
+
+
+        .greeting-docs-img p {
+            margin: 0;
+        }
+
+
+        .greeting-docs-img div div {
+            text-align: left;
+        }
+
+        .advantages-list--ns {
+            display: grid;
+            grid-template: 1fr 1fr / 1fr 1fr;
+            width: 100%;
+            justify-content: center;
+            margin-top: 30px;
+            gap: 20px 50px;
+        }
+
+
+        .list-item-pink {
+            background-color: #fe3f7a;
+            border: none !important;
+            color: white !important;
+        }
+
+        .list-item-pink p {
+            color: white !important;
+        }
+
+        .list-item-pink .circle {
+            background-color: #ff90b4 !important;
+        }
+
+        .list-item-pink .circle:before {
+            background-color: #fe6797 !important;
+        }
+
+        .list-item-pink .circle:after {
+            background-color: #ffc6da !important;
+        }
+
+
+        .advantages-list--item {
+            color: #293b5f;
+            max-width: 800px;
+            text-align: center;
+            border: 1px solid #293b5f;
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+                rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+            cursor: pointer;
+        }
+
+        .advantages-list--item h4 {
+            text-align: left;
+            margin: 0;
+            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 30px;
+        }
+
+        .advantages-list--item p {
+            color: #293b5f;
+            text-align: left;
+            margin: 0;
+            font-weight: 500;
+            font-size: 20px;
+        }
+
+        .circle {
+            display: block;
+            position: absolute;
+            right: 10%;
+            bottom: 10%;
+            width: 25px;
+            height: 25px;
+            background-color: #ffdde9;
+            border-radius: 50%;
+        }
+
+        .circle::before {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: 30px;
+            background-color: #ffeef4;
+
+            border-radius: 50%;
+        }
+
+        .circle::after {
+            content: "";
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -30px;
+            background-color: #ffc6da;
+            border-radius: 50%;
+        }
+
+        .apply-link {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #179095 !important;
+            margin-top: 40px;
+        }
+
+
+        .greeting-docs--list ol {
+            list-style-type: none;
+            counter-reset: num;
+            font-size: 16px;
+        }
+
+        .greeting-docs--list ol li {
+            position: relative;
+            margin: 0 0 0 0;
+            padding: 0 0 10px 0;
+            line-height: 40px;
+            font-size: 20px;
+            font-weight: 600;
+            margin-left: 55px;
+
+
+        }
+
+        .greeting-docs--list ol li:before {
+            content: counter(num);
+            counter-increment: num;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            left: -55px;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            color: #293B5F;
+            text-align: center;
+            line-height: 40px;
+            font-size: 22px;
+            border-radius: 50%;
+            background-color: #a2d9dc;
+        }
+
+        .mob-shift {
+            display: none;
+        }
+
+
+
+        /* Мобильная версия */
+
+
+        @media (max-width: 767px) {
+            .greeting-docs--list ol li {
+                margin-left: 30px;
+            }
+
+            .greeting-docs--list ol li:before {
+                left: -30px;
+            }
+
+            .greeting-docs--list ol li {
+                font-size: 14px;
+            }
+
+            .greeting-docs--list ol li:before {
+                font-size: 14px !important;
+            }
+
+        }
+
+
+
+        @media (max-width: 1199px) {
+
+            .greeting-docs--list ol li:before {
+                font-size: 18px;
+            }
+
+            #docs-img-wrapper {
+                height: 450px;
+            }
+
+            .greeting-docs-img {
+                background-size: 450px;
+            }
+
+            .greeting-docs-img .docs-image {
+                height: 400px;
+            }
+
+            .advantages-list--item h4 {
+                font-size: 26px;
+            }
+
+            .advantages-list--item p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 991px) {
+
+
+
+
+            #docs-img-wrapper {
+                height: 350px;
+            }
+
+            .greeting-docs-img {
+                background-size: 350px;
+            }
+
+            .greeting-docs-img .docs-image {
+                height: 300px;
+            }
+
+            .advantages-list--ns {
+                grid-template: 1fr / 1fr !important;
+            }
+
+        }
+
+        @media (max-width: 767px) {
+            .advantages-list--item {
+                border-radius: 10px;
+            }
+
+            .greeting-docs--list ol li {
+                line-height: 14px;
+                margin-top: 15px;
+                margin-bottom: 15px;
+            }
+
+            .mob-shift {
+                display: block;
+            }
+
+
+            .greeting-docs--list ol li:before {
+                width: 25px;
+                height: 25px;
+                line-height: 25px;
+            }
+
+        }
+
+
+        @media (max-width:530px) {
+
+            .greeting-docs {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+
+            .greeting-docs--heading {
+                margin-bottom: 70px;
+            }
+
+            .left-doc {
+                right: 30%
+            }
+
+            .left-doc div {
+                margin-left: -40px;
+            }
+
+            .left-doc div {
+                margin-right: auto;
+            }
+
+            .right-doc {
+                right: 0;
+            }
+
+            .greeting-docs-img .docs-image {
+                height: 180px;
+                width: auto;
+            }
+
+            .greeting-docs-img div div {
+                font-size: 12px;
+                white-space: nowrap;
+            }
+
+            .greeting-docs--list ol {
+                padding-right: 10px;
+            }
+
+            .greeting-docs-img {
+                background-size: calc(100% - 30px);
+                /* 					 background-size: auto; */
+            }
+
+            #docs-img-wrapper {
+                height: auto;
+            }
+
+            .greeting-docs--list ol li {
+                padding: 0;
+            }
+
+            .greeting-docs--list ol li:last-child {
+                margin-bottom: 0;
+            }
+
+            .greeting-docs--list ol li {
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+        }
+
+
+        @media (max-width:440px) {
+
+
+            .left-doc div {
+                margin-left: 0;
+            }
+
+            .greeting-docs-img .docs-image {
+                width: 60% !important;
+                height: auto !important;
+            }
+
+            .left-doc {
+                width: 100% !important;
+                align-items: flex-end;
+                right: 35%;
+            }
+
+            .right-doc {
+                margin-left: auto;
+                align-items: flex-end;
+            }
+
+
+
+            .advantages-list--item p {
+                font-size: 14px
+            }
+
+            .advantages-list--item h4 {
+                font-size: 18px;
+                font-weight: 800;
+                margin-bottom: 0;
+            }
+
+            .advantages-list--item {
+                padding: 20px 15px;
+            }
+
+            .circle {
+                opacity: 1;
+                width: 25px;
+                height: 25px;
+                right: 40px;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+
+            }
+
+            .list-item-pink .circle:before {
+                background-color: #FFC6DA !important;
+                opacity: 1;
+                right: -20px;
+                width: 25px;
+                height: 25px;
+            }
+
+            .list-item-pink .circle::after {
+                background-color: white !important;
+                right: -40px;
+                width: 25px;
+                height: 25px;
+            }
+
+            .list-item-pink .circle {
+                position: absolute;
+                background-color: #ffc6da;
+
+            }
+
+            .advantages-list--item .circle:before {
+                background-color: #ffc6da;
+                opacity: 1;
+                right: -15px;
+                width: 25px;
+                height: 25px;
+            }
+
+
+            .advantages-list--item .circle::after {
+                background-color: #F36A94;
+                right: -30px;
+                width: 25px;
+                height: 25px;
+            }
+
+            .advantages-list--item .circle {
+                position: absolute;
+                background-color: #ffdde9;
+            }
+
+
+            .doc-adventages-item {
+                font-size: 18px;
+            }
+
+            .greeting-docs--list {
+                margin: 0 !important;
+                margin-top: auto !important;
+            }
+
+            .greeting-docs-img {
+
+                background-size: auto;
+            }
+
+            .greeting-docs--list ol li {
+                font-size: 12px;
+            }
+
+            .greeting-docs--list ol li:before {
+                font-size: 12px !important;
+            }
+        }
+
+        @media (max-width:375px) {
+
+            .left-doc div {
+                margin-right: auto;
+            }
+
+            .greeting-docs-img div div {
+                font-size: 10px;
+            }
+
+            .greeting-docs--heading {
+                margin-bottom: 15%;
+            }
+
+            .greeting-docs-img {
+                height: 95%;
+                margin-top: auto;
+            }
+
+
+
+            /*                 .greeting-docs-img .docs-image {
+                    width: 60% !important;
+                    height: auto !important;
+                }
+ */
+            /*                 .left-doc {
+                    width: 100% !important;
+                    align-items: flex-end;
+					  right: 60px;
+                }
+
+                .right-doc {
+                    margin-left: auto;
+                    align-items: flex-end;
+                } */
+
+            .greeting-docs-img {
+                background-size: auto;
+
+            }
+
+            .advantages-list--item h4 {
+                font-size: 16px;
+                font-weight: 800;
+            }
+
+            .advantages-list--item {
+                padding: 15px 10px;
+            }
+
+        }
+
+
+        @media (max-width:350px) {
+            .circle {
+                width: 20px;
+                height: 20px;
+                right: 35px;
+            }
+
+            .circle:before {
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            .circle:after {
+                width: 20px !important;
+                height: 20px !important;
+            }
+
+            .advantages-list--item {
+                padding: 10px 5px;
+            }
+
+        }
+    </style>
+
+
+</div>
+
+<!-- Секция 1 -->
+
+<div class="pop-up-dont-know">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="pop-up-dont-know-con">
+                    <div class="up-d-k-pop-up">
+                        <div class="close-pop-up burger-btn active">
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="dont-know-con">
+                        <div class="top-inf-d-k-con">
+                            <h4 class="head-pop-dont font3">Не знаете к кому обратиться?</h4>
+                            <p class="text-top-dont">
+                                Рекомендуем в первую очередь обратиться к терапевту (для взрослых) или педиатру (для
+                                детей).<br>
+                                Или оставьте Ваши данные и оператор поможет вам определиться.
+                            </p>
+                        </div>
+                        <div class="bottom-form-d-k-con">
+                            <div class="elem-inp-d-k-con">
+                                <p class="lab-d-k fio-lab">Введите ваше ФИО</p>
+                                <input type="text" id="fio-user-dk" class="inp-d-k" placeholder="Иванов Иван Иванович">
+                            </div>
+                            <div class="elem-inp-d-k-con tel-elem-inp">
+                                <p class="lab-d-k tel-lab">Введите ваш Телефон</p>
+                                <input type="tel" id="tel-user-dk" class="inp-d-k" placeholder="+7 (999) 999-99-99">
+                            </div>
+                            <a href="#" class="main-btn dk-sub-btn">Отправить</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="loader"></div>
+</div>
+
+<div class="pop-up-search-d-con">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="pop-up-search-d">
+                    <div class="up-m-pop-up">
+                        <div class="close-pop-up burger-btn active">
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="search-d-p-con">
+                        <div class="my-select select-spec">
+                            <?php
+                                    if(isset($_GET['spec_f'])) $spec_vals=explode('_',$_GET['spec_f']);
+                                ?>
+                            <input type="hidden" class="inp-list-c-id " id="id_spec_c_2"
+                                value="<? echo $_GET['spec_f'] ?>">
+                            <div class="selected-op"><span class="selected-t">
+                                    <? if(isset($_GET['spec_f'])) echo $spec_vals[1]; else echo 'Выберите специальность'; ?>
+                                </span> <span class="arrow-s"></span></div>
+                            <ul class="select-list specialties-list">
+                                <input class="specialtyInput" type="text" placeholder="Какой врач Вам нужен?">
+                                <?php
+                                        $args = array(
+                                            'parent' => 42,
+                                            'hide_empty' => false
+                                        );
+                                        $terms_doc = get_terms( 'product_cat', $args );
+                                        foreach($terms_doc as $t_doc){
+                                            echo '<li class="select-op" id_cat_f="'.$t_doc->term_id.'_'.$t_doc->name.'">'.$t_doc->name.'</li>';
+                                        }
+                                    ?>
+                            </ul>
+                        </div>
+                        <div class="my-select select-age">
+                            <?php
+                                    if(isset($_GET['age_f'])) $age_vals=explode('_',$_GET['age_f']);
+                                ?>
+                            <input type="hidden" class="inp-list-c-id" id="id_ages_c_2"
+                                value="<? echo $_GET['age_f'] ?>">
+                            <div class="selected-op"><span class="selected-t font4">
+                                    <? if(isset($_GET['age_f'])) echo $age_vals[1]; else echo 'Взрослый/детский'; ?>
+                                </span> <span class="arrow-s"></span></div>
+                            <ul class="select-list age-list">
+                                <?php
+                                        $args = array(
+                                            'parent' => 46,
+                                            'hide_empty' => false
+                                        );
+                                        $terms_doc = get_terms( 'product_cat', $args );
+                                        foreach($terms_doc as $t_doc){
+                                            echo '<li class="select-op" id_cat_f="'.$t_doc->term_id.'_'.$t_doc->name.'">'.$t_doc->name.'</li>';
+                                        }
+                                    ?>
+                            </ul>
+                        </div>
+                        <div class="my-select select-napr">
+                            <?php
+                                    if(isset($_GET['prem_f'])) $prem_vals=explode('_',$_GET['prem_f']);
+                                ?>
+                            <input type="hidden" class="inp-list-c-id" id="id_prem_c_2"
+                                value="<? echo $_GET['prem_f'] ?>">
+                            <div class="selected-op"><span class="selected-t font4">
+                                    <? if(isset($_GET['prem_f'])) echo $prem_vals[1]; else echo 'Преимущества врача'; ?>
+                                </span> <span class="arrow-s"></span></div>
+                            <ul class="select-list advantages-list">
+                                <?php
+                                        $args = array(
+                                            'parent' => 60,
+                                            'hide_empty' => false
+                                        );
+                                        $terms_doc = get_terms( 'product_cat', $args );
+                                        foreach($terms_doc as $t_doc){
+                                            echo '<li class="select-op" id_cat_f="'.$t_doc->term_id.'_'.$t_doc->name.'">'.$t_doc->name.'</li>';
+                                        }
+                                    ?>
+                            </ul>
+                        </div>
+                        <a href="#" class="main-btn search-doctor-btn-main font3">Найти врача</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section id="main-first">
+    <div class="container">
+
+        <div class="row mr-t-b-30">
+            <a href="/appeal-online/" class="hidden-link act-filt-link"></a>
+            <div class="col-3 font4">
+                <div class="my-select ">
+                    <?php
+                                if(isset($_GET['spec_f'])) $spec_vals=explode('_',$_GET['spec_f']);
+                            ?>
+                    <input type="hidden" class="inp-list-c-id " id="id_spec_c" value="<? echo $_GET['spec_f'] ?>">
+                    <div class="selected-op"><span class="selected-t font4">
+                            <? if(isset($_GET['spec_f'])) echo $spec_vals[1]; else echo 'Выберите специальность'; ?>
+                        </span> <span class="arrow-s"></span></div>
+                    <ul class="select-list specialties-list ">
+                        <input class="specialtyInput" type="text" placeholder="Какой врач Вам нужен?">
+                        <?php
+                                    $args = array(
+                                        'parent' => 42,
+                                        'hide_empty' => false
+                                    );
+                                    $terms_doc = get_terms( 'product_cat', $args );
+                                    $nezn_v=$terms_doc[0]->term_id.'_'.$terms_doc[0]->name;
+                                    foreach($terms_doc as $t_doc){
+                                        echo '<li class="select-op" id_cat_f="'.$t_doc->term_id.'_'.$t_doc->name.'">'.$t_doc->name.'</li>';
+                                    }
+                                ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-3 font4">
+                <div class="my-select select-napr">
+                    <?php
+                                if(isset($_GET['prem_f'])) $prem_vals=explode('_',$_GET['prem_f']);
+                            ?>
+                    <input type="hidden" class="inp-list-c-id" id="id_prem_c" value="<? echo $_GET['prem_f'] ?>">
+                    <div class="selected-op"><span class="selected-t font4">
+                            <? if(isset($_GET['prem_f'])) echo $prem_vals[1]; else echo 'Преимущества врача'; ?>
+                        </span> <span class="arrow-s"></span></div>
+                    <ul class="select-list advantages-list">
+                        <?php
+                                    $args = array(
+                                        'parent' => 60,
+                                        'hide_empty' => false
+                                    );
+                                    $terms_doc = get_terms( 'product_cat', $args );
+                                    foreach($terms_doc as $t_doc){
+                                        echo '<li class="select-op" id_cat_f="'.$t_doc->term_id.'_'.$t_doc->name.'">'.$t_doc->name.'</li>';
+                                    }
+                                ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-3 font4">
+                <div class="my-select select-age">
+                    <?php
+                                if(isset($_GET['age_f'])) $age_vals=explode('_',$_GET['age_f']);
+                            ?>
+                    <input type="hidden" class="inp-list-c-id" id="id_ages_c" value="<? echo $_GET['age_f'] ?>">
+                    <div class="selected-op"><span class="selected-t font4">
+                            <? if(isset($_GET['age_f'])) echo $age_vals[1]; else echo 'Взрослый/детский'; ?>
+                        </span> <span class="arrow-s"></span></div>
+                    <ul class="select-list age-list">
+                        <?php
+                                    $args = array(
+                                        'parent' => 46,
+                                        'hide_empty' => false
+                                    );
+                                    $terms_doc = get_terms( 'product_cat', $args );
+                                    foreach($terms_doc as $t_doc){
+                                        echo '<li class="select-op" id_cat_f="'.$t_doc->term_id.'_'.$t_doc->name.'">'.$t_doc->name.'</li>';
+                                    }
+                                ?>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <a href="#" class="main-btn search-doctor-btn-main font4">Найти врача</a>
+                <a href="#" class="main-btn search-doctor-btn font4">Найти врача</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="uslugi-sec">
+    <div class="container">
+
+        <div class="row mr-t-25">
+            <div class="col-sm-6 col-lg-3">
+                <a href="/shop/" class="btn-u-f font2">
+                    Магазин
+                    <div class="arrow-1">
+                        <div bis_skin_checked="1"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/for-doctor/" class="btn-u-f font2">
+                    Врачу
+                    <div class="arrow-1">
+                        <div bis_skin_checked="1"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/news-art/" class="btn-u-f font2">
+                    Статьи
+                    <div class="arrow-1">
+                        <div bis_skin_checked="1"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <a href="/app-docma/" class="btn-u-f font2">
+                    Приложение
+                    <div class="arrow-1">
+                        <div bis_skin_checked="1"></div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12">
+                <div class="car-uslugi-con btn-u-f">
+                    <div class="back-sl">
+                        <div class="carusel-pred-con row">
+                            <div class="col-12 elem-slider-u-con first-elem-slider-u-con">
+                                <a href="#" class="car-u-elem font2">
+                                    3 обращения (терапевт, гинеколог, кардиолог)<br>
+                                    за <span>2999₽!</span>
+                                </a>
+                            </div>
+                            <div class="col-12 elem-slider-u-con">
+                                <a href="#" class="car-u-elem font2">
+                                    3 обращения (терапевт, гинеколог, кардиолог)<br>
+                                    за <span>2999₽!</span>1
+                                </a>
+                            </div>
+                            <div class="col-12 elem-slider-u-con">
+                                <a href="#" class="car-u-elem font2">
+                                    3 обращения (терапевт, гинеколог, кардиолог)<br>
+                                    за <span>2999₽!</span>2
+                                </a>
+                            </div>
+                        </div>
+                        <div class="btns-car-pred">
+                            <div class="arrow-1 arr-l-car-pred">
+                                <div bis_skin_checked="1"></div>
+                            </div>
+                            <div class="arrow-1 arr-r-car-pred">
+                                <div bis_skin_checked="1"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px" class="row">
+        <div class="col-12">
+            <div class="con-t-m">
+                <a href="#" class="link-m-q font3">Не знаете к кому обратиться?</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<div class="container">
+    <div class="doc-selection">
+
+        <h2 class="font1">Как мы отбираем врачей?</h2>
+
+        <ul class="doc-selection--list">
+            <li style="font-weight: 400;" class="font2"><strong style="font-weight: 600;">Проверяем
+                    образование:</strong> все врачи с высшим медицинским образованием</li>
+            <li style="font-weight: 400;" class="font2" id="second-list-item"><strong
+                    style="	font-weight: 600;">Проверяем на докмед:</strong> врачи проходят собеседование с экспертами
+                по
+                специальности</li>
+            <li style="font-weight: 400;" class="font2" id="third-list-item"><strong
+                    style="	font-weight: 600;">Проверяем навыки коммуникации </strong> и обучаем врачей общаться в
+                онлайн-формате</li>
+        </ul>
+
+    </div>
+
+    <div class="why-docma">
+
+        <h2 class="font1">Почему DocMa?</h2>
+
+        <ul class="why-docma--list">
+            <li style="font-weight: 400;" class="font2" style="border-color: #FE3F7A"><strong
+                    style="font-weight: 600">Более 3 000 врачей 70 специальностей</strong>
+                с доказательным подходом</li>
+            <li style="font-weight: 400;" class="font2" style="background: #ffeef4"><strong
+                    style="font-weight: 600">Более 200 городов России и мира,</strong>
+                где принимают врачи DocMa</li>
+            <li style="font-weight: 400;" class="font2"><strong style="font-weight: 600">Более 60 000 пользователей
+                </strong>
+                в год получают второе мнение на DocMa</li>
+        </ul>
+
+    </div>
+</div>
+
+
+
+
+<section id="specials-s-sec">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="head-s-s-con">
+                    <h2 style="font-weight: 700;" class="head-main font1">
+                        Специальности
+                    </h2>
+                    <form action="#specials-s-sec" method='get' id="form-specs_age">
+                        <div class="my-select select-age-spec">
+                            <?php
+                                    
+                                        if(isset($_GET['age_f'])) $age_vals=explode('_',$_GET['age_f']);
+                                        
+                                    ?>
+                            <input type="hidden" class="inp-list-age-id" id="age_f" name="age_f"
+                                value="<? echo $_GET['age_f'] ?>">
+                            <div class="selected-op"><span class="selected-t font4">
+                                    <? if(isset($_GET['age_f'])) echo $age_vals[1]; else echo 'Взрослый/детский'; ?>
+                                </span> <span class="arrow-s"></span></div>
+                            <ul class="select-list">
+                                <?php
+                                            $args = array(
+                                                'parent' => 46,
+                                                'hide_empty' => true
+                                            );
+                                            $terms_doc = get_terms( 'product_cat', $args );
+
+                                            echo '<li class="select-op " id_cat_f="">по умолчанию</li>';
+                                            foreach($terms_doc as $t_doc){
+                                                echo '<li class="select-op" id_cat_f="'.$t_doc->term_id.'_'.$t_doc->name.'">'.$t_doc->name.'</li>';
+                                            }
+                                        ?>
+                            </ul>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="row row-spec-s-s">
+            <?php
+                        $args = array(
+                            'parent' => 42,
+                            'hide_empty' => true
+                        );
+                        $terms_specs = get_terms( 'product_cat', $args );
+                        $it_term=0;
+                        foreach($terms_specs as $t_s_elem){
+                            if($it_term>3)break;
+                            
+                            if(isset($_GET['age_f'])){
+                                $args_am = array( 
+                                    'post_type' => 'product', 
+                                    'post_status' => 'publish',
+                                );
+                                $arrCats=array(
+                                    'taxonomy' => 'product_cat',
+                                    'field' => 'id',
+                                    'terms' => $t_s_elem->term_id
+                                );
+                                $args_am['tax_query'] = array(
+                                    'relation' => 'AND',
+                                    $arrCats
+                                );
+                                $args_am['product_cat'] = 'профиль';
+    
+                                $products_c = new WP_Query( $args_am );
+                                $count_post=0;
+                                $is_posts=[];
+    
+                                while ( $products_c->have_posts() ) {
+                                    $products_c->the_post();
+                                    $prod_id = get_the_ID();
+    
+                                    $author_id=$post->post_author;
+                                    $meta_inf_author=get_user_meta( $author_id );
+                                    
+                                    $all_specs=explode('|',$meta_inf_author['specs_doc'][0]);
+    
+                                    $isCount=true;
+                                    foreach($all_specs as $sp_elem){
+                                        $spec=explode('~',$sp_elem);
+                                        $spec[0]=explode('!',$spec[0])[1];
+                                        $spec[1]=explode(',',$spec[1]);
+                                        
+                                        //[0]спец  [1]возраст
+                                        if(in_array($age_vals[0],$spec[1]) && $t_s_elem->term_id==$spec[0]){
+                                            $isCount=true;
+                                            break;
+                                        }
+                                        else{
+                                            $isCount=false;
+                                        }
+                                    }
+    
+                                    if($isCount){
+                                        $is_posts[]=$prod_id;
+                                    }
+                                }
+                                wp_reset_postdata(); // ВАЖНО вернуть global $post обратно
+    
+                                if(count($is_posts)==0) continue;
+                                $count_vrach=count($is_posts);
+                                $link_f='/appeal-online/?spec_f='.$t_s_elem->term_id.'_'.$t_s_elem->name.'&age_f='.$_GET['age_f'];
+                            }
+                            else{
+                                $args_am = array( 
+                                    'post_type' => 'product', 
+                                    'post_status' => 'publish',
+                                );
+                                $arrCats=array(
+                                    'taxonomy' => 'product_cat',
+                                    'field' => 'id',
+                                    'terms' => $t_s_elem->term_id
+                                );
+                                $args_am['tax_query'] = array(
+                                    'relation' => 'AND',
+                                    $arrCats
+                                );
+                                $args_am['product_cat'] = 'профиль';
+    
+                                $products_c = new WP_Query( $args_am );
+                                
+                                $count_vrach=$products_c->found_posts;
+                                $link_f='/appeal-online/?spec_f='.$t_s_elem->term_id.'_'.$t_s_elem->name;
+                            }
+                            
+                            $thumbnail_id = get_woocommerce_term_meta( $t_s_elem->term_id, 'thumbnail_id', true );
+                            echo '<div class="col-md-6 col-xl-3 font4">
+                                    <a href="'.$link_f.'" class="special-elem">
+                                        <div class="img-d-sp-con">
+                                            <img src="'.wp_get_attachment_url( $thumbnail_id ).'" alt="doctor">
+                                        </div>
+                                        <div class="text-elem-sp-con">
+                                            <p class="spec-name">'.$t_s_elem->name.'</p>
+                                            <p class="amount-doc-sp">Врачей: '.$count_vrach.'</p>
+                                        </div>
+                                    </a>
+                                </div>';
+
+                                $it_term++;
+                        }
+                    ?>
+        </div>
+        <section id="specials-all-sec">
+            <div class="row">
+                <div class="col-12">
+                    <div class="head-spec-all-con">
+
+                        <div class="spec-all-btn "><span class="txt-btn-s-all font3">Показать все
+                                специализации</span><span class="arr-s-all"></span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row all-spec-row">
+                <?php
+                            $args = array(
+                                'parent' => 42,
+                                'hide_empty' => false,
+                                'orderby'       => 'name',
+                                'order'         => 'ASC',
+                            );
+                            $terms_specs_all = get_terms( 'product_cat', $args );
+                            $cur_alph='';
+                            foreach($terms_specs_all as $term_s_f){
+                                $cur_symb=mb_substr($term_s_f->name, 0, 1);
+                                // echo $cur_symb.' ';
+                                if($cur_symb!=$cur_alph){
+                                    $cur_alph=$cur_symb;
+                                }
+                                $arrAlph_spec[$cur_alph][]=$term_s_f;
+                            }
+
+
+                            // одна колонка
+                            // echo '<div class="col-sm-3 col-elems-sp-all">';
+                            
+                            $max_col_n=0;
+                            if(count($terms_specs_all)<=42){
+                                $max_col_n=8;
+                            }
+                            else{
+                                $max_col_n=16;
+                            }
+                            
+                            $count_spec_out=0;
+                            foreach($arrAlph_spec as $alph => $specs_alph){
+                                if($count_spec_out==0) echo '<div class="col-sm-3 col-elems-sp-all">';
+
+
+                                echo '<div class="elems-s-all-con" id="elems-s-all-con-1">
+                                        <div class="elem-s-all">
+                                            <h4 class="head-el-s-all">
+                                                '.$alph.'
+                                            </h4>
+                                            <ul class="list-spec-all">';
+                                            foreach($specs_alph as $spec_a){
+                                                echo '<li class="list-spec-all-elem">
+                                                        <a href="/appeal-online/?spec_f='.$spec_a->term_id.'_'.$spec_a->name.'">'.$spec_a->name.'</a>
+                                                    </li>';
+                                                $count_spec_out++;
+                                            }
+                                echo '      </ul>
+                                        </div>
+                                    </div>';
+                                
+                                if($count_spec_out>=$max_col_n){
+                                    echo '</div>';
+                                    $count_spec_out=0;
+                                }
+                            }
+
+                            // echo '</div>';
+                            // конец колонки
+                            
+                        ?>
+            </div>
+
+        </section>
+
+    </div>
+</section>
+
+
+
+
+
+<div class="back-secs">
+    <section id="news-art-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="head-news-con">
+                        <h2 class="head-main font1">
+                            Новости и полезные статьи
+                        </h2>
+                        <a href="/news-art/" class="link-all-news font3">Смотреть все новости и статьи</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <?php
+                            $my_posts = get_posts( array(
+                                'numberposts' => 2,
+                                'category'    => '-38,-39,-40,-41',
+                                'orderby'     => 'date',
+                                'order'       => 'DESC',
+                                'include'     => array(),
+                                'exclude'     => array(),
+                                'meta_key'    => '',
+                                'meta_value'  =>'',
+                                'post_type'   => 'post',
+                                'suppress_filters' => true, // подавление работы фильтров изменения SQL запроса
+                            ) );
+        
+                            foreach($my_posts as $post){
+                                $categories = get_the_category( $post->ID );
+                                
+                                $dateAndTime=explode(' ',$post->post_date);
+                                $date=explode('-',$dateAndTime[0]);
+                                $date=$date[2].'.'.$date[1].'.'.$date[0];
+
+                                echo '<div class="col-12 elem-news">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="img-news-con">
+                                                    <img src="'.get_the_post_thumbnail_url( $post).'" alt="" class="img-news">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <div class="text-inf-news-con">
+                                                    <div class="up-inf-news">
+                                                        <div class="met-inf">
+                                                            <p class="date-news">'.$date.'</p>
+                                                            <a href="/news-art/?cat_p='.$categories[0]->term_id.'" class="cat-news">'.$categories[0]->name.'</a>
+                                                        </div>
+                                                        <p class="name-news">
+                                                            '.$post->post_title.'
+                                                        </p>
+                                                        <p class="short-des-news">
+                                                            '.$post->post_excerpt.'
+                                                        </p>
+                                                    </div>
+                                                    <a href="'.$post->guid.'" class="main-btn read-news-btn">Читать полностью</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>';
+                                
+                            }
+                        ?>
+            </div>
+        </div>
+    </section>
+
+    <section id="feedback-about-doctors-sec">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2 class="head-main font1">
+                        Отзывы о наших врачах
+                    </h2>
+                </div>
+            </div>
+            <div class="row row-carus-con">
+                <div class="btn-act-feed btn-left-feed disactive">
+                    <span></span>
+                </div>
+                <div class="btn-act-feed btn-right-feed">
+                    <span></span>
+                </div>
+
+                <div class="col-10 offset-1">
+                    <div class="row carusel-feed">
+                        <?php
+                                    $args_com = array(
+                                        'author_email'        => '',
+                                        'author__in'          => '',
+                                        'author__not_in'      => '',
+                                        'include_unapproved'  => '',
+                                        'fields'              => '',
+                                        'comment__in'         => '',
+                                        'comment__not_in'     => '',
+                                        'karma'               => '',
+                                        'number'              => '',
+                                        'offset'              => '',
+                                        'no_found_rows'       => true,
+                                        'orderby'             => 'date',
+                                        'order'               => 'DESC',
+                                        'parent'              => '',
+                                        'post_author__in'     => '',
+                                        'post_author__not_in' => '',
+                                        'post_id'             => '',
+                                        'post__in'            => '',
+                                        'post__not_in'        => '',
+                                        'post_author'         => '',
+                                        'post_name'           => '',
+                                        'post_parent'         => '',
+                                        'post_status'         => '',
+                                        'post_type'           => '',
+                                        'status'              => 'approve',
+                                        'type'                => '',
+                                        'type__in'            => '',
+                                        'type__not_in'        => '',
+                                        'user_id'             => '',
+                                        'search'              => '',
+                                        'count'               => false,
+                                        'meta_key'            => '',
+                                        'meta_value'          => '',
+                                        'meta_query'          => '',
+                                        'date_query'          => null, // See WP_Date_Query
+                                        'hierarchical'        => false,
+                                        'update_comment_meta_cache'  => true,
+                                        'update_comment_post_cache'  => false,
+                                    );
+                                    $comments_all=get_comments($args_com);
+                                    if($comments_all){
+                                        $it_com=0;
+                                        foreach($comments_all as $comment){
+                                            $first_cl='';
+                                            $post_com_id=$comment->comment_post_ID;
+                                            $usluga_com=get_comment_meta ( $comment->comment_ID, 'usluga', true );
+                                            $date_com=date('d.m.Y', strtotime(get_comment_meta ( $comment->comment_ID, 'date_us', true )));
+
+                                            $prod_elem_c = wc_get_product( $post_com_id );
+                                            // print_r($prod_elem_c->get_id());
+                                            $post_obj    = get_post( $prod_elem_c->get_id() ); // The WP_Post object
+                                            $post_author = $post_obj->post_author; // <=== The post author ID
+                                            $meta_inf_author=get_user_meta( $post_author );
+                                            
+                                            // echo '<pre>';
+                                            // print_r($prod_elem_c);
+                                            // echo '</pre>';
+                                            $inf_doc_prof=explode('|',$meta_inf_author['specs_doc'][0])[0];
+                                            
+                                            $inf_doc_prof=explode('-',$inf_doc_prof);
+                                            $inf_doc_prof[1]=explode('~',$inf_doc_prof[1])[1];
+                                            $inf_doc_prof[1]=get_term($inf_doc_prof[1])->name;
+                                            
+                                            if($it_com==0){
+                                                $first_cl='feedback-col-first';
+                                            }
+
+                                            echo '<div class="col-lg-6 feedback-col '.$first_cl.'">
+                                                    <div class="feedback-elem">
+                                                        <div class="head-f">
+                                                            <a href="/product/'.$prod_elem_c->slug.'">
+                                                                <div class="img-doctor-con">
+                                                                    <img src="'.wp_get_attachment_url( $prod_elem_c->get_image_id() ).'" alt="doctor-feedback">
+                                                                </div>
+                                                            </a>
+                                                            <div class="txt-inf-head-f">
+                                                                <p class="doctor-name"><a href="/product/'.$prod_elem_c->slug.'">'.$prod_elem_c->name.'</a></p>
+                                                                <p class="spec-doctor">'.$inf_doc_prof[0].' ('.$inf_doc_prof[1].')</p>
+                                                            </div>
+                                                        </div>
+                                                        <p class="des-feed">
+                                                            '.$comment->comment_content.'
+                                                        </p>
+                                                    </div>
+                                                </div>';
+                                            $it_com++;
+                                        }
+                                    }
+                                
+                                ?>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+
+
+<script>
+
+
+
+
+    let Choose = document.querySelector('.select-napr');
+    let specialtiesList = document.querySelectorAll('.specialties-list');
+    let specialtyItems1 = specialtiesList[0].querySelectorAll('.select-op');
+    let specialtyItems2 = specialtiesList[1].querySelectorAll('.select-op');
+
+    let ageList = document.querySelectorAll('.age-list');
+    let ageItems1 = ageList[0].querySelectorAll('.select-op');
+    let ageItems2 = ageList[1].querySelectorAll('.select-op');
+
+    let advantagesList = document.querySelectorAll('.advantages-list');
+    let advantagesItems1 = advantagesList[0].querySelectorAll('.select-op');
+    let advantagesItems2 = advantagesList[1].querySelectorAll('.select-op');
+
+
+
+
+
+    for (var i = 0; i < advantagesItems1.length; i++) {
+        advantagesItems1[i].addEventListener('click', function () {
+
+            let selectAdvantages1 = () => {
+
+                advantagesList[0].setAttribute("style", "display: none");
+            }
+
+            setTimeout(selectAdvantages1, 500)
+
+
+        }, false);
+
+    }
+
+
+    for (var i = 0; i < advantagesItems2.length; i++) {
+        advantagesItems2[i].addEventListener('click', function () {
+
+            let selectAdvantages2 = () => {
+
+                advantagesList[1].setAttribute("style", "display: none");
+            }
+
+            setTimeout(selectAdvantages2, 500)
+
+
+        }, false);
+
+    }
+
+
+
+
+
+
+
+
+
+    for (var i = 0; i < ageItems1.length; i++) {
+        ageItems1[i].addEventListener('click', function () {
+
+            let selectAge1 = () => {
+
+                ageList[0].setAttribute("style", "display: none");
+            }
+
+            setTimeout(selectAge1, 500)
+
+
+        }, false);
+
+    }
+
+
+    for (var i = 0; i < ageItems2.length; i++) {
+        ageItems2[i].addEventListener('click', function () {
+
+            let selectAge2 = () => {
+
+                ageList[1].setAttribute("style", "display: none");
+            }
+
+            setTimeout(selectAge2, 500)
+
+
+        }, false);
+
+    }
+
+
+
+    for (var i = 0; i < specialtyItems1.length; i++) {
+        specialtyItems1[i].addEventListener('click', function () {
+
+            let selectSpecialty = () => {
+
+
+                for (var i = 0; i < specialtiesList.length; i++) {
+                    specialtiesList[i].setAttribute("style", "display: none");
+                }
+
+
+            }
+
+            setTimeout(selectSpecialty, 500)
+
+
+        }, false);
+
+    }
+
+
+
+
+
+    for (var i = 0; i < specialtyItems2.length; i++) {
+        specialtyItems2[i].addEventListener('click', function () {
+
+            let selectSpecialty = () => {
+
+
+                for (var i = 0; i < specialtiesList.length; i++) {
+                    specialtiesList[i].setAttribute("style", "display: none");
+                }
+
+
+            }
+
+            setTimeout(selectSpecialty, 500)
+
+
+        }, false);
+
+    }
+
+
+
+
+
+
+
+
+    $(document).ready(function () {
+        $(".specialtyInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".specialties-list li").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+
+</script>
+
+
+
+<!-- И добавь стили -  -->
+
+
+
+
+<style>
+    .specialtyInput {
+        font-family: Mulish;
+        width: 100%;
+        padding: 0 20px !important;
+        margin-bottom: 5px;
+        font-size: 14px;
+        line-height: 35px;
+        background: #f1f1f1;
+        color: #212529;
+        border-radius: 0;
+        border: 0;
+    }
+
+
+    .specialtyInput:focus {
+
+        color: #212529;
+        border-radius: 0;
+        border-color: #bdbdbd;
+        outline: 0;
+
+    }
+</style>
+
+
+
+
+
+<script src="<?php bloginfo('template_directory'); ?>/js/main_p.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/select_f.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/uslugi_slider.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/feedback_slider.js"></script>
+<script src="<?php bloginfo('template_directory'); ?>/js/search_d_main_p.js"></script>
+
+<script src="<?php bloginfo('template_directory'); ?>/js/pop_dont.js"></script>
+<?php
+get_footer();
