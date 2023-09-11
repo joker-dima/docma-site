@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="container">
+
+        <div class="start-block">
+            <div class="greeting-docs">
+                <div class="greeting-docs--heading">
+                    <h2 class="font1">Доказательные врачи</h2>
+                    <h2 class="font1">Консультации онлайн</h2>
+                    <div class="doc-adventages-wrapper">
+                        <span class="doc-adventages-item font2">Научный подход</span>
+                        <span class="doc-adventages-item font2">Доказательная медицина</span>
+                        <span class="doc-adventages-item font2">Только опытные врачи</span>
+                    </div>
+                </div>
+
+                <div class="greeting-docs--list">
+                    <ol>
+                        <li class="font2">Выберите <br class="mob-shift">специалиста</li>
+                        <li class="font2">Оплатите<br class="mob-shift"> обращение</li>
+                        <li class="font2">Общайтесь<br class="mob-shift"> в приложении</li>
+
+
+                    </ol>
+                </div>
+
+
+
+                <div class="greeting-docs-img">
+
+                    <div id="docs-img-wrapper">
+
+                        <div class="right-doc">
+                            <div style="color: #293A5F" class="font4 docs-name">
+                                <p>невролог</p>Иван Иванов
+                            </div>
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-2-3.png"
+                                alt="" />
+
+                        </div>
+
+                        <div class="left-doc">
+                            <div style="color: #293A5F" class="font4 docs-name">
+                                <p>педиатр</p>Любовь Смирнова
+                            </div>
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-3.png"
+                                alt="" />
+
+                        </div>
+
+
+                    </div>
+
+                    <div id="docs-img-wrapper">
+
+                        <div class="right-doc">
+                            <div style="color: #293A5F" class="font4 docs-name">
+                                <p>невролог</p>22222
+                            </div>
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-2-3.png"
+                                alt="" />
+
+                        </div>
+
+                        <div class="left-doc">
+                            <div style="color: #293A5F" class="font4 docs-name">
+                                <p>педиатр</p>22222
+                            </div>
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-1.png"
+                                alt="" />
+
+                        </div>
+
+                    </div>
+
+                    <div id="docs-img-wrapper">
+
+                        <div class="right-doc">
+                            <div style="color: #293A5F" class="font4 docs-name">
+                                <p>невролог</p>33333
+                            </div>
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-2-3.png"
+                                alt="" />
+
+                        </div>
+
+                        <div class="left-doc">
+                            <div style="color: #293A5F" class="font4 docs-name">
+                                <p>педиатр</p>3333
+                            </div>
+                            <img class="docs-image" src="http://a0832771.xsph.ru/wp-content/uploads/2023/09/doc-3.png"
+                                alt="" />
+
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+
+
+                <!-- Скрипт Анимации -->
+
+                <script>
+
+                    let rightDocs = document.querySelectorAll('.right-doc');
+                    let leftDocs = document.querySelectorAll('.left-doc');
+                    let docsImages = document.getElementsByClassName("docs-image");
+                    let activeImageIndex = 0;
+                    let adventages = document.querySelectorAll('.doc-adventages-item');
+
+
+
+
+
+                    // Начинаем анимацию с задержкой
+
+                    let docsAnimationFunction = () => {
+
+
+                        // Начинаем анимацию с задержкой
+                        setTimeout(function () {
+
+
+                            // появляется преимущество
+                            setTimeout(function () {
+                                adventages[activeImageIndex].classList.add('doc-visible')
+                            }, 100);
+
+                            // правый врач появляется c здержкой в 0.3с
+                            setTimeout(function () {
+                                leftDocs[activeImageIndex].classList.add('doc-visible')
+                            }, 300);
+
+                            // левый врач появляется с задержкой 0.6с
+                            setTimeout(function () {
+                                rightDocs[activeImageIndex].classList.add('doc-visible')
+                            }, 600);
+
+
+
+
+
+                            // преимущество исчезает с задержкой
+                            setTimeout(function () {
+                                //Анимация
+                                // adventages[activeImageIndex].classList.remove('doc-visible');
+                                adventages[activeImageIndex].classList.add('doc-hidden');
+                                // Удаление с задержкой после срабатыания анимации
+                                setTimeout(function () {
+                                    adventages[activeImageIndex].classList.remove('doc-visible');
+                                }, 500);
+
+
+                            }, 2500)
+
+
+
+
+
+
+                            // левый врач исчезает с задержкой
+                            setTimeout(function () {
+                                //Анимация
+                                leftDocs[activeImageIndex].classList.add('doc-hidden');
+                                // Удаление с задержкой после срабатыания анимации
+                                setTimeout(function () {
+                                    leftDocs[activeImageIndex].classList.remove('doc-visible');
+                                }, 500);
+                            }, 2800)
+
+
+                            // правый врач исчезает с задержкой
+                            setTimeout(function () {
+                                //Анимация
+                                rightDocs[activeImageIndex].classList.add('doc-hidden');
+                                // Удаление с задержкой после срабатыания анимации
+                                setTimeout(function () {
+                                    rightDocs[activeImageIndex].classList.remove('doc-visible');
+                                }, 500);
+
+                            }, 3100)
+
+
+                            //Через 4 секунды увеличиваем счетчик слайдов
+                            // setTimeout(function () {
+
+
+
+                            // }, 4000)
+
+                            if (activeImageIndex === (adventages.length - 1)) { activeImageIndex = 0; }
+
+                            else {
+                                activeImageIndex = activeImageIndex + 1
+                            }
+
+                        }, 500);
+                    }
+
+
+                    docsAnimationFunction()
+                    setInterval(docsAnimationFunction, 4000);
+
+                </script>
+                <!-- Скрипт Анимации -->
+
+
+                <!-- Стили Анимации -->
+
+                <style>
+                    .doc-adventages-wrapper {
+                        height: 50px;
+                    }
+
+                    .left-doc,
+                    .right-doc,
+                    .doc-adventages-item {
+                        position: absolute;
+                        visibility: hidden;
+                        opacity: 0;
+                        /* transition: opacity 1s linear, visibility 1s linear; */
+                    }
+
+                    .doc-hidden {
+                        animation: hiddenAnimation 0.5s ease-in-out;
+                    }
+
+
+
+                    .doc-visible {
+                        animation: visibilityAnimation 0.5s ease-in-out;
+                        opacity: 1;
+                        visibility: visible;
+                    }
+
+
+                    @keyframes hiddenAnimation {
+                        from {
+                            visibility: visible;
+                            opacity: 1;
+                            transform: translateX(0);
+
+                        }
+
+                        to {
+                            transform: translateX(70%);
+                            visibility: hidden;
+                            opacity: 0;
+                        }
+                    }
+
+
+                    @keyframes visibilityAnimation {
+                        from {
+                            transform: translateX(-70%);
+                            opacity: 0;
+                        }
+
+                        to {
+                            transform: translateX(0);
+
+                        }
+                    }
+                </style>
+
+
+
+
+
+                <!-- Стили Анимации -->
+
+
+
+
+                <!-- Новые стили -->
+                <style>
+                    .right-doc {
+                        position: absolute;
+                        right: 10px;
+                        bottom: 0;
+                        display: flex;
+                        flex-direction: column;
+                        z-index: 2;
+
+                    }
+
+                    .left-doc {
+                        position: absolute;
+                        bottom: 0;
+                        display: flex;
+                        flex-direction: column;
+                        right: 190px;
+
+                    }
+
+                    .docs-img-wrapper .docs-name {
+                        margin-right: auto;
+                    }
+                </style>
+
+                <!-- Новые стили -->
+
+
+
+
+
+
+
+
+
+                <!-- старая Анимация -->
+
+
+                <!-- <style>
+                    #docs-img-wrapper {
+                        height: 500px;
+
+                    }
+
+
+                    .docs-animation-none {
+                        animation: AdvantageUp 0.5s ease-in-out;
+                    }
+
+
+                    .advantage-up {
+                        display: block;
+                        animation: AdvantageUp 0.5s ease-in-out;
+                    }
+
+                    @keyframes AdvantageUp {
+                        from {
+                            transform: translateX(0);
+                            opacity: 1;
+                        }
+
+                        to {
+                            transform: translateX(6vh);
+                            opacity: 0;
+                        }
+                    }
+
+                    .advantage-down {
+                        display: block;
+                        animation: AdvantageDown 0.5s ease-in-out;
+                    }
+
+                    @keyframes AdvantageDown {
+                        from {
+                            transform: translateX(-6vh);
+                            opacity: 0;
+                        }
+
+                        to {
+                            ransform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+
+
+                    
+
+                    .docs-none {
+                        display: none;
+                    }
+
+
+                    .docs-animation {
+                        animation: fadeOutFromBlock 0.5s ease-in-out;
+
+                    }
+
+
+
+                    .docs-animation-names {
+                        animation: fadeOutFromBlockText 0.5s ease-in-out;
+                    }
+
+                    .docs-visible {
+                        display: flex;
+                        opacity: 1;
+                        animation: fadeInFromNone 0.5s ease-in-out;
+
+                    }
+
+
+
+                    .docs-animation-visible {
+                        display: flex;
+                        animation: fadeInFromNoneText 0.5s ease-in-out;
+
+                    }
+
+
+
+                    @keyframes fadeInFromNoneText {
+                        from {
+                            transform: translateX(-10%);
+                            opacity: 0;
+                        }
+
+                        to {
+                            ransform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes fadeInFromNone {
+                        from {
+                            transform: translateX(-30%);
+                            opacity: 0;
+                        }
+
+                        to {
+                            ransform: translateX(0);
+                            opacity: 1;
+                        }
+                    }
+
+                    @keyframes fadeOutFromBlock {
+                        from {
+                            opacity: 1;
+                            transform: translateX(0%);
+                        }
+
+                        to {
+                            transform: translateX(30%);
+                            opacity: 0;
+                        }
+
+                    }
+
+
+                    @keyframes fadeOutFromBlockText {
+                        from {
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
+
+                        to {
+                            transform: translateX(-30%);
+                            opacity: 0;
+                        }
+
+                    }
+                </style> -->
+
+
+
+
+
+
+
+
+
+                <!-- старая Анимация -->
+
+
+
+
+            </div>
+            <div class="advantages-list--ns">
+                <a href="/appeal-online/" class="advantages-list--item list-item-pink">
+                    <h4 class="font2" style="color: white; font-weight: 600">Выбрать врача онлайн</h4>
+                    <p class="font3">Ответ за 24 часа</p>
+                    <span class="circle"></span>
+                </a>
+                <a style="border: 1px solid #02B5BC;" href="/urgent-appeal/" class="advantages-list--item">
+                    <h4 class="font2" style="font-weight: 600">Срочное обращение</h4>
+                    <p class="font3">Ответ за 1 час</p>
+                    <span class="circle"></span>
+                </a>
+                <a href="/escort/" class="advantages-list--item">
+                    <h4 class="font2" style="font-weight: 600">Сопровождение онлайн</h4>
+                    <p class="font3">На связи с врачом до 21 дня</p>
+                    <span class="circle"></span>
+                </a>
+                <a href="/search-doc-city/" class="advantages-list--item">
+                    <h4 class="font2 " style="font-weight: 600">Найти врача в своем городе</h4>
+                    <p class="font3">Только докмед врачи</p>
+                    <span class="circle"></span>
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+        <style>
+            .why-docma {
+                margin-bottom: 100px;
+            }
+
+            .why-docma h2 {
+                margin: 70px 0;
+            }
+
+
+            /* Почему DocMa? */
+            .why-docma--list {
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 20px;
+                padding-left: 25px;
+            }
+
+            @media (max-width: 1399px) {
+                .why-docma--list {
+                    justify-content: flex-start;
+                }
+            }
+
+            @media (max-width: 1199px) {
+                .why-docma--list {
+                    gap: 60px;
+                }
+            }
+
+            @media (max-width: 767px) {
+                .why-docma--list {
+                    gap: 20px;
+                }
+
+                .doc-selection h2,
+                .why-docma h2 {
+                    margin: 70px 0 40px 0 !important;
+                }
+
+            }
+
+
+
+
+
+
+            .why-docma--list li {
+                position: relative;
+                flex-direction: column;
+                border: 1px solid #293B5F;
+                border-radius: 15px;
+                padding: 20px;
+                font-size: 20px;
+                max-width: 400px;
+                box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.25);
+            }
+
+
+
+            .why-docma--list li::before {
+                content: "";
+                position: absolute;
+                width: 20px;
+                height: 20px;
+                background-color: rgba(243, 106, 148, 0.80);
+                border-radius: 50%;
+                top: -25px;
+                left: -25px;
+            }
+
+            .why-docma--list li:first-child::before {
+                background-color: #FFC6DA;
+            }
+
+            .why-docma--list li:last-child::before {
+                background-color: #FE3F7A;
+            }
+
+            @media (max-width: 991px) {
+                .why-docma--list li::before {
+                    display: none;
+
+                }
+
+                .doc-selection h2 {
+                    text-align: center;
+                }
+
+                .why-docma--list {
+                    gap: 20px;
+                    padding-left: 0px;
+                }
+
+                .left-doc {
+                    right: 140px;
+                }
+
+            }
+
+            @media (max-width: 1199px) {
+                .why-docma--list {
+                    justify-content: flex-start;
+                }
+            }
+
+
+            @media (max-width: 991px) {
+                .why-docma h2 {
+                    text-align: center;
+
+                }
+
+                .why-docma--list {
+                    justify-content: space-around;
+                }
+
+                .why-docma--list li {
+                    max-width: 700px;
+                    display: block;
+                    line-height: 20px;
+                    font-size: 18px !important;
+                    padding: 10px;
+                    display: flex;
+                    justify-content: space-evenly;
+                    width: 100%;
+                    margin: auto;
+                }
+
+            }
+
+            /* Почему DocMa? */
+
+
+
+
+
+            /* Список проверок */
+
+
+
+
+
+
+            .doc-selection--list {
+                display: block;
+                margin-left: 30px;
+
+            }
+
+            .doc-selection--list li {
+                flex-direction: row;
+                justify-content: center;
+                position: relative;
+                line-height: 40px;
+                list-style: none !important;
+                margin-left: 30px !important;
+            }
+
+            @media (max-width: 767px) {
+                .doc-selection--list li {
+                    font-size: 18px !important;
+                    margin-left: 10px !important;
+                }
+            }
+
+
+
+            .doc-selection--list li:before {
+                content: "";
+                position: absolute;
+                left: -60px;
+                background: #ffeef4;
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: auto;
+                top: 0;
+                bottom: 0;
+            }
+
+            #second-list-item:before {
+
+                background: #ffdde9;
+            }
+
+
+
+
+            #third-list-item::before {
+                background: #ffc6da;
+            }
+
+
+
+            .doc-selection h2 {
+                margin: 70px 0;
+            }
+
+            @media (max-width: 991px) {
+
+                .doc-selection--list li {
+                    line-height: 30px;
+                }
+            }
+
+            @media (max-width: 767px) {
+
+                .doc-selection h2 {
+                    text-align: center;
+                }
+
+                .doc-selection--list li:before {
+
+                    left: -40px;
+
+                }
+            }
+
+
+            .doc-selection--list li {
+                margin: 35px 0;
+                font-size: 20px;
+            }
+
+
+
+            .doc-selection--list li {
+
+                list-style-type: disc;
+
+            }
+
+
+
+
+            /* Список проверок */
+            h1,
+            h2,
+            h3,
+            h4,
+            li {
+                color: #293B5F;
+            }
+
+            h2 {
+
+
+                margin: 0;
+                text-align: left;
+                font-weight: 700;
+                font-size: 40px;
+            }
+
+            @media (max-width: 1199px) {
+                h2 {
+                    font-size: 32px !important;
+                }
+            }
+
+            @media (max-width: 440px) {
+                h2 {
+                    font-size: 28px !important;
+                }
+
+            }
+
+            @media (max-width: 375px) {
+                h2 {
+                    font-size: 24px !important;
+                }
+
+            }
+
+
+            .start-block {
+                max-width: 1300px;
+                margin: 0 auto;
+                margin-top: 30px;
+                color: #293B5F;
+            }
+
+            .greeting-docs {
+                display: grid;
+                grid-template-areas:
+                    "heading doctors"
+                    "list doctors";
+                text-align: center;
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media (max-width: 1024px) {
+                .greeting-docs {
+                    grid-template-areas:
+                        "heading heading"
+                        "list doctors";
+
+                }
+
+                @media (max-width: 767px) {
+                    .greeting-docs {
+                        grid-template-columns: 1fr 2fr;
+                    }
+                }
+
+
+            }
+
+            .greeting-docs--heading {
+                grid-area: heading;
+
+            }
+
+
+            .greeting-docs--heading h2 {
+                color: #293B5F;
+                margin: 0;
+                text-align: left;
+                font-weight: 700;
+                font-size: 40px;
+            }
+
+            /* 
+            .advantages-slider-none {
+                display: none;
+
+            } */
+
+            .doc-adventages-item {
+                display: block;
+                text-align: left;
+                font-weight: 500;
+                color: #293B5F !important;
+                font-size: 22px;
+                margin: 60px 0 40px 0;
+            }
+
+
+            @media (max-width: 1024px) {
+
+                .doc-adventages-item {
+                    margin: 20px 0;
+                }
+
+                .greeting-docs--list {
+                    margin: auto 0;
+                }
+
+
+            }
+
+            .greeting-docs--list {
+                grid-area: list;
+                text-align: left;
+                margin-top: auto;
+            }
+
+            .greeting-docs-img {
+                display: flex;
+                position: relative;
+                grid-area: doctors;
+                background-image: url("http://a0729808.xsph.ru/wp-content/uploads/2023/08/background-1.svg");
+                background-repeat: no-repeat;
+                background-position: 100% 100%;
+                background-size: 520px;
+            }
+
+
+            .docs-image {
+                height: 450px;
+                bottom: 0;
+                right: 0;
+
+            }
+
+            #docs-img-wrapper {
+                height: 500px;
+
+            }
+
+
+            .greeting-docs-img p {
+                margin: 0;
+            }
+
+
+            .greeting-docs-img div div {
+                text-align: left;
+            }
+
+
+
+
+
+            .advantages-list--ns {
+                display: grid;
+                grid-template: 1fr 1fr / 1fr 1fr;
+                width: 100%;
+                justify-content: center;
+                margin-top: 30px;
+                gap: 20px 50px;
+            }
+
+
+            .list-item-pink {
+                background-color: #fe3f7a;
+                border: none !important;
+                color: white !important;
+            }
+
+            .list-item-pink p {
+                color: white !important;
+            }
+
+            .list-item-pink .circle {
+                background-color: #ff90b4 !important;
+            }
+
+            .list-item-pink .circle:before {
+                background-color: #fe6797 !important;
+            }
+
+            .list-item-pink .circle:after {
+                background-color: #ffc6da !important;
+            }
+
+
+            .advantages-list--item {
+                color: #293b5f;
+                max-width: 800px;
+                text-align: center;
+                border: 1px solid #293b5f;
+                border-radius: 20px;
+                padding: 30px;
+                position: relative;
+                box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+                    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+                cursor: pointer;
+            }
+
+            .advantages-list--item h4 {
+                text-align: left;
+                margin: 0;
+                margin-bottom: 10px;
+                font-weight: 600;
+                font-size: 30px;
+            }
+
+            .advantages-list--item p {
+                color: #293b5f;
+                text-align: left;
+                margin: 0;
+                font-weight: 500;
+                font-size: 20px;
+            }
+
+            .circle {
+                display: block;
+                position: absolute;
+                right: 10%;
+                bottom: 10%;
+                width: 25px;
+                height: 25px;
+                background-color: #ffdde9;
+                border-radius: 50%;
+            }
+
+            .circle::before {
+                content: "";
+                position: absolute;
+                width: 25px;
+                height: 25px;
+                right: 30px;
+                background-color: #ffeef4;
+
+                border-radius: 50%;
+            }
+
+            .circle::after {
+                content: "";
+                position: absolute;
+                width: 25px;
+                height: 25px;
+                right: -30px;
+                background-color: #ffc6da;
+                border-radius: 50%;
+            }
+
+            .apply-link {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+                text-decoration: none;
+                color: #179095 !important;
+                margin-top: 40px;
+            }
+
+
+            .greeting-docs--list ol {
+                list-style-type: none;
+                counter-reset: num;
+                font-size: 16px;
+            }
+
+            .greeting-docs--list ol li {
+                position: relative;
+                margin: 0 0 0 0;
+                padding: 0 0 10px 0;
+                line-height: 40px;
+                font-size: 20px;
+                font-weight: 600;
+                margin-left: 55px;
+
+            }
+
+            .greeting-docs--list ol li:before {
+                content: counter(num);
+                counter-increment: num;
+                display: inline-block;
+                position: absolute;
+                top: 0;
+                left: -55px;
+                width: 40px;
+                height: 40px;
+                background: #fff;
+                color: #293B5F;
+                text-align: center;
+                line-height: 40px;
+                font-size: 22px;
+                border-radius: 50%;
+                background-color: #a2d9dc;
+            }
+
+            .mob-shift {
+                display: none;
+            }
+
+
+
+            /* Мобильная версия */
+
+
+            @media (max-width: 767px) {
+
+
+                .greeting-docs--list ol li {
+                    margin-left: 30px;
+                }
+
+                .greeting-docs--list ol li:before {
+
+                    left: -30px;
+                }
+
+
+                .greeting-docs--list ol li {
+                    font-size: 14px;
+                }
+
+                .greeting-docs--list ol li:before {
+                    font-size: 14px !important;
+                }
+
+            }
+
+
+
+            @media (max-width: 1199px) {
+                #docs-img-wrapper {
+                    height: 450px;
+                }
+
+
+                .greeting-docs-img {
+                    background-size: 450px;
+                }
+
+                .greeting-docs-img .docs-image {
+                    height: 400px;
+                }
+
+                .advantages-list--item h4 {
+
+                    font-size: 26px;
+                }
+
+                .advantages-list--item p {
+                    font-size: 18px;
+                }
+
+            }
+
+            @media (max-width: 991px) {
+
+                #docs-img-wrapper {
+                    height: 350px;
+                }
+
+                .greeting-docs-img {
+                    background-size: 350px;
+                }
+
+                .greeting-docs-img .docs-image {
+                    height: 300px;
+                }
+
+                .advantages-list--ns {
+                    grid-template: 1fr / 1fr !important;
+                }
+
+            }
+
+            @media (max-width: 767px) {
+                .advantages-list--item {
+                    border-radius: 10px;
+                }
+
+                .greeting-docs--list ol li {
+                    line-height: 14px;
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                }
+
+                .mob-shift {
+                    display: block;
+                }
+
+
+                .greeting-docs--list ol li:before {
+                    width: 25px;
+                    height: 25px;
+                    line-height: 25px;
+                }
+
+            }
+
+
+            @media (max-width:530px) {
+
+                .left-doc {
+                    right: 70px;
+                }
+
+                .right-doc {
+                    right: 0;
+                }
+
+                .greeting-docs-img .docs-image {
+                    height: 180px;
+                    width: auto;
+                }
+
+
+                .greeting-docs-img div div {
+                    font-size: 12px !important;
+                    white-space: nowrap;
+                }
+
+                .greeting-docs--list ol {
+                    padding-right: 20px;
+                }
+
+                .greeting-docs-img {
+                    background-size: auto;
+                }
+
+
+                #docs-img-wrapper {
+                    height: auto;
+                }
+
+
+                .greeting-docs--list ol li {
+                    padding: 0;
+                }
+
+
+
+                .greeting-docs--list ol li:last-child {
+                    margin-bottom: 0;
+                }
+
+                .greeting-docs--list ol li {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+
+
+
+            @media (max-width:440px) {
+
+                .advantages-list--item p {
+                    font-size: 14px
+                }
+
+
+                .advantages-list--item h4 {
+                    font-size: 18px;
+                    font-weight: 800;
+                    margin-bottom: 0;
+                }
+
+                .advantages-list--item {
+                    padding: 20px 15px;
+                }
+
+
+                .circle {
+                    opacity: 1;
+                    width: 25px;
+                    height: 25px;
+                    right: 40px;
+                    margin: auto;
+                    top: 0;
+                    bottom: 0;
+
+                }
+
+                .list-item-pink .circle:before {
+                    background-color: #FFC6DA !important;
+                    opacity: 1;
+                    right: -20px;
+                    width: 25px;
+                    height: 25px;
+                }
+
+                .list-item-pink .circle::after {
+                    background-color: white !important;
+                    right: -40px;
+                    width: 25px;
+                    height: 25px;
+
+                }
+
+                .list-item-pink .circle {
+                    position: absolute;
+                    background-color: #ffc6da;
+
+                }
+
+                .advantages-list--item .circle:before {
+                    background-color: #ffc6da;
+                    opacity: 1;
+                    right: -15px;
+                    width: 25px;
+                    height: 25px;
+                }
+
+
+                .advantages-list--item .circle::after {
+                    background-color: #F36A94;
+                    right: -30px;
+                    width: 25px;
+                    height: 25px;
+
+                }
+
+                .advantages-list--item .circle {
+                    position: absolute;
+                    background-color: #ffdde9;
+
+                }
+
+
+                .doc-adventages-item {
+                    font-size: 18px;
+                }
+
+
+                .greeting-docs--list {
+                    margin: 0 !important;
+                    margin-top: auto !important;
+                }
+
+
+                .greeting-docs-img {
+
+                    background-size: auto;
+                }
+
+
+
+                .greeting-docs--list ol li {
+                    font-size: 12px;
+                }
+
+                .greeting-docs--list ol li:before {
+                    font-size: 12px !important;
+                }
+
+
+            }
+
+            @media (max-width:375px) {
+
+                .greeting-docs-img {
+                    height: 95%;
+                    margin-top: auto;
+                }
+
+                .left-doc {
+                    right: 60px;
+                }
+
+                .greeting-docs-img .docs-image {
+                    width: 60% !important;
+                    height: auto !important;
+                }
+
+                .left-doc {
+                    width: 100% !important;
+                    align-items: flex-end;
+                }
+
+                .right-doc {
+                    margin-left: auto;
+                    align-items: flex-end;
+                }
+
+
+
+                .greeting-docs-img {
+                    background-size: auto;
+
+                }
+
+
+                .advantages-list--item h4 {
+                    font-size: 16px;
+                    font-weight: 800;
+                }
+
+                .advantages-list--item {
+                    padding: 15px 10px;
+                }
+
+            }
+
+
+            @media (max-width:350px) {
+                .circle {
+                    width: 20px;
+                    height: 20px;
+                    right: 35px;
+                }
+
+                .circle:before {
+                    width: 20px !important;
+                    height: 20px !important;
+                }
+
+                .circle:after {
+                    width: 20px !important;
+                    height: 20px !important;
+                }
+
+                .advantages-list--item {
+                    padding: 10px 5px;
+                }
+
+            }
+        </style>
+
+
+    </div>
+
+
+</body>
+
+</html>
